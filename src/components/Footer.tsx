@@ -14,6 +14,7 @@ const Footer = () => {
   return (
     <footer id="footer" className="bg-brand-dark text-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
         
         {/* المحتوى الرئيسي للفوتر */}
         <div className="py-12 lg:py-16">
@@ -159,49 +160,49 @@ const Footer = () => {
 
         {/* وسائل الدفع المتاحة - أيقونات فقط */}
         <div className="flex justify-center pb-8 lg:pb-12">
-           <div className="flex flex-wrap justify-center gap-4 items-center">
+           <div className="flex flex-nowrap overflow-x-auto gap-2 sm:gap-3 items-center px-2 scrollbar-hide">
               {/* Mada Pay */}
-              <div className="bg-white px-3 py-1.5 rounded-lg border border-brand-light/10 shadow-sm opacity-80 hover:opacity-100 transition-all flex items-center justify-center h-9">
+              <div className="bg-white px-2 sm:px-3 py-1 sm:py-1.5 rounded-lg border border-brand-light/10 shadow-sm opacity-80 hover:opacity-100 transition-all flex items-center justify-center h-8 sm:h-9 flex-shrink-0">
                 <img 
                   src="/images/landing/madapay.png" 
                   alt="Mada Pay" 
-                  className="h-8 w-auto object-contain"
+                  className="h-6 sm:h-8 w-auto object-contain"
                 />
               </div>
               
               {/* Visa */}
-              <div className="bg-white px-3 py-1.5 rounded-lg border border-brand-light/10 shadow-sm opacity-80 hover:opacity-100 transition-all h-9 flex items-center">
+              <div className="bg-white px-2 sm:px-3 py-1 sm:py-1.5 rounded-lg border border-brand-light/10 shadow-sm opacity-80 hover:opacity-100 transition-all h-8 sm:h-9 flex items-center flex-shrink-0">
                 <img 
                   src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg" 
                   alt="Visa" 
-                  className="h-4 w-auto object-contain"
+                  className="h-3 sm:h-4 w-auto object-contain"
                 />
               </div>
 
               {/* MasterCard */}
-              <div className="bg-white px-3 py-1.5 rounded-lg border border-brand-light/10 shadow-sm opacity-80 hover:opacity-100 transition-all h-9 flex items-center">
+              <div className="bg-white px-2 sm:px-3 py-1 sm:py-1.5 rounded-lg border border-brand-light/10 shadow-sm opacity-80 hover:opacity-100 transition-all h-8 sm:h-9 flex items-center flex-shrink-0">
                 <img 
                   src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" 
                   alt="MasterCard" 
-                  className="h-6 w-auto object-contain"
+                  className="h-5 sm:h-6 w-auto object-contain"
                 />
               </div>
 
               {/* Apple Pay */}
-              <div className="bg-white px-3 py-1.5 rounded-lg border border-brand-light/10 shadow-sm opacity-80 hover:opacity-100 transition-all h-9 flex items-center">
+              <div className="bg-white px-2 sm:px-3 py-1 sm:py-1.5 rounded-lg border border-brand-light/10 shadow-sm opacity-80 hover:opacity-100 transition-all h-8 sm:h-9 flex items-center flex-shrink-0">
                 <img 
                   src="https://upload.wikimedia.org/wikipedia/commons/b/b0/Apple_Pay_logo.svg" 
                   alt="Apple Pay" 
-                  className="h-4 w-auto object-contain"
+                  className="h-3 sm:h-4 w-auto object-contain"
                 />
               </div>
 
               {/* Samsung Pay */}
-              <div className="bg-white px-2 py-0.5 rounded-lg border border-brand-light/10 shadow-sm opacity-80 hover:opacity-100 transition-all h-9 flex items-center">
+              <div className="bg-white px-2 py-0.5 rounded-lg border border-brand-light/10 shadow-sm opacity-80 hover:opacity-100 transition-all h-8 sm:h-9 flex items-center flex-shrink-0">
                 <img 
                   src="https://raw.githubusercontent.com/datatrans/payment-logos/master/assets/apm/samsung-pay.svg" 
                   alt="Samsung Pay" 
-                  className="h-8 w-auto object-contain"
+                  className="h-6 sm:h-8 w-auto object-contain"
                 />
               </div>
            </div>
@@ -217,6 +218,7 @@ const Footer = () => {
               <p>&copy; {currentYear} نظام متابع. جميع الحقوق محفوظة.</p>
             </div>
           </div>
+        </div>
         </div>
       </div>
     </footer>

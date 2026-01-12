@@ -6,6 +6,7 @@ import { useState } from "react";
 
 const MainHeader = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [openMobileSubmenu, setOpenMobileSubmenu] = useState<string | null>(null);
 
   return (
     <header className="bg-white/95 backdrop-blur-sm border-b border-gray-100 sticky top-0 z-50 shadow-sm">
@@ -160,20 +161,54 @@ const MainHeader = () => {
               >
                  إضافة متابع
               </a>
-              <a 
-                href="#support-section" 
-                className="text-gray-700 hover:text-brand-main transition-colors font-medium p-2 rounded-lg hover:bg-brand-light/10"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                الدعم والمساعدة
-              </a>
-              <a 
-                href="#privacy-section" 
-                className="text-gray-700 hover:text-brand-main transition-colors font-medium p-2 rounded-lg hover:bg-brand-light/10"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                 السياسات والشروط
-              </a>
+              
+              {/* الدعم والمساعدة - Mobile Dropdown */}
+              <div>
+                <button 
+                  className="w-full text-right text-gray-700 hover:text-brand-main transition-colors font-medium p-2 rounded-lg hover:bg-brand-light/10 flex items-center justify-between"
+                  onClick={() => setOpenMobileSubmenu(openMobileSubmenu === 'support' ? null : 'support')}
+                >
+                  <span>الدعم والمساعدة</span>
+                  <ChevronDown className={`w-4 h-4 text-[#655ac1] transition-transform duration-300 ${openMobileSubmenu === 'support' ? 'rotate-180' : ''}`} />
+                </button>
+                {openMobileSubmenu === 'support' && (
+                  <div className="pr-4 pt-2 pb-2 space-y-2">
+                    <Link to="/support" className="block text-sm text-gray-600 hover:text-brand-main p-2 rounded-lg hover:bg-brand-light/5" onClick={() => setIsMenuOpen(false)}>
+                      الدعم الفني
+                    </Link>
+                    <Link to="/faq" className="block text-sm text-gray-600 hover:text-brand-main p-2 rounded-lg hover:bg-brand-light/5" onClick={() => setIsMenuOpen(false)}>
+                      الأسئلة الشائعة
+                    </Link>
+                    <Link to="/tutorials" className="block text-sm text-gray-600 hover:text-brand-main p-2 rounded-lg hover:bg-brand-light/5" onClick={() => setIsMenuOpen(false)}>
+                      شروحات النظام
+                    </Link>
+                  </div>
+                )}
+              </div>
+              
+              {/* السياسات والشروط - Mobile Dropdown */}
+              <div>
+                <button 
+                  className="w-full text-right text-gray-700 hover:text-brand-main transition-colors font-medium p-2 rounded-lg hover:bg-brand-light/10 flex items-center justify-between"
+                  onClick={() => setOpenMobileSubmenu(openMobileSubmenu === 'privacy' ? null : 'privacy')}
+                >
+                  <span>السياسات والشروط</span>
+                  <ChevronDown className={`w-4 h-4 text-[#655ac1] transition-transform duration-300 ${openMobileSubmenu === 'privacy' ? 'rotate-180' : ''}`} />
+                </button>
+                {openMobileSubmenu === 'privacy' && (
+                  <div className="pr-4 pt-2 pb-2 space-y-2">
+                    <Link to="/privacy" className="block text-sm text-gray-600 hover:text-brand-main p-2 rounded-lg hover:bg-brand-light/5" onClick={() => setIsMenuOpen(false)}>
+                      سياسة الخصوصية
+                    </Link>
+                    <Link to="/terms" className="block text-sm text-gray-600 hover:text-brand-main p-2 rounded-lg hover:bg-brand-light/5" onClick={() => setIsMenuOpen(false)}>
+                      شروط الاستخدام
+                    </Link>
+                    <Link to="/refund-policy" className="block text-sm text-gray-600 hover:text-brand-main p-2 rounded-lg hover:bg-brand-light/5" onClick={() => setIsMenuOpen(false)}>
+                      سياسة الاسترجاع
+                    </Link>
+                  </div>
+                )}
+              </div>
               <a 
                 href="#footer" 
                 className="text-gray-700 hover:text-brand-main transition-colors font-medium p-2 rounded-lg hover:bg-brand-light/10"

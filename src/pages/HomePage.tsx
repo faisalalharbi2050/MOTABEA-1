@@ -149,7 +149,8 @@ const HeroSection = () => {
   return (
     <section className="relative overflow-hidden bg-[#655ac1] pt-24 pb-16 lg:pt-32 lg:pb-24 min-h-[600px] flex items-center">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-8 text-right">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-8 text-right">
           
           {/* Text Content - Right Side */}
           <div className="w-full lg:w-1/2">
@@ -291,6 +292,7 @@ const HeroSection = () => {
                 </div>
             </motion.div>
           </div>
+        </div>
         </div>
       </div>
 
@@ -584,52 +586,54 @@ const ChromeExtensionSection = () => {
       className="bg-brand-light/20 py-16 sm:py-20 relative overflow-hidden"
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-12 bg-white rounded-3xl p-8 sm:p-12 shadow-md hover:shadow-2xl hover:scale-[1.01] transition-all duration-500 border border-brand-light ease-in-out relative overflow-hidden">
-          
-          {/* Subtle Background Pattern */}
-          <div className="absolute inset-0 opacity-[0.05] pointer-events-none z-0" style={{
-              backgroundImage: 'radial-gradient(#6b7280 1.5px, transparent 1.5px)',
-              backgroundSize: '24px 24px'
-          }}></div>
+        <div className="max-w-6xl mx-auto">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-12 bg-white rounded-3xl p-6 sm:p-10 shadow-md hover:shadow-2xl hover:scale-[1.01] transition-all duration-500 border border-brand-light ease-in-out relative overflow-hidden">
+            
+            {/* Subtle Background Pattern */}
+            <div className="absolute inset-0 opacity-[0.05] pointer-events-none z-0" style={{
+                backgroundImage: 'radial-gradient(#6b7280 1.5px, transparent 1.5px)',
+                backgroundSize: '24px 24px'
+            }}></div>
 
-          <div className="flex-1 text-center md:text-right relative z-10">
-            <div className="inline-flex items-center bg-brand-light text-brand-dark px-4 py-1.5 rounded-full mb-6 font-medium text-sm">
-              <Chrome className="w-4 h-4 ml-2" />
-              متوفر الآن
+            <div className="flex-1 text-center md:text-right relative z-10">
+              <div className="inline-flex items-center bg-brand-light text-brand-dark px-4 py-1.5 rounded-full mb-6 font-medium text-sm">
+                <Chrome className="w-4 h-4 ml-2" />
+                متوفر الآن
+              </div>
+              
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-brand-dark mb-4 leading-tight lg:whitespace-nowrap">
+                أضف متابع الذكي لمتصفحك في قوقل كروم
+              </h2>
+              
+              <p className="text-gray-600 mb-8 text-lg max-w-xl mx-auto md:mx-0">
+                 إضافة متوافقة مع نظام نور ومنصة مدرستي
+                 <span className="block mt-2">إضافة متابع الذكي توفر عليك الوقت وتسهل الوصول للخدمات بضغطة زر.</span>
+              </p>
+              
+              <a 
+                 href={chromeStoreUrl}
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 className="inline-flex items-center justify-center bg-brand-dark text-white px-8 py-3.5 rounded-xl text-lg font-medium hover:bg-brand-main transition-colors duration-300 shadow-lg hover:shadow-brand-dark/30"
+              >
+                 <Chrome className="ml-2 w-5 h-5" />
+                 تحميل الإضافة
+              </a>
             </div>
-            
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-brand-dark mb-4 leading-tight lg:whitespace-nowrap">
-              أضف متابع الذكي لمتصفحك في قوقل كروم
-            </h2>
-            
-            <p className="text-gray-600 mb-8 text-lg max-w-xl mx-auto md:mx-0">
-               إضافة متوافقة مع نظام نور ومنصة مدرستي
-               <span className="block mt-2">إضافة متابع الذكي توفر عليك الوقت وتسهل الوصول للخدمات بضغطة زر.</span>
-            </p>
-            
-            <a 
-               href={chromeStoreUrl}
-               target="_blank"
-               rel="noopener noreferrer"
-               className="inline-flex items-center justify-center bg-brand-dark text-white px-8 py-3.5 rounded-xl text-lg font-medium hover:bg-brand-main transition-colors duration-300 shadow-lg hover:shadow-brand-dark/30"
-            >
-               <Chrome className="ml-2 w-5 h-5" />
-               تحميل الإضافة
-            </a>
-          </div>
 
-          <div className="w-full md:w-1/3 flex justify-center relative z-10">
-             <div className="relative">
-                <div className="absolute inset-0 bg-brand-main blur-3xl opacity-20 rounded-full animate-pulse"></div>
-                <div className="bg-gradient-to-br from-brand-main to-brand-dark p-6 rounded-3xl shadow-2xl relative rotate-3 transform hover:rotate-0 transition-transform duration-500 group">
-                   <Chrome className="w-24 h-24 text-white" strokeWidth={1} />
-                   
-                   {/* Motabea Brand Icon Overlay */}
-                   <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-9 h-9 bg-white rounded-full flex items-center justify-center shadow-sm z-10 group-hover:scale-110 transition-transform duration-300">
-                        <span className="text-[#655ac1] font-black text-xl font-english pt-1">M</span>
-                   </div>
-                </div>
-             </div>
+            <div className="w-full md:w-1/3 flex justify-center relative z-10">
+               <div className="relative">
+                  <div className="absolute inset-0 bg-brand-main blur-3xl opacity-20 rounded-full animate-pulse"></div>
+                  <div className="bg-gradient-to-br from-brand-main to-brand-dark p-6 rounded-3xl shadow-2xl relative rotate-3 transform hover:rotate-0 transition-transform duration-500 group">
+                     <Chrome className="w-24 h-24 text-white" strokeWidth={1} />
+                     
+                     {/* Motabea Brand Icon Overlay */}
+                     <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-9 h-9 bg-white rounded-full flex items-center justify-center shadow-sm z-10 group-hover:scale-110 transition-transform duration-300">
+                          <span className="text-[#655ac1] font-black text-xl font-english pt-1">M</span>
+                     </div>
+                  </div>
+               </div>
+            </div>
           </div>
         </div>
       </div>
