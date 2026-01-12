@@ -99,7 +99,7 @@ const Features: React.FC<FeaturesProps> = ({ showAll = true }) => {
             </motion.div>
 
             {/* Layered Grid Layout */}
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-y-8 lg:gap-y-0 items-start relative mt-12 mb-20">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-y-8 lg:gap-x-12 items-start relative mt-12 mb-20">
                 
                 {/* 1. Hero Image - Right Side (Foreground) */}
                 <div className="relative w-full z-20 order-1 lg:order-none lg:col-start-1 lg:col-span-7 lg:row-start-1 lg:row-span-2">
@@ -114,7 +114,7 @@ const Features: React.FC<FeaturesProps> = ({ showAll = true }) => {
                         <div className="absolute inset-0 bg-[#655ac1] opacity-30 blur-[80px] rounded-[3rem] transform translate-y-10"></div>
                         
                         {/* 3D Transform Container */}
-                        <div className="relative z-10 transform transition-transform duration-500 hover:rotate-y-2 hover:rotate-x-2 transform-style-3d pl-0 lg:pl-12">
+                        <div className="relative z-10 transform transition-transform duration-500 hover:rotate-y-2 hover:rotate-x-2 transform-style-3d pl-0 lg:pr-12">
                              <div className="bg-[#121212] rounded-3xl p-[6px] shadow-2xl ring-1 ring-white/10 relative z-20 max-w-full">
                                 <div className="bg-black rounded-2xl overflow-hidden aspect-video relative shadow-inner group border border-gray-800">
                                     <img 
@@ -171,7 +171,7 @@ const Features: React.FC<FeaturesProps> = ({ showAll = true }) => {
                     whileInView={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.8 }}
                     viewport={{ once: true }}
-                    className="bg-white rounded-[2.5rem] p-8 shadow-xl border border-gray-100 relative z-10 order-2 lg:order-none lg:col-start-8 lg:col-span-5 lg:mb-[-40px]"
+                    className="bg-white rounded-[2.5rem] p-8 shadow-xl border border-gray-100 relative z-10 order-2 lg:order-none lg:col-start-8 lg:col-span-5 lg:mb-[-40px] lg:ml-4"
                 >
                     <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-gray-100 to-[#e5e1fe]"></div>
                     <h3 className="text-2xl font-bold text-gray-800 mb-6 flex items-center gap-3">
@@ -205,7 +205,7 @@ const Features: React.FC<FeaturesProps> = ({ showAll = true }) => {
                      whileInView={{ opacity: 1, x: 0, y: 0 }}
                      transition={{ duration: 0.8, delay: 0.2 }}
                      viewport={{ once: true }}
-                     className="bg-[#655ac1] text-white rounded-[2.5rem] p-8 lg:pr-12 lg:pt-20 shadow-2xl relative z-0 order-3 lg:order-none lg:col-start-5 lg:col-span-8 lg:row-start-2 overflow-hidden"
+                     className="bg-[#655ac1] text-white rounded-[2.5rem] p-8 lg:pr-12 lg:pt-24 shadow-2xl relative z-0 order-3 lg:order-none lg:col-start-5 lg:col-span-8 lg:row-start-2 overflow-hidden lg:ml-8"
                 >
                     {/* Background decorations */}
                     <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-3xl pointer-events-none -mr-16 -mt-16"></div>
