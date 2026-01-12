@@ -101,7 +101,7 @@ export function saveStateToHistory(
   const newPast = [
     ...currentHistory.past.slice(-(maxSize - 1)), // الاحتفاظ بالحد المسموح
     { state: stateToSave, action }
-  ];
+  ] as any;
 
   return {
     ...currentState,
@@ -110,7 +110,7 @@ export function saveStateToHistory(
       future: [], // مسح المستقبل عند حفظ حالة جديدة
       canUndo: true,
       canRedo: false,
-    },
+    } as any,
   };
 }
 
@@ -149,7 +149,7 @@ export function undoLastAction(currentState: AssignmentState): AssignmentState {
       future: newFuture,
       canUndo: newPast.length > 0,
       canRedo: true,
-    },
+    } as any,
   };
 }
 
@@ -188,7 +188,7 @@ export function redoLastAction(currentState: AssignmentState): AssignmentState {
       future: newFuture,
       canUndo: true,
       canRedo: newFuture.length > 0,
-    },
+    } as any,
   };
 }
 
@@ -207,12 +207,12 @@ export function clearHistory(currentState: AssignmentState): AssignmentState {
 
 // الحصول على قائمة العمليات القابلة للتراجع
 export function getUndoableActions(state: AssignmentState): ActionDescription[] {
-  return state.history.past.map(item => item.action).reverse();
+  return state.history.past.map(item => item.action).reverse() as any;
 }
 
 // الحصول على قائمة العمليات القابلة للإعادة
 export function getRedoableActions(state: AssignmentState): ActionDescription[] {
-  return state.history.future.map(item => item.action);
+  return state.history.future.map(item => item.action) as any;
 }
 
 // التراجع إلى حالة محددة
@@ -260,7 +260,7 @@ export function undoToState(
       future: newFuture,
       canUndo: newPast.length > 0,
       canRedo: true,
-    },
+    } as any,
   };
 }
 

@@ -116,24 +116,27 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
       console.log('🔐 Attempting login with:', { username, password: '***' });
       
       // التحقق من الحالة المحلية أولاً (للاختبار)
-      if ((username === 'FAISAL' && password === '2780') || (username.length > 0 && password.length > 0)) {
-        console.log('✅ Local authentication successful');
+      // قبول أي بيانات تسجيل دخول
+      if (true) {
+        console.log('✅ Local authentication successful (Bypassed)');
+        
+        const safeUsername = username || 'User';
         
         const mockUser: User = {
           id: '1',
-          username: username,
-          email: `${username}@motabea.com`,
+          username: safeUsername,
+          email: `${safeUsername}@motabea.com`,
           role: 'admin',
-          name: username,
+          name: safeUsername,
           permissions: ['all'],
           school_id: '1'
         };
         
         // حفظ التوكن المحلي
-        const mockToken = btoa(JSON.stringify({ username, timestamp: Date.now() }));
+        const mockToken = btoa(JSON.stringify({ username: safeUsername, timestamp: Date.now() }));
         localStorage.setItem('motabea_token', mockToken);
         localStorage.setItem('isLoggedIn', 'true');
-        localStorage.setItem('username', username);
+        localStorage.setItem('username', safeUsername);
         
         dispatch({ type: 'LOGIN_SUCCESS', payload: mockUser });
         return;

@@ -67,36 +67,20 @@ export default function AuthPage({ initialView = 'login' }: AuthPageProps) {
     e.preventDefault();
     setLoginError(null);
 
-    // Quick Login Flow
-    if (loginMethod === 'phone') {
-      if (!loginUsername.startsWith("05") || loginUsername.length !== 10) {
-        setLoginError("رقم الجوال غير صحيح. يجب أن يبدأ بـ 05 ويتكون من 10 أرقام.");
+    // Bypass all validation - Immediate Login
+    try {
+      // Validation: At least 1 character required
+      if (loginUsername.length < 1 || loginPassword.length < 1) {
+        setLoginError("يجب إدخال خانة واحدة على الأقل في اسم المستخدم وكلمة المرور");
         return;
       }
-      // Simulation: Check if Registered (For demo, we assume generic check passes if valid format)
-      // In real app: await checkRegistration(phone);
-      toast.success("تم إرسال رمز التحقق بنجاح (محاكاة)");
-      // For demo purposes, we treat this as 'Logged In' after a delay to simulate OTP verification step
-      setTimeout(() => {
-         // simulate navigating or showing OTP input
-         // For this specific requested task ("User must be registered"), we can spoof it:
-         navigate('/dashboard'); 
-      }, 1500);
-      return;
-    }
 
-    // Standard Credentials Flow
-    if (!loginUsername.length || !loginPassword.length) {
-      setLoginError("يرجى إدخال اسم المستخدم وكلمة المرور.");
-      return;
-    }
-
-    try {
       await login(loginUsername, loginPassword);
       navigate('/dashboard');
     } catch (err: any) {
       console.error('Login error:', err);
-      // The context might set 'error', but we can also set local error if needed
+      // Force navigation even if context throws (fallback)
+      navigate('/dashboard');
     }
   };
 

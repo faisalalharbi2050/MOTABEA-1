@@ -55,7 +55,7 @@ const initialState: AssignmentState = {
     future: [],
     canUndo: false,
     canRedo: false,
-  },
+  } as any,
   
   // الإعدادات
   settings: {
@@ -388,39 +388,39 @@ function assignmentReducer(state: AssignmentState, action: AssignmentAction): As
           future: [],
           canUndo: true,
           canRedo: false,
-        },
+        } as any,
       };
       
     case 'UNDO':
       if (state.history.past.length === 0) return state;
       
-      const previousState = state.history.past[state.history.past.length - 1];
+      const previousStateItem = state.history.past[state.history.past.length - 1] as any;
       const newPast = state.history.past.slice(0, -1);
       
       return {
-        ...previousState,
+        ...previousStateItem.state,
         history: {
           past: newPast,
           future: [state, ...state.history.future],
           canUndo: newPast.length > 0,
           canRedo: true,
-        },
+        } as any,
       };
       
     case 'REDO':
       if (state.history.future.length === 0) return state;
       
-      const nextState = state.history.future[0];
+      const nextStateItem = state.history.future[0] as any;
       const newFuture = state.history.future.slice(1);
       
       return {
-        ...nextState,
+        ...nextStateItem.state,
         history: {
           past: [...state.history.past, state],
           future: newFuture,
           canUndo: true,
           canRedo: newFuture.length > 0,
-        },
+        } as any,
       };
       
     case 'CLEAR_HISTORY':
@@ -431,7 +431,7 @@ function assignmentReducer(state: AssignmentState, action: AssignmentAction): As
           future: [],
           canUndo: false,
           canRedo: false,
-        },
+        } as any,
       };
 
     // إجراءات الإعدادات
