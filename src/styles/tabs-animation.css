@@ -1,0 +1,385 @@
+/* تأثيرات التبويبات والانتقالات */
+
+/* تحريك المحتوى عند تغيير التبويبات */
+.tab-content-fade {
+  animation: tabContentFade 0.4s ease-in-out;
+}
+
+@keyframes tabContentFade {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* تأثير التبويبات النشطة */
+.tabs-list .tab-trigger {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.tabs-list .tab-trigger[data-state="active"] {
+  position: relative;
+}
+
+.tabs-list .tab-trigger[data-state="active"]::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 3px;
+  background: linear-gradient(90deg, #3498db, #2980b9);
+  border-radius: 2px;
+  animation: tabUnderline 0.3s ease-out;
+}
+
+@keyframes tabUnderline {
+  0% {
+    width: 0%;
+    opacity: 0;
+  }
+  100% {
+    width: 60%;
+    opacity: 1;
+  }
+}
+
+/* تأثير hover للتبويبات */
+.tabs-list .tab-trigger:hover:not([data-state="active"]) {
+  background: rgba(52, 152, 219, 0.1);
+  transform: translateY(-1px);
+}
+
+/* تحريك البطاقات */
+.card-slide-in {
+  animation: cardSlideIn 0.5s ease-out;
+}
+
+@keyframes cardSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-30px) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+/* تأثير البطاقات المحلقة */
+.card-hover {
+  transition: all 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* تحريك الأزرار */
+.button-bounce {
+  animation: buttonBounce 0.6s ease;
+}
+
+@keyframes buttonBounce {
+  0%, 20%, 60%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-3px);
+  }
+  80% {
+    transform: translateY(-1px);
+  }
+}
+
+/* تأثير النبض للعناصر المهمة */
+.pulse-animation {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(52, 152, 219, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(52, 152, 219, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(52, 152, 219, 0);
+  }
+}
+
+/* تحريك شريط التقدم */
+.progress-bar-animation {
+  animation: progressFill 1s ease-out;
+}
+
+@keyframes progressFill {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: var(--progress-width);
+  }
+}
+
+/* تأثير التحميل */
+.loading-spinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* تحريك النص المكتوب */
+.typewriter {
+  overflow: hidden;
+  border-right: .15em solid #3498db;
+  white-space: nowrap;
+  margin: 0 auto;
+  animation: typing 2s steps(40, end), blink-caret .75s step-end infinite;
+}
+
+@keyframes typing {
+  from {
+    width: 0
+  }
+  to {
+    width: 100%
+  }
+}
+
+@keyframes blink-caret {
+  from, to {
+    border-color: transparent
+  }
+  50% {
+    border-color: #3498db;
+  }
+}
+
+/* تأثير الظهور التدريجي للعناصر */
+.staggered-animation > * {
+  animation: staggeredSlideIn 0.6s ease-out;
+  animation-fill-mode: both;
+}
+
+.staggered-animation > *:nth-child(1) { animation-delay: 0.1s; }
+.staggered-animation > *:nth-child(2) { animation-delay: 0.2s; }
+.staggered-animation > *:nth-child(3) { animation-delay: 0.3s; }
+.staggered-animation > *:nth-child(4) { animation-delay: 0.4s; }
+.staggered-animation > *:nth-child(5) { animation-delay: 0.5s; }
+.staggered-animation > *:nth-child(6) { animation-delay: 0.6s; }
+
+@keyframes staggeredSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* تأثير السحب والإفلات */
+.drag-preview {
+  opacity: 0.8;
+  transform: rotate(5deg);
+  animation: dragFloat 0.5s ease-in-out infinite alternate;
+}
+
+@keyframes dragFloat {
+  0% {
+    transform: rotate(5deg) translateY(0px);
+  }
+  100% {
+    transform: rotate(5deg) translateY(-5px);
+  }
+}
+
+.drop-zone-active {
+  animation: dropZonePulse 1s ease-in-out infinite;
+}
+
+@keyframes dropZonePulse {
+  0%, 100% {
+    border-color: #3498db;
+    background-color: rgba(52, 152, 219, 0.05);
+  }
+  50% {
+    border-color: #2980b9;
+    background-color: rgba(52, 152, 219, 0.1);
+  }
+}
+
+/* تأثير النجاح والفشل */
+.success-flash {
+  animation: successFlash 0.6s ease;
+}
+
+@keyframes successFlash {
+  0%, 100% {
+    background-color: transparent;
+  }
+  50% {
+    background-color: rgba(39, 174, 96, 0.2);
+  }
+}
+
+.error-flash {
+  animation: errorFlash 0.6s ease;
+}
+
+@keyframes errorFlash {
+  0%, 100% {
+    background-color: transparent;
+  }
+  50% {
+    background-color: rgba(231, 76, 60, 0.2);
+  }
+}
+
+/* تحريك الأيقونات */
+.icon-bounce {
+  animation: iconBounce 1s ease infinite;
+}
+
+@keyframes iconBounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+.icon-rotate {
+  animation: iconRotate 2s linear infinite;
+}
+
+@keyframes iconRotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* تأثير الإشعارات */
+.notification-slide {
+  animation: notificationSlide 0.5s ease-out;
+}
+
+@keyframes notificationSlide {
+  0% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* تحريك الجداول */
+.table-row-slide {
+  animation: tableRowSlide 0.4s ease-out;
+}
+
+@keyframes tableRowSlide {
+  0% {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* تأثير التركيز */
+.focus-glow {
+  transition: box-shadow 0.3s ease;
+}
+
+.focus-glow:focus {
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.3);
+  outline: none;
+}
+
+/* تحريك المودالات */
+.modal-backdrop {
+  animation: modalBackdropFade 0.3s ease;
+}
+
+@keyframes modalBackdropFade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.modal-content {
+  animation: modalContentSlide 0.3s ease-out;
+}
+
+@keyframes modalContentSlide {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* تحسينات للشاشات الصغيرة */
+@media (max-width: 768px) {
+  .tab-content-fade {
+    animation-duration: 0.3s;
+  }
+  
+  .card-slide-in {
+    animation-duration: 0.4s;
+  }
+  
+  .staggered-animation > * {
+    animation-duration: 0.4s;
+  }
+}
+
+/* تقليل الحركة للمستخدمين الذين يفضلون ذلك */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* تأثيرات خاصة للطباعة */
+@media print {
+  .tab-content-fade,
+  .card-slide-in,
+  .staggered-animation > * {
+    animation: none;
+  }
+}

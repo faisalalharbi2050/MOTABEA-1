@@ -1,0 +1,439 @@
+/**
+ * أنماط الطباعة المحسنة للعربية مع دعم RTL كامل
+ * Enhanced Arabic Print Styles with Full RTL Support
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+/* المتغيرات للطباعة */
+:root {
+  --print-font-family: 'Noto Kufi Arabic', 'Noto Sans Arabic', 'Arial Unicode MS', Arial, sans-serif;
+  --print-header-color: #1a202c;
+  --print-text-color: #2d3748;
+  --print-border-color: #4a5568;
+  --print-light-border: #cbd5e0;
+  --print-background: #ffffff;
+  --print-accent: #2b6cb0;
+}
+
+/* أنماط الطباعة العامة */
+@media print {
+  /* إعادة تعيين الأنماط للطباعة */
+  * {
+    color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    -webkit-print-color-adjust: exact !important;
+  }
+
+  /* تخطيط الصفحة */
+  @page {
+    size: A4;
+    margin: 2cm 1.5cm;
+    direction: rtl;
+    
+    /* رأس وتذييل الصفحة */
+    @top-right {
+      content: "إسناد المواد - صفحة " counter(page) " من " counter(pages);
+      font-family: var(--print-font-family);
+      font-size: 10pt;
+      color: var(--print-text-color);
+    }
+    
+    @bottom-center {
+      content: "نظام متابع - إدارة المدرسة";
+      font-family: var(--print-font-family);
+      font-size: 9pt;
+      color: var(--print-text-color);
+    }
+  }
+
+  /* تخطيط عام للطباعة */
+  html {
+    font-size: 12pt !important;
+    line-height: 1.4 !important;
+    direction: rtl !important;
+  }
+
+  body {
+    background: var(--print-background) !important;
+    color: var(--print-text-color) !important;
+    font-family: var(--print-font-family) !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    direction: rtl !important;
+  }
+
+  /* عناوين محسنة للطباعة */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--print-font-family) !important;
+    color: var(--print-header-color) !important;
+    page-break-after: avoid !important;
+    break-after: avoid !important;
+    margin-bottom: 0.5em !important;
+    font-weight: 600 !important;
+  }
+
+  h1 {
+    font-size: 18pt !important;
+    border-bottom: 2pt solid var(--print-border-color) !important;
+    padding-bottom: 0.3em !important;
+    text-align: center !important;
+  }
+
+  h2 {
+    font-size: 16pt !important;
+    border-bottom: 1pt solid var(--print-light-border) !important;
+    padding-bottom: 0.2em !important;
+  }
+
+  h3 {
+    font-size: 14pt !important;
+    margin-top: 1em !important;
+  }
+
+  /* فقرات وقوائم */
+  p, li {
+    font-family: var(--print-font-family) !important;
+    font-size: 11pt !important;
+    line-height: 1.5 !important;
+    margin-bottom: 0.5em !important;
+    orphans: 3 !important;
+    widows: 3 !important;
+    direction: rtl !important;
+    text-align: right !important;
+  }
+
+  ul, ol {
+    margin: 0.5em 0 !important;
+    padding-right: 1.5em !important;
+    padding-left: 0 !important;
+  }
+
+  li {
+    margin-bottom: 0.3em !important;
+  }
+
+  /* جداول محسنة للطباعة */
+  table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+    margin: 1em 0 !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+    font-family: var(--print-font-family) !important;
+    direction: rtl !important;
+  }
+
+  table.teacher-table,
+  table.assignment-table {
+    border: 2pt solid var(--print-border-color) !important;
+  }
+
+  th {
+    background: #f7fafc !important;
+    color: var(--print-header-color) !important;
+    font-weight: 600 !important;
+    font-size: 10pt !important;
+    padding: 8pt 6pt !important;
+    border: 1pt solid var(--print-light-border) !important;
+    text-align: center !important;
+  }
+
+  td {
+    padding: 6pt 4pt !important;
+    border: 0.5pt solid var(--print-light-border) !important;
+    font-size: 10pt !important;
+    vertical-align: top !important;
+    text-align: right !important;
+  }
+
+  /* أرقام وإحصائيات */
+  .number, .percentage, .hours-count {
+    font-weight: 600 !important;
+    text-align: center !important;
+  }
+
+  /* أقسام المحتوى */
+  .assignment-section {
+    page-break-before: avoid !important;
+    break-before: avoid !important;
+    margin-bottom: 2em !important;
+  }
+
+  .teacher-section {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+    margin-bottom: 1.5em !important;
+    border: 1pt solid var(--print-light-border) !important;
+    padding: 1em !important;
+  }
+
+  .teacher-header {
+    font-size: 13pt !important;
+    font-weight: 600 !important;
+    color: var(--print-accent) !important;
+    border-bottom: 1pt solid var(--print-light-border) !important;
+    padding-bottom: 0.3em !important;
+    margin-bottom: 0.8em !important;
+  }
+
+  /* إحصائيات وملخصات */
+  .summary-box {
+    border: 1pt solid var(--print-border-color) !important;
+    padding: 0.8em !important;
+    margin: 1em 0 !important;
+    background: #f9fafb !important;
+  }
+
+  .summary-title {
+    font-weight: 600 !important;
+    font-size: 12pt !important;
+    color: var(--print-header-color) !important;
+    margin-bottom: 0.5em !important;
+  }
+
+  .stat-grid {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(150pt, 1fr)) !important;
+    gap: 0.5em !important;
+    margin: 0.5em 0 !important;
+  }
+
+  .stat-item {
+    display: flex !important;
+    justify-content: space-between !important;
+    padding: 0.3em 0 !important;
+    border-bottom: 0.5pt dotted var(--print-light-border) !important;
+  }
+
+  .stat-label {
+    font-weight: 400 !important;
+  }
+
+  .stat-value {
+    font-weight: 600 !important;
+    color: var(--print-accent) !important;
+  }
+
+  /* تنسيق قوائم المعلمين */
+  .teachers-list {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 1em 0 !important;
+  }
+
+  .teacher-item-print {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding: 0.5em 0 !important;
+    border-bottom: 0.5pt solid var(--print-light-border) !important;
+  }
+
+  .teacher-name-print {
+    font-weight: 600 !important;
+    font-size: 11pt !important;
+  }
+
+  .teacher-specialization-print {
+    font-size: 10pt !important;
+    color: var(--print-text-color) !important;
+  }
+
+  .teacher-stats-print {
+    text-align: left !important;
+    font-size: 10pt !important;
+  }
+
+  /* مؤشرات التحميل للطباعة */
+  .load-indicator-print {
+    display: inline-block !important;
+    width: 50pt !important;
+    height: 8pt !important;
+    border: 0.5pt solid var(--print-border-color) !important;
+    position: relative !important;
+    margin-right: 0.5em !important;
+  }
+
+  .load-fill-print {
+    height: 100% !important;
+    background: var(--print-border-color) !important;
+  }
+
+  .load-fill-print.high {
+    background: #e53e3e !important;
+  }
+
+  .load-fill-print.medium {
+    background: #dd6b20 !important;
+  }
+
+  .load-fill-print.low {
+    background: #38a169 !important;
+  }
+
+  /* تواريخ ومعلومات إضافية */
+  .print-metadata {
+    font-size: 9pt !important;
+    color: var(--print-text-color) !important;
+    border-top: 1pt solid var(--print-light-border) !important;
+    padding-top: 0.5em !important;
+    margin-top: 2em !important;
+    text-align: center !important;
+  }
+
+  .print-date {
+    font-weight: 500 !important;
+  }
+
+  /* تباعد الصفحات */
+  .page-break {
+    page-break-before: always !important;
+    break-before: always !important;
+  }
+
+  .avoid-break {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
+  /* إخفاء عناصر غير ضرورية للطباعة */
+  .no-print,
+  .action-buttons,
+  .selection-bar,
+  .virtual-scrollbar,
+  .teacher-actions,
+  .scope-selector,
+  button,
+  input[type="checkbox"],
+  .checkbox-label {
+    display: none !important;
+  }
+
+  /* تنسيق خاص لتقارير HTML */
+  .html-report-container {
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .html-report-header {
+    text-align: center !important;
+    margin-bottom: 2em !important;
+    page-break-after: avoid !important;
+  }
+
+  .html-report-section {
+    margin-bottom: 2em !important;
+  }
+
+  /* تحسينات لقابلية القراءة */
+  .readable-text {
+    font-size: 11pt !important;
+    line-height: 1.6 !important;
+    letter-spacing: 0.02em !important;
+  }
+
+  /* أنماط لتقارير الواتساب المطبوعة */
+  .whatsapp-report-print {
+    font-family: var(--print-font-family) !important;
+    white-space: pre-line !important;
+    border: 1pt solid var(--print-light-border) !important;
+    padding: 1em !important;
+    margin: 1em 0 !important;
+    background: #f9fafb !important;
+  }
+
+  /* رموز وأيقونات للطباعة */
+  .icon-print::before {
+    content: "• " !important;
+    font-weight: bold !important;
+  }
+
+  .check-icon-print::before {
+    content: "✓ " !important;
+    font-weight: bold !important;
+  }
+
+  .warning-icon-print::before {
+    content: "⚠ " !important;
+    font-weight: bold !important;
+  }
+
+  /* تحسينات للجداول الكبيرة */
+  .large-table {
+    font-size: 9pt !important;
+  }
+
+  .large-table th,
+  .large-table td {
+    padding: 4pt 3pt !important;
+  }
+
+  /* تنسيق لبيانات JSON المطبوعة */
+  .json-data-print {
+    font-family: 'Courier New', monospace !important;
+    font-size: 8pt !important;
+    background: #f5f5f5 !important;
+    padding: 0.5em !important;
+    border: 0.5pt solid var(--print-light-border) !important;
+    white-space: pre-wrap !important;
+    word-break: break-all !important;
+  }
+}
+
+/* أنماط عامة لتحسين القراءة */
+.rtl-text {
+  direction: rtl !important;
+  text-align: right !important;
+  font-family: var(--print-font-family) !important;
+}
+
+.arabic-numbers {
+  font-feature-settings: 'tnum' 1 !important;
+  font-variant-numeric: tabular-nums !important;
+}
+
+/* تحسينات للتباين العالي */
+@media (prefers-contrast: high) {
+  :root {
+    --print-header-color: #000000;
+    --print-text-color: #000000;
+    --print-border-color: #000000;
+    --print-light-border: #666666;
+  }
+}
+
+/* تحسينات للطباعة الملونة */
+@media print and (color) {
+  .color-print-high {
+    color: #dc2626 !important;
+    font-weight: 600 !important;
+  }
+  
+  .color-print-medium {
+    color: #d97706 !important;
+    font-weight: 600 !important;
+  }
+  
+  .color-print-low {
+    color: #059669 !important;
+    font-weight: 600 !important;
+  }
+}
+
+/* فئات مساعدة للطباعة */
+.print-only {
+  display: none;
+}
+
+@media print {
+  .print-only {
+    display: block !important;
+  }
+  
+  .screen-only {
+    display: none !important;
+  }
+}

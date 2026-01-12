@@ -1,0 +1,267 @@
+/* تحسينات التصميم المتجاوب لصفحة إدارة الفصول */
+
+/* الهوية البصرية للمشروع - ألوان الأزرق والرمادي والأبيض */
+.classroom-management-container {
+  @apply min-h-screen bg-gradient-to-br from-gray-50 to-blue-50;
+}
+
+/* تحسين بطاقات الفصول بالألوان الرسمية */
+.classroom-card {
+  @apply bg-white border-2 border-gray-100 rounded-xl shadow-sm hover:shadow-xl hover:border-blue-200 transition-all duration-300;
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+}
+
+/* تبويبات المراحل مع الهوية البصرية */
+.grade-tab-active {
+  @apply bg-gradient-to-r from-blue-600 to-blue-700 text-white shadow-lg border-blue-600;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+.grade-tab-inactive {
+  @apply bg-gray-50 text-gray-600 hover:bg-blue-50 hover:text-blue-700 border border-gray-200;
+}
+
+/* بطاقة الفصل الفردية مع التحسينات */
+.classroom-item {
+  @apply bg-white border-2 border-gray-100 rounded-xl p-5 transition-all duration-300 hover:border-blue-200;
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.classroom-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.15);
+}
+
+/* التبويبات المتجاوبة */
+.tabs-list-responsive {
+  @apply bg-white p-2 rounded-xl border border-gray-200 shadow-sm;
+}
+
+/* تحسينات للتبويبات الجديدة */
+.tabs-list-responsive .data-\[state\=active\] {
+  @apply bg-blue-600 text-white;
+}
+
+/* قائمة الفصول المتجاوبة مع التحسينات البصرية */
+.classroom-grid {
+  @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6;
+}
+
+/* أزرار الإجراءات مع الألوان الرسمية */
+.classroom-actions {
+  @apply flex flex-col sm:flex-row gap-2 sm:gap-1;
+}
+
+/* مربع النص للأرقام العربية */
+.ltr-numbers {
+  direction: ltr !important;
+  text-align: center;
+}
+
+/* تحسين مظهر مربع حوار تخصيص المواد */
+.subjects-assignment-modal {
+  @apply rounded-xl border border-gray-200;
+}
+
+/* تحسين مظهر العناصر المختارة في نافذة المواد */
+.subject-item-selected {
+  @apply border-blue-300 bg-blue-50;
+}
+
+.subject-item-unselected {
+  @apply border-gray-200 bg-white hover:bg-gray-50;
+}
+
+/* أزرار الإجراءات مع الألوان الرسمية */
+.classroom-actions {
+  @apply flex flex-col sm:flex-row gap-2 sm:gap-1;
+}
+
+.classroom-actions .btn-responsive {
+  @apply text-xs sm:text-sm px-3 py-2 rounded-lg transition-all duration-200;
+}
+
+/* أزرار بالألوان الرسمية */
+.btn-blue {
+  @apply bg-blue-600 hover:bg-blue-700 text-white shadow-md hover:shadow-lg;
+}
+
+.btn-gray {
+  @apply bg-gray-100 hover:bg-gray-200 text-gray-700 border border-gray-300;
+}
+
+.btn-outline-blue {
+  @apply border-2 border-blue-500 text-blue-600 hover:bg-blue-50;
+}
+
+/* النوافذ المنبثقة مع التحسينات البصرية */
+.modal-responsive {
+  @apply w-full max-w-md mx-4 sm:mx-auto bg-white rounded-2xl shadow-2xl border border-gray-200;
+}
+
+/* معلومات الفصل مع الألوان المحسنة */
+.classroom-info {
+  @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 p-4 bg-gray-50 rounded-lg border border-gray-200;
+}
+
+.classroom-info-item {
+  @apply flex flex-col sm:flex-row sm:items-center gap-2 text-gray-600;
+}
+
+/* شارات المواد مع الألوان الرسمية */
+.subject-badge {
+  @apply bg-blue-100 text-blue-800 border border-blue-200 rounded-full px-3 py-1 text-xs font-medium;
+}
+
+.subject-badge:hover {
+  @apply bg-blue-200 text-blue-900;
+}
+
+/* تحسين عرض الحالة */
+.status-badge-active {
+  @apply bg-green-100 text-green-800 border border-green-200;
+}
+
+.status-badge-inactive {
+  @apply bg-gray-100 text-gray-600 border border-gray-200;
+}
+
+/* شارات المواد المتجاوبة */
+.subjects-container {
+  @apply flex flex-wrap gap-1 max-h-20 overflow-y-auto;
+  scrollbar-width: thin;
+  scrollbar-color: #d1d5db #f3f4f6;
+}
+
+.subjects-container::-webkit-scrollbar {
+  width: 6px;
+}
+
+.subjects-container::-webkit-scrollbar-track {
+  background: #f3f4f6;
+  border-radius: 3px;
+}
+
+.subjects-container::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 3px;
+}
+
+.subjects-container::-webkit-scrollbar-thumb:hover {
+  background: #9ca3af;
+}
+
+/* تنسيق شريط التمرير للنافذة المنبثقة */
+.subjects-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: #d1d5db #f3f4f6;
+}
+
+.subjects-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+
+.subjects-scroll::-webkit-scrollbar-track {
+  background: #f3f4f6;
+  border-radius: 3px;
+}
+
+.subjects-scroll::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 3px;
+}
+
+.subjects-scroll::-webkit-scrollbar-thumb:hover {
+  background: #9ca3af;
+}
+
+/* تحسينات الخط العربي */
+.arabic-text {
+  font-family: 'Noto Kufi Arabic', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  @apply text-right;
+}
+
+/* الرسوم المتحركة للتحميل */
+.loading-spinner {
+  @apply animate-spin inline-block w-4 h-4 border-2 border-current border-t-transparent rounded-full;
+}
+
+/* تحسينات الإمكانية */
+.focus-visible {
+  @apply outline-none ring-2 ring-blue-500 ring-offset-2;
+}
+
+/* تحسينات للأجهزة اللوحية */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .classroom-grid {
+    @apply grid-cols-2;
+  }
+  
+  .classroom-item {
+    @apply p-3;
+  }
+  
+  .classroom-actions {
+    @apply flex-row;
+  }
+}
+
+/* تحسينات للهواتف */
+@media (max-width: 767px) {
+  .classroom-grid {
+    @apply grid-cols-1;
+  }
+  
+  .classroom-item {
+    @apply p-4;
+  }
+  
+  .classroom-info {
+    @apply grid-cols-1;
+  }
+  
+  .tabs-list-responsive {
+    @apply grid-cols-1 gap-2;
+  }
+  
+  .modal-responsive {
+    @apply max-w-full mx-2;
+  }
+}
+
+/* تحسينات للشاشات الكبيرة */
+@media (min-width: 1440px) {
+  .classroom-grid {
+    @apply grid-cols-4;
+  }
+}
+
+/* ألوان وتدرجات محسنة */
+.classroom-card {
+  @apply bg-gradient-to-br from-white to-gray-50 border border-gray-200 hover:border-blue-300;
+}
+
+.grade-tab-active {
+  @apply bg-gradient-to-r from-blue-500 to-blue-600 text-white;
+}
+
+.grade-tab-inactive {
+  @apply bg-gray-100 text-gray-700 hover:bg-gray-200;
+}
+
+/* تأثيرات التمرير */
+.smooth-scroll {
+  scroll-behavior: smooth;
+}
+
+/* تحسينات النص العربي */
+.rtl-layout {
+  direction: rtl;
+  text-align: right;
+}
+
+.ltr-numbers {
+  direction: ltr;
+  display: inline-block;
+}

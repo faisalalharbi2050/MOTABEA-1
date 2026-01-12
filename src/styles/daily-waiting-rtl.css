@@ -1,0 +1,76 @@
+/* تحسينات إضافية للواجهة العربية RTL */
+.daily-waiting-rtl {
+  direction: rtl;
+}
+
+.daily-waiting-rtl .flex-reverse {
+  flex-direction: row-reverse;
+}
+
+.daily-waiting-rtl .text-arabic {
+  font-family: 'Noto Kufi Arabic', Arial, sans-serif;
+  text-align: right;
+}
+
+/* تحسين أزرار الحوار */
+.daily-waiting-rtl .dialog-button {
+  margin-right: 0.5rem;
+  margin-left: 0;
+}
+
+/* تحسين التبويبات */
+.daily-waiting-rtl .tab-content {
+  text-align: right;
+}
+
+/* تحسين الأيقونات */
+.daily-waiting-rtl .icon-right {
+  margin-left: 0.5rem;
+  margin-right: 0;
+}
+
+/* تحسين الجداول */
+.daily-waiting-rtl table {
+  text-align: right;
+}
+
+.daily-waiting-rtl th,
+.daily-waiting-rtl td {
+  text-align: right;
+  padding: 0.75rem;
+}
+
+/* تحسين البطاقات */
+.daily-waiting-rtl .card-content {
+  direction: rtl;
+}
+
+.daily-waiting-rtl .stat-icon {
+  margin-left: 1rem;
+  margin-right: 0;
+}
+
+/* تحسين النماذج */
+.daily-waiting-rtl .form-group {
+  text-align: right;
+}
+
+.daily-waiting-rtl .form-label {
+  text-align: right;
+  margin-bottom: 0.5rem;
+}
+
+/* تحسين الإشعارات والتنبيهات */
+.daily-waiting-rtl .alert {
+  text-align: right;
+}
+
+/* تحسين الأزرار */
+.daily-waiting-rtl .button-with-icon {
+  flex-direction: row-reverse;
+}
+
+.daily-waiting-rtl .button-icon {
+  margin-left: 0.5rem;
+  margin-right: 0;
+}

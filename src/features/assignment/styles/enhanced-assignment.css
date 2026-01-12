@@ -1,0 +1,588 @@
+/* أنماط محسنة لصفحة إسناد المواد */
+
+/* التخطيط العام للصفحة */
+.assignment-system-professional {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 1.5rem;
+  background: #f8fafc;
+  min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* المحتوى الرئيسي */
+.assignment-main-content {
+  margin-top: 1.5rem;
+  background: white;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  min-height: 400px;
+}
+
+/* فواصل بين الأقسام */
+.assignment-system-professional > * + * {
+  margin-top: 1.5rem;
+}
+
+/* شريط الإجراءات المحسن */
+.assignment-action-bar-enhanced {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 1rem;
+  background: white;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+}
+
+/* مجموعة الأزرار مع اتجاه RTL */
+.action-buttons-rtl {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  flex-direction: row-reverse; /* لترتيب الأزرار من اليمين لليسار */
+}
+
+/* تصميم الأزرار المحسن */
+.action-btn-enhanced {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  color: #475569;
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-width: 120px;
+  justify-content: center;
+}
+
+.action-btn-enhanced:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
+  border-color: #94a3b8;
+}
+
+.action-btn-enhanced:active {
+  transform: translateY(0);
+}
+
+/* ألوان مخصصة للأزرار */
+.action-btn-enhanced.whatsapp-btn {
+  background: linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%);
+  border-color: #22c55e;
+  color: #15803d;
+}
+
+.action-btn-enhanced.whatsapp-btn:hover {
+  background: linear-gradient(135deg, #bbf7d0 0%, #86efac 100%);
+  border-color: #16a34a;
+  box-shadow: 0 4px 12px rgba(34, 197, 94, 0.25);
+}
+
+.action-btn-enhanced.print-btn {
+  background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+  border-color: #3b82f6;
+  color: #1d4ed8;
+}
+
+.action-btn-enhanced.print-btn:hover {
+  background: linear-gradient(135deg, #bfdbfe 0%, #93c5fd 100%);
+  border-color: #2563eb;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.25);
+}
+
+.action-btn-enhanced.pdf-btn {
+  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+  border-color: #f59e0b;
+  color: #d97706;
+}
+
+.action-btn-enhanced.pdf-btn:hover {
+  background: linear-gradient(135deg, #fde68a 0%, #fcd34d 100%);
+  border-color: #f59e0b;
+  box-shadow: 0 4px 12px rgba(245, 158, 11, 0.25);
+}
+
+.action-btn-enhanced.csv-btn {
+  background: linear-gradient(135deg, #f3e8ff 0%, #e9d5ff 100%);
+  border-color: #8b5cf6;
+  color: #7c3aed;
+}
+
+.action-btn-enhanced.csv-btn:hover {
+  background: linear-gradient(135deg, #e9d5ff 0%, #ddd6fe 100%);
+  border-color: #7c3aed;
+  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.25);
+}
+
+.action-btn-enhanced.html-btn {
+  background: linear-gradient(135deg, #fce7f3 0%, #fbcfe8 100%);
+  border-color: #ec4899;
+  color: #be185d;
+}
+
+.action-btn-enhanced.html-btn:hover {
+  background: linear-gradient(135deg, #fbcfe8 0%, #f9a8d4 100%);
+  border-color: #db2777;
+  box-shadow: 0 4px 12px rgba(236, 72, 153, 0.25);
+}
+
+/* حالة التركيز */
+.action-btn-enhanced.focused {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+/* حالة التعطيل */
+.action-btn-enhanced:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.action-btn-enhanced:disabled:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+/* الأيقونات */
+.action-btn-enhanced i {
+  font-size: 1rem;
+}
+
+/* استجابة للشاشات الصغيرة */
+@media (max-width: 768px) {
+  .action-buttons-rtl {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .action-btn-enhanced {
+    padding: 0.5rem 0.75rem;
+    min-width: auto;
+    font-size: 0.8rem;
+  }
+
+  .action-btn-enhanced span {
+    display: none;
+  }
+
+  .action-btn-enhanced {
+    width: 44px;
+    justify-content: center;
+  }
+}
+
+/* الانتقال السلس */
+* {
+  transition: all 0.2s ease;
+}
+
+/* تحسينات إضافية للوضوح البصري */
+.assignment-action-bar-enhanced:focus-within {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+/* ===== أنماط شريط الفلاتر المحسن ===== */
+.filters-section-enhanced {
+  display: flex;
+  gap: 1.5rem;
+  padding: 1.5rem;
+  background: white;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+  flex-wrap: wrap;
+}
+
+.filter-group-enhanced {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  min-width: 200px;
+  flex: 1;
+}
+
+.filter-group-enhanced label {
+  font-weight: 600;
+  color: #374151;
+  font-size: 0.875rem;
+}
+
+.filter-select-enhanced {
+  padding: 0.75rem;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  background: white;
+  color: #374151;
+  font-size: 0.875rem;
+  transition: all 0.2s ease;
+}
+
+.filter-select-enhanced:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+/* ===== أنماط فلتر الفصول ===== */
+.classroom-filter-container {
+  width: 100%;
+}
+
+.classroom-filter-select {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  background: white;
+  color: #374151;
+  font-size: 0.875rem;
+}
+
+.classroom-subjects-display {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: #f9fafb;
+  border-radius: 6px;
+  border: 1px solid #e5e7eb;
+}
+
+.subjects-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.subjects-header h4 {
+  margin: 0;
+  color: #374151;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.subjects-stats {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.875rem;
+}
+
+.assigned-count {
+  color: #059669;
+  font-weight: 600;
+}
+
+.total-count {
+  color: #6b7280;
+  font-weight: 500;
+}
+
+.subjects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 0.75rem;
+}
+
+.subject-card {
+  padding: 0.75rem;
+  border-radius: 6px;
+  border: 1px solid;
+  background: white;
+  transition: all 0.2s ease;
+}
+
+.subject-card.assigned {
+  border-color: #22c55e;
+  background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+}
+
+.subject-card.unassigned {
+  border-color: #ef4444;
+  background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%);
+}
+
+.subject-name {
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 0.25rem;
+}
+
+.subject-hours {
+  font-size: 0.75rem;
+  color: #6b7280;
+  margin-bottom: 0.25rem;
+}
+
+.subject-teacher {
+  font-size: 0.75rem;
+  color: #059669;
+  font-weight: 500;
+}
+
+.subject-unassigned {
+  font-size: 0.75rem;
+  color: #ef4444;
+  font-weight: 500;
+}
+
+/* ===== أنماط فلتر المعلمين ===== */
+.teacher-filter-container {
+  width: 100%;
+}
+
+.teacher-filter-select {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  background: white;
+  color: #374151;
+  font-size: 0.875rem;
+}
+
+.teachers-workload-bar {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: #f9fafb;
+  border-radius: 6px;
+  border: 1px solid #e5e7eb;
+}
+
+.teachers-workload-bar h4 {
+  margin: 0 0 1rem 0;
+  color: #374151;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.workload-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 0.75rem;
+}
+
+.teacher-workload-card {
+  padding: 1rem;
+  background: white;
+  border-radius: 6px;
+  border: 1px solid #e5e7eb;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.teacher-workload-card:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
+}
+
+.teacher-workload-card.selected {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.teacher-name {
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 0.25rem;
+  font-size: 0.875rem;
+}
+
+.teacher-specialization {
+  font-size: 0.75rem;
+  color: #6b7280;
+  margin-bottom: 0.5rem;
+}
+
+.workload-bar {
+  height: 6px;
+  background: #e5e7eb;
+  border-radius: 3px;
+  margin-bottom: 0.5rem;
+  overflow: hidden;
+}
+
+.workload-fill {
+  height: 100%;
+  transition: width 0.3s ease;
+}
+
+.teacher-workload-card.empty .workload-fill {
+  background: #9ca3af;
+}
+
+.teacher-workload-card.low .workload-fill {
+  background: #22c55e;
+}
+
+.teacher-workload-card.medium .workload-fill {
+  background: #f59e0b;
+}
+
+.teacher-workload-card.high .workload-fill {
+  background: #ef4444;
+}
+
+.teacher-workload-card.full .workload-fill {
+  background: #dc2626;
+}
+
+.workload-text {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.teacher-workload-card.empty .workload-text {
+  color: #6b7280;
+}
+
+.teacher-workload-card.low .workload-text {
+  color: #15803d;
+}
+
+.teacher-workload-card.medium .workload-text {
+  color: #d97706;
+}
+
+.teacher-workload-card.high .workload-text {
+  color: #dc2626;
+}
+
+.teacher-workload-card.full .workload-text {
+  color: #dc2626;
+}
+
+/* تفاصيل المعلم */
+.teacher-details-display {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: white;
+  border-radius: 6px;
+  border: 1px solid #e5e7eb;
+}
+
+.teacher-header {
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.teacher-header h4 {
+  margin: 0 0 0.5rem 0;
+  color: #374151;
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+
+.teacher-stats {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.875rem;
+  flex-wrap: wrap;
+}
+
+.specialization {
+  color: #6b7280;
+}
+
+.workload {
+  color: #374151;
+  font-weight: 600;
+}
+
+.teacher-assignments h5 {
+  margin: 0 0 0.75rem 0;
+  color: #374151;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.assignments-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 0.75rem;
+}
+
+.assignment-card {
+  padding: 0.75rem;
+  background: #f9fafb;
+  border-radius: 6px;
+  border: 1px solid #e5e7eb;
+}
+
+.assignment-subject {
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 0.25rem;
+}
+
+.assignment-classroom {
+  font-size: 0.875rem;
+  color: #6b7280;
+  margin-bottom: 0.25rem;
+}
+
+.assignment-hours {
+  font-size: 0.75rem;
+  color: #3b82f6;
+  font-weight: 500;
+}
+
+.no-assignments {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #6b7280;
+  font-style: italic;
+}
+
+/* حالات التحميل */
+.classroom-filter-loading,
+.teacher-filter-loading {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #6b7280;
+  font-size: 0.875rem;
+  padding: 1rem;
+}
+
+/* استجابة للشاشات الصغيرة */
+@media (max-width: 768px) {
+  .filters-section-enhanced {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .filter-group-enhanced {
+    min-width: auto;
+  }
+
+  .workload-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .subjects-grid,
+  .assignments-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .teacher-stats {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اختبار الاتصال - نظام متابع</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            max-width: 600px;
+            width: 100%;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .test-item {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background: #f9f9f9;
+        }
+        .status {
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        .success { color: #28a745; }
+        .error { color: #dc3545; }
+        .loading { color: #ffc107; }
+        button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        .log {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            padding: 10px;
+            margin: 10px 0;
+            font-family: monospace;
+            font-size: 12px;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🧪 اختبار الاتصال - نظام متابع</h1>
+        
+        <div class="test-item">
+            <h3>📡 اختبار الخادم الخلفي</h3>
+            <div id="backend-status" class="status loading">جاري الفحص...</div>
+            <button onclick="testBackend()">إعادة فحص الخادم</button>
+        </div>
+
+        <div class="test-item">
+            <h3>🔐 اختبار تسجيل الدخول</h3>
+            <div id="login-status" class="status">غير مُختبر</div>
+            <button onclick="testLogin()">اختبار تسجيل الدخول</button>
+        </div>
+
+        <div class="test-item">
+            <h3>📊 سجل الأحداث</h3>
+            <div id="log" class="log"></div>
+            <button onclick="clearLog()">مسح السجل</button>
+        </div>
+
+        <div class="test-item">
+            <h3>🛠️ إجراءات أخرى</h3>
+            <button onclick="openFrontend()">فتح الواجهة الأمامية</button>
+            <button onclick="openBackend()">فتح الخادم الخلفي</button>
+            <button onclick="location.reload()">تحديث الصفحة</button>
+        </div>
+    </div>
+
+    <script>
+        function log(message) {
+            const logDiv = document.getElementById('log');
+            const timestamp = new Date().toLocaleTimeString('ar-SA');
+            logDiv.innerHTML += `[${timestamp}] ${message}<br>`;
+            logDiv.scrollTop = logDiv.scrollHeight;
+            console.log(message);
+        }
+
+        function clearLog() {
+            document.getElementById('log').innerHTML = '';
+        }
+
+        async function testBackend() {
+            const statusDiv = document.getElementById('backend-status');
+            statusDiv.className = 'status loading';
+            statusDiv.textContent = 'جاري الفحص...';
+            
+            log('🔍 بدء اختبار الخادم الخلفي...');
+            
+            try {
+                // Test direct connection first
+                log('🌐 اختبار الاتصال المباشر بالخادم...');
+                const directResponse = await fetch('http://localhost:5000/api/health');
+                
+                if (directResponse.ok) {
+                    const data = await directResponse.json();
+                    statusDiv.className = 'status success';
+                    statusDiv.textContent = `✅ الخادم يعمل بشكل صحيح (${data.message})`;
+                    log(`✅ استجابة الخادم: ${JSON.stringify(data)}`);
+                } else {
+                    throw new Error(`HTTP ${directResponse.status}`);
+                }
+                
+                // Test through proxy
+                log('🔄 اختبار الـ Proxy...');
+                const proxyResponse = await fetch('/api/health');
+                if (proxyResponse.ok) {
+                    log('✅ الـ Proxy يعمل بشكل صحيح');
+                } else {
+                    log(`⚠️ مشكلة في الـ Proxy: ${proxyResponse.status}`);
+                }
+                
+            } catch (error) {
+                statusDiv.className = 'status error';
+                statusDiv.textContent = `❌ فشل الاتصال: ${error.message}`;
+                log(`❌ خطأ في الاتصال: ${error.message}`);
+                
+                // Try alternative connections
+                log('🔄 محاولة اتصالات بديلة...');
+                const alternatives = [
+                    'http://127.0.0.1:5000/api/health',
+                    'http://localhost:5001/api/health'
+                ];
+                
+                for (const url of alternatives) {
+                    try {
+                        log(`🔗 محاولة: ${url}`);
+                        const response = await fetch(url);
+                        if (response.ok) {
+                            log(`✅ نجح الاتصال من خلال: ${url}`);
+                            break;
+                        }
+                    } catch (e) {
+                        log(`❌ فشل: ${url} - ${e.message}`);
+                    }
+                }
+            }
+        }
+
+        async function testLogin() {
+            const statusDiv = document.getElementById('login-status');
+            statusDiv.className = 'status loading';
+            statusDiv.textContent = 'جاري اختبار تسجيل الدخول...';
+            
+            log('🔑 بدء اختبار تسجيل الدخول...');
+            
+            try {
+                const loginData = {
+                    username: 'admin',
+                    password: 'admin123'
+                };
+                
+                log(`📤 إرسال بيانات الدخول: ${loginData.username}`);
+                
+                const response = await fetch('/api/auth/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify(loginData)
+                });
+
+                log(`📨 رد الخادم: ${response.status} ${response.statusText}`);
+                
+                if (response.ok) {
+                    const data = await response.json();
+                    statusDiv.className = 'status success';
+                    statusDiv.textContent = `✅ تم تسجيل الدخول بنجاح (${data.user?.name})`;
+                    log(`✅ نجح تسجيل الدخول: ${JSON.stringify(data.user)}`);
+                } else {
+                    const errorData = await response.json();
+                    throw new Error(errorData.message || `HTTP ${response.status}`);
+                }
+                
+            } catch (error) {
+                statusDiv.className = 'status error';
+                statusDiv.textContent = `❌ فشل تسجيل الدخول: ${error.message}`;
+                log(`❌ خطأ في تسجيل الدخول: ${error.message}`);
+            }
+        }
+
+        function openFrontend() {
+            window.open('http://localhost:3001', '_blank');
+        }
+
+        function openBackend() {
+            window.open('http://localhost:5000', '_blank');
+        }
+
+        // Auto-test on load
+        window.onload = function() {
+            log('🚀 بدء الاختبارات التلقائية...');
+            testBackend();
+        };
+    </script>
+</body>
+</html>

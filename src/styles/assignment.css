@@ -1,0 +1,1216 @@
+/**
+ * أنماط نظام إسناد المواد
+ * Assignment System Styles
+ */
+
+/* متغيرات الألوان */
+:root {
+  --assignment-primary: #2563eb;
+  --assignment-primary-dark: #1d4ed8;
+  --assignment-secondary: #64748b;
+  --assignment-success: #059669;
+  --assignment-warning: #d97706;
+  --assignment-error: #dc2626;
+  --assignment-info: #0891b2;
+  
+  --assignment-bg: #ffffff;
+  --assignment-bg-alt: #f8fafc;
+  --assignment-bg-soft: #f1f5f9;
+  --assignment-border: #e2e8f0;
+  --assignment-border-strong: #cbd5e1;
+  
+  --assignment-text: #1e293b;
+  --assignment-text-soft: #64748b;
+  --assignment-text-muted: #94a3b8;
+  
+  --assignment-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  --assignment-shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  
+  --assignment-radius: 8px;
+  --assignment-radius-lg: 12px;
+  
+  --assignment-transition: all 0.2s ease-in-out;
+}
+
+/* الحاوي الرئيسي للنظام */
+.assignment-system {
+  font-family: 'Noto Kufi Arabic', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  direction: rtl;
+  text-align: right;
+  background-color: var(--assignment-bg-alt);
+  min-height: 100vh;
+}
+
+/* شريط الإجراءات العلوي */
+.assignment-action-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+  background: var(--assignment-bg);
+  border-bottom: 1px solid var(--assignment-border);
+  box-shadow: var(--assignment-shadow);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.assignment-action-bar h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--assignment-text);
+  margin: 0;
+}
+
+.assignment-action-buttons {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+/* شريط التحديد والفلاتر */
+.assignment-selection-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+  background: var(--assignment-bg);
+  border-bottom: 1px solid var(--assignment-border);
+}
+
+.assignment-filters {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.assignment-search {
+  position: relative;
+  min-width: 300px;
+}
+
+.assignment-search input {
+  width: 100%;
+  padding: 0.5rem 1rem;
+  padding-right: 2.5rem;
+  border: 1px solid var(--assignment-border);
+  border-radius: var(--assignment-radius);
+  font-size: 0.875rem;
+  transition: var(--assignment-transition);
+}
+
+.assignment-search input:focus {
+  outline: none;
+  border-color: var(--assignment-primary);
+  box-shadow: 0 0 0 3px rgb(37 99 235 / 0.1);
+}
+
+.assignment-search-icon {
+  position: absolute;
+  right: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--assignment-text-muted);
+}
+
+/* التخطيط الرئيسي */
+.assignment-layout {
+  display: flex;
+  min-height: calc(100vh - 120px);
+}
+
+/* الشريط الجانبي للمعلمين */
+.assignment-teacher-rail {
+  width: 300px;
+  background: var(--assignment-bg);
+  border-left: 1px solid var(--assignment-border);
+  overflow-y: auto;
+  transition: var(--assignment-transition);
+}
+
+.assignment-teacher-rail.collapsed {
+  width: 60px;
+}
+
+.assignment-teacher-rail-header {
+  padding: 1rem;
+  border-bottom: 1px solid var(--assignment-border);
+  font-weight: 600;
+  color: var(--assignment-text);
+}
+
+.assignment-teacher-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.assignment-teacher-item {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--assignment-border-soft);
+  cursor: pointer;
+  transition: var(--assignment-transition);
+}
+
+.assignment-teacher-item:hover {
+  background: var(--assignment-bg-soft);
+}
+
+.assignment-teacher-item.active {
+  background: var(--assignment-primary);
+  color: white;
+}
+
+.assignment-teacher-item.selected {
+  background: var(--assignment-bg-soft);
+  border-right: 3px solid var(--assignment-primary);
+}
+
+.assignment-teacher-name {
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+}
+
+.assignment-teacher-info {
+  font-size: 0.75rem;
+  color: var(--assignment-text-muted);
+  display: flex;
+  justify-content: space-between;
+}
+
+.assignment-teacher-load {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.assignment-teacher-load-bar {
+  width: 60px;
+  height: 4px;
+  background: var(--assignment-bg-soft);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.assignment-teacher-load-fill {
+  height: 100%;
+  transition: var(--assignment-transition);
+}
+
+.assignment-teacher-load-fill.low {
+  background: var(--assignment-success);
+}
+
+.assignment-teacher-load-fill.medium {
+  background: var(--assignment-warning);
+}
+
+.assignment-teacher-load-fill.high {
+  background: var(--assignment-error);
+}
+
+/* المنطقة الرئيسية - مصفوفة المواد */
+.assignment-main-area {
+  flex: 1;
+  padding: 1.5rem;
+  overflow: auto;
+}
+
+.assignment-subject-matrix {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+/* بطاقة المادة */
+.assignment-subject-card {
+  background: var(--assignment-bg);
+  border: 1px solid var(--assignment-border);
+  border-radius: var(--assignment-radius-lg);
+  overflow: hidden;
+  transition: var(--assignment-transition);
+  box-shadow: var(--assignment-shadow);
+}
+
+.assignment-subject-card:hover {
+  box-shadow: var(--assignment-shadow-lg);
+  transform: translateY(-2px);
+}
+
+.assignment-subject-card-header {
+  padding: 1rem;
+  background: var(--assignment-bg-alt);
+  border-bottom: 1px solid var(--assignment-border);
+}
+
+.assignment-subject-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--assignment-text);
+  margin-bottom: 0.5rem;
+}
+
+.assignment-subject-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.75rem;
+  color: var(--assignment-text-soft);
+}
+
+.assignment-subject-code {
+  background: var(--assignment-primary);
+  color: white;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+.assignment-subject-body {
+  padding: 1rem;
+}
+
+.assignment-classroom-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.assignment-classroom-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem;
+  margin-bottom: 0.5rem;
+  border: 1px solid var(--assignment-border);
+  border-radius: var(--assignment-radius);
+  transition: var(--assignment-transition);
+}
+
+.assignment-classroom-item:hover {
+  background: var(--assignment-bg-soft);
+}
+
+.assignment-classroom-item.assigned {
+  background: var(--assignment-success);
+  color: white;
+  border-color: var(--assignment-success);
+}
+
+.assignment-classroom-name {
+  font-weight: 500;
+}
+
+.assignment-classroom-assignment {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+}
+
+/* منتقي الإسناد المضمن */
+.assignment-inline-picker {
+  position: relative;
+  display: inline-block;
+}
+
+.assignment-picker-button {
+  background: var(--assignment-bg-soft);
+  border: 1px solid var(--assignment-border);
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--assignment-radius);
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: var(--assignment-transition);
+}
+
+.assignment-picker-button:hover {
+  background: var(--assignment-primary);
+  color: white;
+  border-color: var(--assignment-primary);
+}
+
+.assignment-picker-dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  z-index: 20;
+  background: var(--assignment-bg);
+  border: 1px solid var(--assignment-border);
+  border-radius: var(--assignment-radius);
+  box-shadow: var(--assignment-shadow-lg);
+  min-width: 200px;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.assignment-picker-option {
+  padding: 0.5rem 0.75rem;
+  cursor: pointer;
+  transition: var(--assignment-transition);
+  border-bottom: 1px solid var(--assignment-border-soft);
+}
+
+.assignment-picker-option:hover {
+  background: var(--assignment-bg-soft);
+}
+
+.assignment-picker-option:last-child {
+  border-bottom: none;
+}
+
+.assignment-picker-option.selected {
+  background: var(--assignment-primary);
+  color: white;
+}
+
+/* قائمة WhatsApp */
+.assignment-whatsapp-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  z-index: 30;
+  background: var(--assignment-bg);
+  border: 1px solid var(--assignment-border);
+  border-radius: var(--assignment-radius-lg);
+  box-shadow: var(--assignment-shadow-lg);
+  min-width: 300px;
+  padding: 1rem;
+}
+
+.assignment-whatsapp-options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.assignment-whatsapp-option {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  border: 1px solid var(--assignment-border);
+  border-radius: var(--assignment-radius);
+  cursor: pointer;
+  transition: var(--assignment-transition);
+}
+
+.assignment-whatsapp-option:hover {
+  background: var(--assignment-bg-soft);
+}
+
+.assignment-whatsapp-icon {
+  color: #25d366;
+  font-size: 1.5rem;
+}
+
+/* شريط التحميل */
+.assignment-load-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--assignment-bg-soft);
+  z-index: 50;
+}
+
+.assignment-load-bar-fill {
+  height: 100%;
+  background: var(--assignment-primary);
+  transition: width 0.3s ease-in-out;
+}
+
+/* إشعارات Snackbar */
+.assignment-snackbar {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  z-index: 50;
+  background: var(--assignment-bg);
+  border: 1px solid var(--assignment-border);
+  border-radius: var(--assignment-radius-lg);
+  box-shadow: var(--assignment-shadow-lg);
+  padding: 1rem;
+  max-width: 400px;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  animation: slideInRight 0.3s ease-out;
+}
+
+.assignment-snackbar.success {
+  border-color: var(--assignment-success);
+  color: var(--assignment-success);
+}
+
+.assignment-snackbar.error {
+  border-color: var(--assignment-error);
+  color: var(--assignment-error);
+}
+
+.assignment-snackbar.warning {
+  border-color: var(--assignment-warning);
+  color: var(--assignment-warning);
+}
+
+.assignment-snackbar.info {
+  border-color: var(--assignment-info);
+  color: var(--assignment-info);
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* دليل الألوان */
+.assignment-legend {
+  position: fixed;
+  bottom: 1rem;
+  left: 1rem;
+  background: var(--assignment-bg);
+  border: 1px solid var(--assignment-border);
+  border-radius: var(--assignment-radius);
+  padding: 0.75rem;
+  box-shadow: var(--assignment-shadow);
+  font-size: 0.75rem;
+}
+
+.assignment-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.25rem;
+}
+
+.assignment-legend-color {
+  width: 12px;
+  height: 12px;
+  border-radius: 2px;
+}
+
+/* إضافات للمكونات الجديدة */
+
+/* إضافات شريط الإجراءات */
+.assignment-action-bar-title {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.assignment-stats {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.assignment-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 0.75rem;
+}
+
+.assignment-stat-number {
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--assignment-primary);
+}
+
+.assignment-stat-label {
+  color: var(--assignment-text-muted);
+}
+
+.assignment-undo-redo,
+.assignment-view-modes {
+  display: flex;
+  gap: 0.25rem;
+  padding: 0.25rem;
+  background: var(--assignment-bg-soft);
+  border-radius: var(--assignment-radius);
+}
+
+.assignment-btn.active {
+  background: var(--assignment-primary);
+  color: white;
+}
+
+/* إضافات شريط التحديد */
+.assignment-filters-section {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.assignment-quick-filters {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.assignment-filter-select {
+  padding: 0.5rem;
+  border: 1px solid var(--assignment-border);
+  border-radius: var(--assignment-radius);
+  font-size: 0.875rem;
+}
+
+.assignment-selection-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 1rem;
+  border-top: 1px solid var(--assignment-border);
+}
+
+.assignment-selection-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.assignment-active-filters {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--assignment-border);
+}
+
+.assignment-filter-tags {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.assignment-filter-tag {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.25rem 0.5rem;
+  background: var(--assignment-primary);
+  color: white;
+  border-radius: var(--assignment-radius);
+  font-size: 0.75rem;
+}
+
+.assignment-filter-tag-remove {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 0.125rem;
+  border-radius: 50%;
+}
+
+.assignment-advanced-filters {
+  padding-top: 1rem;
+  border-top: 1px solid var(--assignment-border);
+}
+
+.assignment-advanced-filters-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.assignment-filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.assignment-filter-label {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--assignment-text-soft);
+}
+
+/* إضافات شريط المعلمين */
+.assignment-teacher-stats,
+.assignment-teacher-subjects,
+.assignment-teacher-classrooms {
+  margin-bottom: 1rem;
+}
+
+.assignment-teacher-stats {
+  display: flex;
+  justify-content: space-around;
+  padding: 0.75rem;
+  background: var(--assignment-bg-soft);
+  border-radius: var(--assignment-radius);
+}
+
+.assignment-teacher-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.assignment-subject-list,
+.assignment-classroom-list {
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0;
+}
+
+.assignment-subject-item,
+.assignment-classroom-item {
+  padding: 0.25rem 0;
+  font-size: 0.875rem;
+}
+
+.assignment-teacher-detail-actions {
+  display: flex;
+  gap: 0.5rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--assignment-border);
+}
+
+/* إضافات مصفوفة المواد */
+.assignment-matrix-header {
+  margin-bottom: 2rem;
+}
+
+.assignment-matrix-stats {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.assignment-matrix-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.assignment-matrix-warning {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem;
+  background: #fef3c7;
+  color: #92400e;
+  border-radius: var(--assignment-radius);
+}
+
+.assignment-level-section {
+  margin-bottom: 3rem;
+}
+
+.assignment-level-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid var(--assignment-border);
+}
+
+.assignment-level-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--assignment-text);
+  margin: 0;
+}
+
+.assignment-level-stats {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.875rem;
+  color: var(--assignment-text-soft);
+}
+
+.assignment-subjects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 1.5rem;
+}
+
+/* إضافات بطاقة المادة */
+.assignment-subject-progress {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  min-width: 120px;
+}
+
+.assignment-progress-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.75rem;
+}
+
+.assignment-progress-bar {
+  width: 100%;
+  height: 6px;
+  background: var(--assignment-bg-soft);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.assignment-progress-fill {
+  height: 100%;
+  background: var(--assignment-success);
+  transition: var(--assignment-transition);
+}
+
+.assignment-progress-fill.complete {
+  background: var(--assignment-success);
+}
+
+.assignment-progress-fill.over {
+  background: var(--assignment-error);
+}
+
+.assignment-progress-percentage.complete {
+  color: var(--assignment-success);
+  font-weight: 600;
+}
+
+.assignment-progress-percentage.over {
+  color: var(--assignment-error);
+  font-weight: 600;
+}
+
+.assignment-classroom-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.assignment-assigned-info {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+}
+
+.assignment-expand-btn {
+  background: none;
+  border: none;
+  color: var(--assignment-text-muted);
+  cursor: pointer;
+  padding: 0.25rem;
+  border-radius: 50%;
+  transition: var(--assignment-transition);
+}
+
+.assignment-expand-btn:hover {
+  background: var(--assignment-bg-soft);
+  color: var(--assignment-primary);
+}
+
+.assignment-classroom-details {
+  padding: 1rem;
+  background: var(--assignment-bg-alt);
+  border-top: 1px solid var(--assignment-border);
+}
+
+.assignment-assignments-list {
+  margin-bottom: 1rem;
+}
+
+.assignment-detail-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem;
+  background: var(--assignment-bg);
+  border: 1px solid var(--assignment-border);
+  border-radius: var(--assignment-radius);
+  margin-bottom: 0.5rem;
+}
+
+.assignment-detail-actions {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.assignment-action-btn {
+  background: none;
+  border: none;
+  padding: 0.25rem;
+  border-radius: 4px;
+  cursor: pointer;
+  color: var(--assignment-text-muted);
+  transition: var(--assignment-transition);
+}
+
+.assignment-action-btn:hover {
+  background: var(--assignment-bg-soft);
+}
+
+.assignment-action-btn.edit:hover {
+  color: var(--assignment-primary);
+}
+
+.assignment-action-btn.delete:hover {
+  color: var(--assignment-error);
+}
+
+.assignment-subject-summary {
+  padding: 1rem;
+  background: var(--assignment-bg-alt);
+  border-top: 1px solid var(--assignment-border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.assignment-summary-stats {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.75rem;
+  color: var(--assignment-text-soft);
+}
+
+.assignment-summary-stat {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.assignment-subject-actions {
+  display: flex;
+  gap: 0.25rem;
+}
+
+/* إضافات منتقي الإسناد */
+.assignment-picker-dropdown {
+  background: var(--assignment-bg);
+  border: 1px solid var(--assignment-border);
+  border-radius: var(--assignment-radius-lg);
+  box-shadow: var(--assignment-shadow-lg);
+  padding: 1rem;
+  min-width: 300px;
+  max-width: 400px;
+}
+
+.assignment-picker-hours {
+  margin-bottom: 1rem;
+}
+
+.assignment-picker-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  font-size: 0.875rem;
+  color: var(--assignment-text);
+}
+
+.assignment-picker-input {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid var(--assignment-border);
+  border-radius: var(--assignment-radius);
+  font-size: 0.875rem;
+}
+
+.assignment-picker-teachers {
+  margin-bottom: 1rem;
+}
+
+.assignment-picker-options {
+  max-height: 200px;
+  overflow-y: auto;
+  border: 1px solid var(--assignment-border);
+  border-radius: var(--assignment-radius);
+}
+
+.assignment-picker-option {
+  position: relative;
+  padding: 0.75rem;
+  border-bottom: 1px solid var(--assignment-border-soft);
+  cursor: pointer;
+  transition: var(--assignment-transition);
+}
+
+.assignment-picker-option:hover {
+  background: var(--assignment-bg-soft);
+}
+
+.assignment-picker-option.selected {
+  background: var(--assignment-primary);
+  color: white;
+}
+
+.assignment-picker-option.overloaded {
+  background: #fee;
+  border-color: var(--assignment-error);
+}
+
+.assignment-picker-teacher-info {
+  margin-bottom: 0.5rem;
+}
+
+.assignment-picker-teacher-name {
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+}
+
+.assignment-picker-teacher-load {
+  font-size: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+}
+
+.assignment-new-load.overloaded {
+  color: var(--assignment-error);
+  font-weight: 600;
+}
+
+.assignment-picker-load-bar {
+  position: relative;
+  height: 4px;
+  background: var(--assignment-bg-soft);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.assignment-picker-load-fill {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  transition: var(--assignment-transition);
+}
+
+.assignment-picker-load-fill.current {
+  background: var(--assignment-success);
+}
+
+.assignment-picker-load-fill.preview {
+  background: var(--assignment-warning);
+  opacity: 0.7;
+}
+
+.assignment-picker-load-fill.overloaded {
+  background: var(--assignment-error);
+}
+
+.assignment-picker-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--assignment-border);
+}
+
+.assignment-picker-validation {
+  padding: 0.75rem;
+  border-radius: var(--assignment-radius);
+  margin-top: 0.5rem;
+}
+
+.assignment-validation-warning {
+  background: #fef3c7;
+  color: #92400e;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.assignment-validation-info {
+  background: #dbeafe;
+  color: #1e40af;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* الأزرار */
+.assignment-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--assignment-border);
+  border-radius: var(--assignment-radius);
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--assignment-transition);
+  text-decoration: none;
+  background: var(--assignment-bg);
+  color: var(--assignment-text);
+}
+
+.assignment-btn:hover {
+  background: var(--assignment-bg-soft);
+  border-color: var(--assignment-border-strong);
+}
+
+.assignment-btn.primary {
+  background: var(--assignment-primary);
+  color: white;
+  border-color: var(--assignment-primary);
+}
+
+.assignment-btn.primary:hover {
+  background: var(--assignment-primary-dark);
+}
+
+.assignment-btn.success {
+  background: var(--assignment-success);
+  color: white;
+  border-color: var(--assignment-success);
+}
+
+.assignment-btn.warning {
+  background: var(--assignment-warning);
+  color: white;
+  border-color: var(--assignment-warning);
+}
+
+.assignment-btn.error {
+  background: var(--assignment-error);
+  color: white;
+  border-color: var(--assignment-error);
+}
+
+.assignment-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.assignment-btn-sm {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.75rem;
+}
+
+.assignment-btn-lg {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+}
+
+/* أنماط الطباعة */
+@media print {
+  .assignment-system {
+    background: white !important;
+  }
+  
+  .assignment-action-bar,
+  .assignment-selection-bar,
+  .assignment-teacher-rail,
+  .assignment-whatsapp-menu,
+  .assignment-snackbar,
+  .assignment-legend {
+    display: none !important;
+  }
+  
+  .assignment-main-area {
+    padding: 0 !important;
+  }
+  
+  .assignment-subject-matrix {
+    display: block !important;
+  }
+  
+  .assignment-subject-card {
+    break-inside: avoid;
+    margin-bottom: 1rem;
+    box-shadow: none !important;
+    border: 1px solid #000 !important;
+  }
+  
+  .assignment-subject-card-header {
+    background: #f5f5f5 !important;
+  }
+  
+  .assignment-subject-title {
+    font-size: 14pt !important;
+    font-weight: bold !important;
+  }
+  
+  .assignment-classroom-item {
+    font-size: 12pt !important;
+  }
+}
+
+/* الاستجابة للشاشات الصغيرة */
+@media (max-width: 768px) {
+  .assignment-layout {
+    flex-direction: column;
+  }
+  
+  .assignment-teacher-rail {
+    width: 100%;
+    max-height: 200px;
+    order: 2;
+  }
+  
+  .assignment-main-area {
+    order: 1;
+  }
+  
+  .assignment-subject-matrix {
+    grid-template-columns: 1fr;
+  }
+  
+  .assignment-action-bar {
+    padding: 0.75rem;
+  }
+  
+  .assignment-action-bar h1 {
+    font-size: 1.25rem;
+  }
+  
+  .assignment-action-buttons {
+    gap: 0.5rem;
+  }
+  
+  .assignment-btn {
+    padding: 0.5rem;
+    font-size: 0.75rem;
+  }
+  
+  .assignment-search {
+    min-width: 200px;
+  }
+  
+  .assignment-whatsapp-menu {
+    right: -100px;
+    left: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .assignment-action-bar {
+    flex-direction: column;
+    gap: 0.75rem;
+    align-items: stretch;
+  }
+  
+  .assignment-action-buttons {
+    justify-content: center;
+  }
+  
+  .assignment-selection-bar {
+    flex-direction: column;
+    gap: 0.75rem;
+    align-items: stretch;
+  }
+  
+  .assignment-filters {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .assignment-search {
+    min-width: auto;
+    width: 100%;
+  }
+}

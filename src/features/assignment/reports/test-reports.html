@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اختبار تقارير الطباعة</title>
+    <link rel="stylesheet" href="print.css">
+    <style>
+        body {
+            font-family: 'Noto Kufi Arabic', Arial, sans-serif;
+            direction: rtl;
+            text-align: right;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .test-section {
+            margin-bottom: 30px;
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <h1>اختبار تقارير الطباعة RTL</h1>
+    
+    <div class="test-section">
+        <h2>اختبار رأس التقرير</h2>
+        <div class="assignment-report-header">
+            <div class="assignment-report-school-info">
+                <div class="assignment-school-name">مدرسة الاختبار الابتدائية</div>
+                <div class="assignment-report-date">تاريخ التقرير: الأحد، 23 أكتوبر 2025</div>
+                <div class="assignment-report-scope">نطاق التقرير: معلم واحد (أحمد محمد)</div>
+            </div>
+            
+            <div class="assignment-report-title-section">
+                <h1 class="assignment-report-title">تقرير إسناد المواد - المعلم</h1>
+                <div class="assignment-report-subtitle">
+                    تقرير شامل عن إسناد المواد للمعلم: أحمد محمد
+                </div>
+            </div>
+            
+            <div class="assignment-report-actions no-print">
+                <button class="assignment-btn assignment-btn-sm">طباعة</button>
+                <button class="assignment-btn assignment-btn-sm info">CSV</button>
+                <button class="assignment-btn assignment-btn-sm primary">تنزيل PDF</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h2>اختبار جدول البيانات</h2>
+        <div class="assignment-assignments-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>المادة</th>
+                        <th>الفصل</th>
+                        <th>الحصص/أسبوع</th>
+                        <th>الفصل الدراسي</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>الرياضيات</td>
+                        <td>الخامس أ</td>
+                        <td>6</td>
+                        <td>الفصل الأول</td>
+                    </tr>
+                    <tr>
+                        <td>العلوم</td>
+                        <td>السادس ب</td>
+                        <td>4</td>
+                        <td>العام الكامل</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h2>اختبار إحصائيات البطاقات</h2>
+        <div class="assignment-workload-stats">
+            <div class="assignment-workload-card">
+                <div class="assignment-workload-number">18</div>
+                <div class="assignment-workload-label">الحصص الحالية</div>
+            </div>
+            <div class="assignment-workload-card">
+                <div class="assignment-workload-number">75%</div>
+                <div class="assignment-workload-label">نسبة الحمل</div>
+            </div>
+            <div class="assignment-workload-card">
+                <div class="assignment-workload-number">6</div>
+                <div class="assignment-workload-label">الحصص المتبقية</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // اختبار وظيفة الطباعة
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('تم تحميل صفحة اختبار التقارير');
+            
+            // إضافة مستمع للطباعة
+            document.addEventListener('keydown', function(e) {
+                if (e.ctrlKey && e.key === 'p') {
+                    e.preventDefault();
+                    window.print();
+                }
+            });
+        });
+    </script>
+</body>
+</html>

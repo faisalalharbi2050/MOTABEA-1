@@ -1,0 +1,112 @@
+/* تحسينات للقائمة الجانبية المتجاوبة */
+
+/* تأثير الحركة للقائمة الجانبية */
+.sidebar-transition {
+  transition: width 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+/* تأثير الظهور والاختفاء للأجهزة المحمولة */
+.mobile-sidebar-overlay {
+  transition: opacity 0.3s ease-in-out;
+}
+
+.mobile-sidebar-panel {
+  transform: translateX(0);
+  transition: transform 0.3s ease-in-out;
+}
+
+.mobile-sidebar-panel.closing {
+  transform: translateX(100%);
+}
+
+/* تحسين عرض النصوص في الحالة المطوية */
+.sidebar-collapsed .sidebar-text {
+  display: none;
+}
+
+.sidebar-collapsed .sidebar-icon {
+  margin: 0 auto;
+}
+
+/* تحسين التمرير */
+.sidebar-nav::-webkit-scrollbar {
+  width: 4px;
+}
+
+.sidebar-nav::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+.sidebar-nav::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 2px;
+}
+
+.sidebar-nav::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* تحسين الأيقونات */
+.sidebar-icon {
+  flex-shrink: 0;
+}
+
+/* تحسين الاستجابة للأجهزة */
+@media (max-width: 768px) {
+  .mobile-sidebar-overlay {
+    backdrop-filter: blur(2px);
+  }
+}
+
+/* تحسين التباعد في القوائم الفرعية */
+.submenu-item {
+  border-right: 2px solid transparent;
+  transition: all 0.2s ease-in-out;
+}
+
+.submenu-item.active {
+  border-right-color: #4f46e5;
+  background-color: #eef2ff;
+}
+
+/* تأثير التمرير على العناصر */
+.menu-item {
+  position: relative;
+  overflow: hidden;
+}
+
+.menu-item::before {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 4px;
+  background: #4f46e5;
+  transform: scaleY(0);
+  transition: transform 0.2s ease-in-out;
+}
+
+.menu-item.active::before {
+  transform: scaleY(1);
+}
+
+/* تحسين عرض الـ tooltips في الحالة المطوية */
+.tooltip {
+  z-index: 1000;
+}
+
+/* تحسينات شارة "قريباً" */
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 2px 8px rgba(251, 191, 36, 0.4);
+  }
+  50% {
+    box-shadow: 0 4px 16px rgba(251, 191, 36, 0.6), 0 0 20px rgba(251, 146, 60, 0.4);
+  }
+}
+
+.animate-pulse {
+  animation: glow 2s ease-in-out infinite;
+}
+

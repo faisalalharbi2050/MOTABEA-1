@@ -1,0 +1,462 @@
+/**
+ * أنماط الطباعة للتقارير
+ * Print Styles for Reports
+ */
+
+@media print {
+  /* إعدادات الصفحة A4 مع هوامش 15-20mm */
+  @page {
+    margin: 20mm 15mm 20mm 15mm;
+    size: A4 portrait;
+  }
+  
+  /* دعم الاتجاه RTL */
+  html, body {
+    direction: rtl !important;
+    text-align: right !important;
+  }
+  
+  * {
+    -webkit-print-color-adjust: exact !important;
+    color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* إخفاء العناصر غير المطلوبة في الطباعة */
+  .assignment-report-actions,
+  .assignment-breadcrumb-link,
+  .no-print,
+  button,
+  .assignment-btn,
+  [onclick] {
+    display: none !important;
+  }
+
+  /* تخطيط التقرير */
+  .assignment-teacher-report,
+  .assignment-plan-report {
+    background: white !important;
+    color: black !important;
+    font-family: 'Noto Kufi Arabic', Arial, sans-serif;
+    font-size: 12pt !important;
+    line-height: 1.4 !important;
+  }
+
+  /* رأس التقرير */
+  .assignment-report-header {
+    border-bottom: 2px solid #000 !important;
+    margin-bottom: 20pt !important;
+    padding-bottom: 10pt !important;
+  }
+
+  .assignment-report-title {
+    font-size: 18pt !important;
+    font-weight: bold !important;
+    text-align: center !important;
+    margin: 0 0 10pt 0 !important;
+  }
+
+  .assignment-report-subtitle {
+    font-size: 14pt !important;
+    text-align: center !important;
+    margin-bottom: 10pt !important;
+  }
+
+  /* معلومات المدرسة والتاريخ */
+  .assignment-report-school-info {
+    text-align: center !important;
+    margin-bottom: 15pt !important;
+    border-bottom: 1px solid #ccc !important;
+    padding-bottom: 10pt !important;
+  }
+
+  .assignment-school-name {
+    font-size: 16pt !important;
+    font-weight: bold !important;
+    margin-bottom: 5pt !important;
+  }
+
+  .assignment-report-date,
+  .assignment-report-scope {
+    font-size: 11pt !important;
+    margin-bottom: 3pt !important;
+    color: #666 !important;
+  }
+
+  /* أقسام التقرير */
+  .assignment-report-section {
+    page-break-inside: avoid;
+    margin-bottom: 20pt !important;
+  }
+
+  .assignment-section-title {
+    font-size: 14pt !important;
+    font-weight: bold !important;
+    border-bottom: 1px solid #333 !important;
+    padding-bottom: 5pt !important;
+    margin-bottom: 10pt !important;
+  }
+
+  /* الجداول */
+  .assignment-assignments-table table,
+  .assignment-teachers-table table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+    margin-bottom: 10pt !important;
+    font-size: 10pt !important;
+  }
+
+  .assignment-assignments-table th,
+  .assignment-assignments-table td,
+  .assignment-teachers-table th,
+  .assignment-teachers-table td {
+    border: 1px solid #333 !important;
+    padding: 8pt !important;
+    text-align: right !important;
+    vertical-align: top !important;
+  }
+
+  .assignment-assignments-table th,
+  .assignment-teachers-table th {
+    background-color: #f0f0f0 !important;
+    font-weight: bold !important;
+  }
+
+  /* البطاقات والإحصائيات */
+  .assignment-workload-stats,
+  .assignment-summary-grid {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    margin-bottom: 15pt !important;
+  }
+
+  .assignment-workload-card,
+  .assignment-summary-card {
+    border: 1px solid #333 !important;
+    padding: 10pt !important;
+    margin: 5pt !important;
+    text-align: center !important;
+    min-width: 80pt !important;
+  }
+
+  .assignment-workload-number,
+  .assignment-summary-number {
+    font-size: 16pt !important;
+    font-weight: bold !important;
+  }
+
+  .assignment-workload-label,
+  .assignment-summary-label {
+    font-size: 10pt !important;
+    margin-top: 5pt !important;
+  }
+
+  /* معلومات المعلم */
+  .assignment-teacher-info-grid {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 10pt !important;
+    margin-bottom: 15pt !important;
+  }
+
+  .assignment-info-item {
+    display: flex !important;
+    margin-bottom: 5pt !important;
+  }
+
+  .assignment-info-label {
+    font-weight: bold !important;
+    min-width: 100pt !important;
+    margin-left: 10pt !important;
+  }
+
+  .assignment-info-value {
+    flex: 1 !important;
+  }
+
+  /* شريط التقدم */
+  .assignment-workload-progress {
+    margin: 15pt 0 !important;
+  }
+
+  .assignment-workload-bar {
+    width: 100% !important;
+    height: 20pt !important;
+    border: 1px solid #333 !important;
+    position: relative !important;
+    background: white !important;
+  }
+
+  .assignment-workload-fill {
+    height: 100% !important;
+    background: #666 !important;
+  }
+
+  .assignment-workload-fill.high {
+    background: #000 !important;
+  }
+
+  .assignment-workload-fill.medium {
+    background: #666 !important;
+  }
+
+  .assignment-workload-fill.low {
+    background: #999 !important;
+  }
+
+  .assignment-workload-labels {
+    display: flex !important;
+    justify-content: space-between !important;
+    margin-top: 5pt !important;
+    font-size: 10pt !important;
+  }
+
+  /* التوزيع */
+  .assignment-distribution-grid {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 15pt !important;
+    margin-bottom: 15pt !important;
+  }
+
+  .assignment-distribution-card {
+    border: 1px solid #333 !important;
+    padding: 10pt !important;
+  }
+
+  .assignment-distribution-card h3 {
+    font-size: 12pt !important;
+    font-weight: bold !important;
+    margin-bottom: 10pt !important;
+    text-align: center !important;
+  }
+
+  .assignment-distribution-item {
+    display: flex !important;
+    justify-content: space-between !important;
+    margin-bottom: 8pt !important;
+    font-size: 10pt !important;
+  }
+
+  .assignment-distribution-bar {
+    width: 50pt !important;
+    height: 8pt !important;
+    background: #f0f0f0 !important;
+    border: 1px solid #333 !important;
+    position: relative !important;
+  }
+
+  .assignment-distribution-fill {
+    height: 100% !important;
+    background: #666 !important;
+  }
+
+  /* إحصائيات المستوى */
+  .assignment-level-stats {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 10pt !important;
+    margin-bottom: 15pt !important;
+  }
+
+  .assignment-level-stat-card {
+    border: 1px solid #333 !important;
+    padding: 10pt !important;
+    text-align: center !important;
+  }
+
+  .assignment-level-stat-title {
+    font-size: 11pt !important;
+    font-weight: bold !important;
+    margin-bottom: 8pt !important;
+  }
+
+  .assignment-level-stat-grid {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 5pt !important;
+  }
+
+  .assignment-level-stat-item {
+    text-align: center !important;
+  }
+
+  .assignment-stat-number {
+    font-size: 14pt !important;
+    font-weight: bold !important;
+    display: block !important;
+  }
+
+  .assignment-stat-label {
+    font-size: 9pt !important;
+    color: #666 !important;
+  }
+
+  /* المشاكل والتحديات */
+  .assignment-issues-grid {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 10pt !important;
+  }
+
+  .assignment-issue-card {
+    border: 1px solid #333 !important;
+    padding: 10pt !important;
+    page-break-inside: avoid !important;
+  }
+
+  .assignment-issue-title {
+    font-size: 11pt !important;
+    font-weight: bold !important;
+    margin-bottom: 8pt !important;
+  }
+
+  .assignment-issue-list {
+    list-style-type: disc !important;
+    margin-right: 20pt !important;
+    font-size: 10pt !important;
+  }
+
+  .assignment-issue-list li {
+    margin-bottom: 3pt !important;
+  }
+
+  /* التوصيات */
+  .assignment-recommendations-list {
+    list-style-type: disc !important;
+    margin-right: 20pt !important;
+  }
+
+  .assignment-recommendations-list li {
+    margin-bottom: 8pt !important;
+    font-size: 11pt !important;
+  }
+
+  /* الحالة الفارغة */
+  .assignment-empty-state {
+    text-align: center !important;
+    padding: 20pt !important;
+    border: 1px dashed #666 !important;
+  }
+
+  .assignment-empty-title {
+    font-size: 12pt !important;
+    font-weight: bold !important;
+    margin-bottom: 8pt !important;
+  }
+
+  .assignment-empty-text {
+    font-size: 10pt !important;
+    color: #666 !important;
+  }
+
+  /* تذييل التقرير */
+  .assignment-report-footer {
+    border-top: 1px solid #333 !important;
+    padding-top: 10pt !important;
+    margin-top: 30pt !important;
+  }
+
+  .assignment-report-meta {
+    font-size: 9pt !important;
+    color: #666 !important;
+    text-align: center !important;
+  }
+
+  .assignment-report-meta p {
+    margin: 3pt 0 !important;
+  }
+
+  /* كسر الصفحات */
+  .assignment-report-section:not(:first-child) {
+    page-break-before: auto !important;
+  }
+
+  .assignment-level-section {
+    page-break-inside: avoid !important;
+  }
+
+  /* الألوان للطباعة */
+  .assignment-status.active,
+  .text-success {
+    background: #e8f5e8 !important;
+    color: #2d5a2d !important;
+  }
+
+  .assignment-status.pending,
+  .text-warning {
+    background: #fff8e1 !important;
+    color: #8f6f00 !important;
+  }
+
+  .assignment-status.inactive,
+  .text-danger {
+    background: #ffeaea !important;
+    color: #8b1818 !important;
+  }
+
+  .text-info {
+    background: #e3f2fd !important;
+    color: #1565c0 !important;
+  }
+
+  /* إخفاء الأيقونات في الطباعة */
+  .fas, .fab {
+    display: none !important;
+  }
+
+  /* تحسين المظهر العام */
+  h1, h2, h3, h4, h5, h6 {
+    color: #000 !important;
+  }
+
+  .assignment-subject-cell,
+  .assignment-classroom-cell {
+    font-size: 10pt !important;
+  }
+
+  .assignment-subject-name,
+  .assignment-classroom-name {
+    font-weight: bold !important;
+  }
+
+  .assignment-subject-code,
+  .assignment-classroom-details {
+    font-size: 9pt !important;
+    color: #666 !important;
+  }
+
+  /* تحسين التباعد */
+  .assignment-teacher-details,
+  .assignment-additional-info {
+    margin-top: 15pt !important;
+  }
+
+  /* ضمان عدم كسر العناصر المهمة */
+  .assignment-workload-card,
+  .assignment-summary-card,
+  .assignment-level-stat-card,
+  .assignment-distribution-card {
+    page-break-inside: avoid !important;
+  }
+}
+
+/* أنماط خاصة للطباعة بالأبيض والأسود */
+@media print and (monochrome) {
+  .assignment-workload-fill,
+  .assignment-distribution-fill {
+    background: #333 !important;
+  }
+  
+  .assignment-workload-fill.high {
+    background: #000 !important;
+  }
+  
+  .assignment-workload-fill.medium {
+    background: #666 !important;
+  }
+  
+  .assignment-workload-fill.low {
+    background: #999 !important;
+  }
+}

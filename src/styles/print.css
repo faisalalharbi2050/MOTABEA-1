@@ -1,0 +1,178 @@
+/* أنماط خاصة بالطباعة لنظام MOTABEA */
+
+@media print {
+  /* إعدادات الصفحة الأساسية */
+  @page {
+    size: A4 portrait;
+    margin: 1.5cm;
+  }
+
+  /* إخفاء جميع العناصر غير الضرورية */
+  body > *:not(#root) {
+    display: none !important;
+  }
+
+  /* إخفاء عناصر الواجهة */
+  header,
+  nav,
+  button:not(.print-visible),
+  .sidebar,
+  .navigation,
+  .dialog,
+  .sheet,
+  .modal,
+  .tooltip,
+  .dropdown,
+  input,
+  select,
+  textarea,
+  .card:not(.print-visible),
+  .no-print {
+    display: none !important;
+    visibility: hidden !important;
+  }
+
+  /* إظهار المحتوى المخصص للطباعة فقط */
+  .print\:block {
+    display: block !important;
+    visibility: visible !important;
+  }
+
+  .print\:inline {
+    display: inline !important;
+  }
+
+  .print\:inline-block {
+    display: inline-block !important;
+  }
+
+  /* إخفاء المحتوى المخفي عن الطباعة */
+  .print\:hidden {
+    display: none !important;
+  }
+
+  /* إعدادات الخلفية والألوان */
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color-adjust: exact !important;
+  }
+
+  body {
+    background: white !important;
+    color: black !important;
+    font-family: 'Noto Kufi Arabic', sans-serif;
+    font-size: 12pt;
+    line-height: 1.5;
+  }
+
+  /* إعدادات الجداول */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    page-break-inside: avoid;
+    border: 2px solid black !important;
+  }
+
+  thead {
+    display: table-header-group;
+  }
+
+  tbody {
+    display: table-row-group;
+  }
+
+  tr {
+    page-break-inside: avoid;
+    page-break-after: auto;
+  }
+
+  th,
+  td {
+    border: 1px solid black !important;
+    padding: 8px !important;
+    text-align: center !important;
+  }
+
+  th {
+    background-color: #dbeafe !important;
+    font-weight: bold !important;
+  }
+
+  /* عدم كسر العناصر المهمة */
+  .page-break-inside-avoid {
+    page-break-inside: avoid;
+  }
+
+  /* إزالة الظلال والتأثيرات */
+  * {
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  /* تحسين النصوص */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    page-break-after: avoid;
+    font-weight: bold;
+    color: black !important;
+  }
+
+  p {
+    orphans: 3;
+    widows: 3;
+  }
+
+  /* الاتجاه من اليمين لليسار */
+  [dir="rtl"],
+  [dir="rtl"] * {
+    direction: rtl !important;
+    text-align: right !important;
+  }
+
+  /* إعدادات الروابط */
+  a {
+    text-decoration: none !important;
+    color: black !important;
+  }
+
+  /* إخفاء الأيقونات والصور الزخرفية */
+  svg:not(.print-visible),
+  img:not(.print-visible) {
+    display: none !important;
+  }
+
+  /* تنسيق خاص للتواقيع */
+  .signature-section {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+    page-break-inside: avoid;
+  }
+
+  /* تنسيق النص التمهيدي */
+  .intro-text {
+    background-color: #eff6ff !important;
+    border: 2px solid #bfdbfe !important;
+    padding: 12px !important;
+    margin-bottom: 16px !important;
+    border-radius: 8px !important;
+  }
+
+  /* ضمان ظهور المحتوى الكامل */
+  #root {
+    display: block !important;
+    visibility: visible !important;
+  }
+
+  /* إزالة التحولات والتأثيرات الحركية */
+  * {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+  }
+}

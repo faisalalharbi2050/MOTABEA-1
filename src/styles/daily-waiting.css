@@ -1,0 +1,408 @@
+/* تحسينات CSS لصفحة الانتظار اليومي */
+
+/* الخلفية المتدرجة الرئيسية */
+.daily-waiting-background {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+}
+
+/* بطاقات مع تأثيرات الظل والحركة */
+.waiting-card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.waiting-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* أزرار التدرج */
+.gradient-button {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: none;
+  border-radius: 12px;
+  color: white;
+  font-weight: 600;
+  padding: 12px 24px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.gradient-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.gradient-button:hover::before {
+  left: 100%;
+}
+
+.gradient-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+}
+
+/* إحصائيات الكروت */
+.stats-card {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  border-radius: 16px;
+  padding: 24px;
+  color: white;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.stats-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+  animation: rotate 20s linear infinite;
+}
+
+@keyframes rotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.stats-card .stats-content {
+  position: relative;
+  z-index: 1;
+}
+
+/* جدول الإسنادات */
+.assignments-table {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.assignments-table th {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  font-weight: 600;
+  padding: 16px;
+  text-align: center;
+}
+
+.assignments-table td {
+  padding: 14px;
+  border-bottom: 1px solid #e5e7eb;
+  vertical-align: middle;
+}
+
+.assignments-table tr:hover {
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+}
+
+/* التبويبات */
+.tabs-container {
+  background: white;
+  border-radius: 16px;
+  padding: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.tab-trigger {
+  border-radius: 12px;
+  padding: 12px 20px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.tab-trigger[data-state="active"] {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+/* نمط الـ RTL */
+[dir="rtl"] .daily-waiting-container {
+  text-align: right;
+  font-family: 'Cairo', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* أيقونات التحذير والنجاح */
+.warning-icon {
+  color: #f59e0b;
+  animation: pulse 2s infinite;
+}
+
+.success-icon {
+  color: #10b981;
+  animation: checkmark 0.5s ease-in-out;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+@keyframes checkmark {
+  0% { transform: scale(0.8); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+/* شريط التقدم للمعلمين */
+.progress-bar {
+  background: #e5e7eb;
+  border-radius: 8px;
+  height: 8px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  height: 100%;
+  transition: width 0.5s ease;
+  border-radius: 8px;
+}
+
+/* تأثيرات التحميل */
+.loading-spinner {
+  border: 3px solid rgba(102, 126, 234, 0.2);
+  border-top: 3px solid #667eea;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* نموذج تسجيل الغياب */
+.absence-form {
+  background: linear-gradient(135deg, #fef7ff 0%, #f3e8ff 100%);
+  border-radius: 16px;
+  padding: 24px;
+}
+
+/* نظام الإشعارات */
+.notification-item {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 12px;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.notification-item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 4px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 2px;
+}
+
+.notification-item:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transform: translateX(4px);
+}
+
+/* التقارير */
+.report-table {
+  border-collapse: separate;
+  border-spacing: 0;
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.report-table th {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  font-weight: 600;
+  padding: 16px;
+  text-align: center;
+}
+
+.report-table td {
+  background: white;
+  padding: 12px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.report-table tr:nth-child(even) td {
+  background: #f8fafc;
+}
+
+/* معاينة PDF */
+.pdf-preview {
+  background: white;
+  border-radius: 12px;
+  padding: 32px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.pdf-preview h1, .pdf-preview h2 {
+  color: #1f2937;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+/* تحسينات الاستجابة */
+@media (max-width: 768px) {
+  .daily-waiting-container {
+    padding: 16px;
+  }
+  
+  .gradient-button {
+    padding: 10px 16px;
+    font-size: 14px;
+  }
+  
+  .stats-card {
+    padding: 16px;
+  }
+  
+  .assignments-table th,
+  .assignments-table td {
+    padding: 8px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .tab-trigger {
+    padding: 8px 12px;
+    font-size: 12px;
+  }
+  
+  .waiting-card {
+    border-radius: 12px;
+  }
+}
+
+/* تأثيرات الانتقال السلس */
+.fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.slide-in-right {
+  animation: slideInRight 0.5s ease-in-out;
+}
+
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+/* أنماط متقدمة للبيانات الفارغة */
+.empty-state {
+  text-align: center;
+  padding: 48px 24px;
+  color: #6b7280;
+}
+
+.empty-state-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 24px;
+  opacity: 0.5;
+}
+
+/* تحسينات إضافية للطباعة */
+@media print {
+  /* إخفاء كل العناصر غير المطلوبة للطباعة */
+  .print\\:hidden,
+  .no-print,
+  header,
+  nav,
+  button,
+  .dialog,
+  .sheet {
+    display: none !important;
+  }
+  
+  /* إظهار قسم الطباعة فقط */
+  .print\\:block {
+    display: block !important;
+  }
+  
+  /* تأكد من أن الخلفية البيضاء واضحة */
+  body {
+    background: white !important;
+  }
+  
+  /* إزالة الظلال والتأثيرات للطباعة */
+  .pdf-preview,
+  .assignments-table {
+    box-shadow: none !important;
+    padding: 0;
+  }
+  
+  /* تحسين مظهر الجداول عند الطباعة */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    page-break-inside: auto;
+  }
+  
+  tr {
+    page-break-inside: avoid;
+    page-break-after: auto;
+  }
+  
+  thead {
+    display: table-header-group;
+  }
+  
+  /* التأكد من ظهور الحدود */
+  table, th, td {
+    border: 1px solid #000 !important;
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+  
+  /* تحسين النص للطباعة */
+  * {
+    color: black !important;
+    background: white !important;
+  }
+  
+  /* الاستثناءات للألوان المهمة */
+  .bg-blue-50, .bg-blue-100 {
+    background-color: #eff6ff !important;
+  }
+  
+  /* تأكد من اتجاه النص من اليمين لليسار */
+  [dir="rtl"] {
+    direction: rtl !important;
+    text-align: right !important;
+  }
+}

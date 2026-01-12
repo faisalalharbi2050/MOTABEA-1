@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تشخيص مشكلة زر إعداد الحصص</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 20px;
+            background-color: #f5f5f5;
+            direction: rtl;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .debug-step {
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid #e0e0e0;
+            border-radius: 6px;
+            background: #fafafa;
+        }
+        .debug-step h3 {
+            color: #dc2626;
+            margin-top: 0;
+        }
+        .code {
+            background: #f3f4f6;
+            border: 1px solid #d1d5db;
+            border-radius: 4px;
+            padding: 10px;
+            font-family: 'Courier New', monospace;
+            margin: 10px 0;
+        }
+        .alert {
+            background: #fef3c7;
+            border: 1px solid #f59e0b;
+            border-radius: 6px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔍 تشخيص مشكلة عدم ظهور زر إعداد الحصص</h1>
+        
+        <div class="alert">
+            <strong>⚠️ المشكلة:</strong> يظهر زر "إعداد المواد" و"حذف" لكن لا يظهر زر "إعداد الحصص"
+        </div>
+
+        <div class="debug-step">
+            <h3>الخطوة 1: فتح أدوات المطور</h3>
+            <p>اضغط <code>F12</code> أو <code>Ctrl+Shift+I</code> لفتح Developer Tools</p>
+            <div class="code">F12 → Console</div>
+        </div>
+
+        <div class="debug-step">
+            <h3>الخطوة 2: تحقق من رسائل وحدة التحكم</h3>
+            <p>ابحث عن أي أخطاء باللون الأحمر في وحدة التحكم</p>
+            <p>عند النقر على زر "إعداد الحصص" يجب أن ترى رسالة:</p>
+            <div class="code">"تم النقر على زر إعداد الحصص للفصل: [اسم الفصل]"</div>
+        </div>
+
+        <div class="debug-step">
+            <h3>الخطوة 3: فحص عنصر الزر</h3>
+            <p>انقر بزر الماوس الأيمن على منطقة الأزرار واختر "فحص العنصر"</p>
+            <p>ابحث عن زر يحتوي على:</p>
+            <div class="code">
+                &lt;Button&gt;<br>
+                &nbsp;&nbsp;&lt;Clock className="h-4 w-4" /&gt;<br>
+                &nbsp;&nbsp;"إعداد الحصص"<br>
+                &lt;/Button&gt;
+            </div>
+        </div>
+
+        <div class="debug-step">
+            <h3>الخطوة 4: تحقق من CSS</h3>
+            <p>قد يكون الزر موجود لكنه مخفي بسبب CSS</p>
+            <p>في Developer Tools، ابحث عن عنصر الزر وتحقق من:</p>
+            <div class="code">
+                display: none;<br>
+                visibility: hidden;<br>
+                opacity: 0;
+            </div>
+        </div>
+
+        <div class="debug-step">
+            <h3>الخطوة 5: تحقق من ترتيب الأزرار</h3>
+            <p>الترتيب المفروض أن يكون:</p>
+            <ol>
+                <li>🕒 <strong>إعداد الحصص</strong> (أزرق)</li>
+                <li>⚙️ <strong>إعداد المواد</strong> (أخضر)</li>
+                <li>🗑️ <strong>حذف</strong> (أحمر)</li>
+            </ol>
+        </div>
+
+        <div class="debug-step">
+            <h3>الخطوة 6: تحقق من حجم الشاشة</h3>
+            <p>قد يكون الزر مخفي بسبب حجم الشاشة الصغير</p>
+            <div class="code">
+                .hidden sm:inline → يخفي النص على الشاشات الصغيرة<br>
+                .sm:hidden → يخفي النص على الشاشات الكبيرة
+            </div>
+        </div>
+
+        <div class="debug-step">
+            <h3>إجراءات الإصلاح السريع:</h3>
+            <ol>
+                <li><strong>إعادة تحميل الصفحة:</strong> Ctrl + F5</li>
+                <li><strong>مسح التخزين المؤقت:</strong> Ctrl + Shift + Delete</li>
+                <li><strong>إعادة تشغيل الخادم:</strong> أوقف npm run dev وشغله مرة أخرى</li>
+                <li><strong>تكبير الصفحة:</strong> Ctrl + Plus لتكبير الصفحة</li>
+            </ol>
+        </div>
+
+        <div class="alert">
+            <strong>💡 ملاحظة:</strong> تم إضافة رسالة تشخيصية صفراء أعلى كل فصل تظهر عدد الأزرار المفروض ظهورها
+        </div>
+
+        <div class="debug-step">
+            <h3>خطوات التشخيص المتقدم:</h3>
+            <p>إذا لم تحل المشكلة، اتبع هذه الخطوات:</p>
+            <div class="code">
+// في وحدة التحكم، اكتب هذا الكود لعدّ الأزرار:<br>
+document.querySelectorAll('button').length<br><br>
+// للبحث عن زر إعداد الحصص:<br>
+document.querySelector('button[title*="إعداد جدول الحصص"]')<br><br>
+// للبحث عن أيقونة الساعة:<br>
+document.querySelector('svg.lucide-clock')
+            </div>
+        </div>
+
+        <div style="background: #dcfce7; border: 1px solid #16a34a; border-radius: 6px; padding: 15px; margin: 15px 0;">
+            <strong>✅ التأكيد النهائي:</strong>
+            <p>إذا كانت جميع الخطوات صحيحة ولا يزال الزر لا يظهر، فهناك مشكلة في التصيير. تحقق من:</p>
+            <ul>
+                <li>إصدار React في package.json</li>
+                <li>إصدار المكونات في node_modules</li>
+                <li>تضارب في ملفات CSS</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        // إضافة تشخيص تلقائي للأزرار
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(() => {
+                const buttons = document.querySelectorAll('button');
+                const scheduleButtons = document.querySelectorAll('button[title*="إعداد جدول الحصص"]');
+                const clockIcons = document.querySelectorAll('svg.lucide-clock');
+                
+                console.log('📊 تشخيص الأزرار:');
+                console.log('إجمالي الأزرار:', buttons.length);
+                console.log('أزرار إعداد الحصص:', scheduleButtons.length);
+                console.log('أيقونات الساعة:', clockIcons.length);
+                
+                if (scheduleButtons.length === 0) {
+                    console.error('❌ لا توجد أزرار إعداد الحصص!');
+                } else {
+                    console.log('✅ تم العثور على أزرار إعداد الحصص');
+                }
+            }, 2000);
+        });
+    </script>
+</body>
+</html>

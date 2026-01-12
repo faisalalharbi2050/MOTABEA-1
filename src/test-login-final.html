@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اختبار تسجيل الدخول - MOTABEA</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            width: 100%;
+            max-width: 400px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+            font-weight: bold;
+        }
+        input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+        input:focus {
+            border-color: #667eea;
+            outline: none;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background: #5a6fd8;
+        }
+        button:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 5px;
+            display: none;
+        }
+        .success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        .demo-accounts {
+            margin-top: 30px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 5px;
+        }
+        .demo-accounts h3 {
+            margin-top: 0;
+            color: #495057;
+        }
+        .demo-account {
+            margin: 10px 0;
+            padding: 10px;
+            background: white;
+            border-radius: 3px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .demo-account:hover {
+            background: #e9ecef;
+        }
+        .server-status {
+            text-align: center;
+            margin-bottom: 20px;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .status-online {
+            background: #d1f2eb;
+            color: #0c5460;
+        }
+        .status-offline {
+            background: #f8d7da;
+            color: #721c24;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🏫 اختبار نظام MOTABEA</h1>
+        
+        <div id="serverStatus" class="server-status">
+            <span id="statusText">جاري فحص حالة الخادم...</span>
+        </div>
+
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="username">اسم المستخدم:</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="password">كلمة المرور:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            
+            <button type="submit" id="loginBtn">تسجيل الدخول</button>
+        </form>
+
+        <div id="result" class="result"></div>
+
+        <div class="demo-accounts">
+            <h3>🎯 الحسابات التجريبية:</h3>
+            <div class="demo-account" onclick="fillLogin('admin', 'admin123')">
+                <strong>مدير النظام:</strong> admin / admin123
+            </div>
+            <div class="demo-account" onclick="fillLogin('vice', 'vice123')">
+                <strong>نائب المدير:</strong> vice / vice123
+            </div>
+            <div class="demo-account" onclick="fillLogin('supervisor', 'super123')">
+                <strong>المشرف:</strong> supervisor / super123
+            </div>
+            <div class="demo-account" onclick="fillLogin('FAISAL', '2780')">
+                <strong>فيصل:</strong> FAISAL / 2780
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const API_BASE = 'http://localhost:5001';
+        
+        // فحص حالة الخادم
+        async function checkServerStatus() {
+            try {
+                const response = await fetch(`${API_BASE}/api/health`);
+                if (response.ok) {
+                    const data = await response.json();
+                    document.getElementById('serverStatus').className = 'server-status status-online';
+                    document.getElementById('statusText').textContent = '✅ الخادم متصل ويعمل بشكل طبيعي';
+                } else {
+                    throw new Error('Server error');
+                }
+            } catch (error) {
+                document.getElementById('serverStatus').className = 'server-status status-offline';
+                document.getElementById('statusText').textContent = '❌ الخادم غير متصل - تحقق من تشغيل الخادم الخلفي';
+            }
+        }
+
+        // ملء بيانات تسجيل الدخول
+        function fillLogin(username, password) {
+            document.getElementById('username').value = username;
+            document.getElementById('password').value = password;
+        }
+
+        // عرض النتيجة
+        function showResult(message, isSuccess = false) {
+            const resultDiv = document.getElementById('result');
+            resultDiv.textContent = message;
+            resultDiv.className = `result ${isSuccess ? 'success' : 'error'}`;
+            resultDiv.style.display = 'block';
+        }
+
+        // تسجيل الدخول
+        async function login(username, password) {
+            const loginBtn = document.getElementById('loginBtn');
+            loginBtn.disabled = true;
+            loginBtn.textContent = 'جاري تسجيل الدخول...';
+
+            try {
+                console.log('🔄 محاولة تسجيل الدخول:', { username, password: '***' });
+                
+                const response = await fetch(`${API_BASE}/api/auth/login`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify({ username, password })
+                });
+
+                console.log('📡 حالة الاستجابة:', response.status);
+
+                const data = await response.json();
+                console.log('📄 بيانات الاستجابة:', data);
+
+                if (response.ok) {
+                    showResult(`✅ تم تسجيل الدخول بنجاح! مرحباً ${data.user.name}`, true);
+                    
+                    // حفظ التوكن
+                    if (data.token) {
+                        localStorage.setItem('motabea_token', data.token);
+                        console.log('💾 تم حفظ التوكن');
+                    }
+                    
+                    // إعادة توجيه بعد 2 ثانية
+                    setTimeout(() => {
+                        window.location.href = '/dashboard';
+                    }, 2000);
+                } else {
+                    showResult(`❌ ${data.message || 'فشل في تسجيل الدخول'}`);
+                }
+            } catch (error) {
+                console.error('💥 خطأ في تسجيل الدخول:', error);
+                showResult('❌ خطأ في الاتصال بالخادم - تأكد من تشغيل الخادم الخلفي');
+            } finally {
+                loginBtn.disabled = false;
+                loginBtn.textContent = 'تسجيل الدخول';
+            }
+        }
+
+        // معالج الإرسال
+        document.getElementById('loginForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const username = document.getElementById('username').value.trim();
+            const password = document.getElementById('password').value.trim();
+            
+            if (!username || !password) {
+                showResult('❌ يرجى إدخال اسم المستخدم وكلمة المرور');
+                return;
+            }
+            
+            await login(username, password);
+        });
+
+        // فحص حالة الخادم عند التحميل
+        checkServerStatus();
+        
+        // إعادة فحص كل 30 ثانية
+        setInterval(checkServerStatus, 30000);
+    </script>
+</body>
+</html>
