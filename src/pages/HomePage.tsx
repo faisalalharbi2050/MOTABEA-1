@@ -194,27 +194,27 @@ const HeroSection = () => {
                transition={{ duration: 0.8, delay: 0.2 }}
                className="relative z-10 w-full max-w-[700px] flex items-center justify-center p-8"
              >
-                {/* 1. Website Frame Background (Matches Reference Image) */}
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[105%] h-[80%] bg-gradient-to-b from-[#bdaefb] to-[#8d7efb] rounded-2xl shadow-2xl border-t border-white/40 z-0 opacity-95">
-                    {/* Browser Header (Apple Style Dots) */}
-                    <div className="h-8 bg-black/10 flex items-center px-4 gap-2">
-                        <div className="w-2.5 h-2.5 rounded-full bg-[#FF5F57]"></div> {/* Red */}
-                        <div className="w-2.5 h-2.5 rounded-full bg-[#FEBC2E]"></div> {/* Yellow */}
-                        <div className="w-2.5 h-2.5 rounded-full bg-[#28C840]"></div> {/* Green */}
+                {/* 1. Website Frame Background (Modern Frameless) */}
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[105%] h-[80%] bg-white/10 backdrop-blur-md rounded-2xl shadow-2xl border border-white/20 z-0">
+                    {/* Browser Header (Mac Style) */}
+                    <div className="h-8 border-b border-white/10 flex items-center px-4 gap-2 bg-white/5">
+                        <div className="w-2.5 h-2.5 rounded-full bg-[#FF5F57] shadow-sm"></div> {/* Red */}
+                        <div className="w-2.5 h-2.5 rounded-full bg-[#FEBC2E] shadow-sm"></div> {/* Yellow */}
+                        <div className="w-2.5 h-2.5 rounded-full bg-[#28C840] shadow-sm"></div> {/* Green */}
                         {/* Address Bar Line */}
-                        <div className="ml-4 w-1/3 h-1.5 bg-white/20 rounded-full"></div>
+                        <div className="ml-4 w-1/3 h-1.5 bg-white/10 rounded-full"></div>
                     </div>
                     
                     {/* Dashboard Content */}
                     <div className="relative h-full w-full overflow-hidden">
                         {/* Right Side List (Abstract Lines) */}
                         <div className="absolute top-8 right-8 flex flex-col items-end gap-3 z-10 w-1/3">
-                            <div className="w-full h-2 bg-white/30 rounded-full mb-2"></div>
+                            <div className="w-full h-2 bg-white/10 rounded-full mb-2"></div>
                              {/* List items with Bullet */}
                             {[1, 2, 3].map((_, i) => (
                                 <div key={i} className="flex items-center gap-2 w-full justify-end">
-                                     <div className="h-1.5 w-2/3 bg-white/20 rounded-full"></div>
-                                     <div className="w-1.5 h-1.5 rounded-full bg-white/40 flex-shrink-0"></div>
+                                     <div className="h-1.5 w-2/3 bg-white/10 rounded-full"></div>
+                                     <div className="w-1.5 h-1.5 rounded-full bg-white/20 flex-shrink-0"></div>
                                 </div>
                             ))}
                         </div>
