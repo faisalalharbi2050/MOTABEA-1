@@ -414,7 +414,7 @@ const PricingSection = () => {
                     </span>
                  </div>
 
-                 <Button className="w-full bg-brand-main hover:bg-brand-dark text-white py-6 rounded-xl text-lg mb-8 transition-colors duration-300" onClick={() => navigate('/register')}>
+                 <Button className="w-full !bg-[#8779fb] hover:!bg-[#655ac1] text-white py-6 rounded-xl text-lg mb-8 transition-colors duration-300" onClick={() => navigate('/register')}>
                     اشترك الآن
                  </Button>
 

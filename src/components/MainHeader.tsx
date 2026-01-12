@@ -110,7 +110,7 @@ const MainHeader = () => {
               </Button>
             </Link>
             <Link to="/register">
-              <Button className="bg-brand-main hover:bg-brand-dark shadow-md shadow-brand-main/20">
+              <Button className="!bg-brand-main hover:!bg-brand-dark shadow-md shadow-brand-main/20 text-white">
                 ابدأ الآن مجانًا
               </Button>
             </Link>

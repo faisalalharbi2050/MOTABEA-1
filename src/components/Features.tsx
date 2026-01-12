@@ -180,7 +180,7 @@ const Features: React.FC<FeaturesProps> = ({ showAll = true }) => {
                     <div className="absolute bottom-0 left-0 w-48 h-48 bg-[#4f46e5]/30 rounded-full blur-2xl pointer-events-none"></div>
 
                     {/* Content Container */}
-                    <div className="relative z-10 w-full mt-6">
+                    <div className="relative z-10 w-full mt-24">
                         {/* Title Aligned to Left (Safe from Screen) */}
                         <div className="flex justify-end mb-8 pl-4 lg:pl-12">
                              <h3 className="text-2xl font-bold text-white flex items-center gap-3 flex-row-reverse">
