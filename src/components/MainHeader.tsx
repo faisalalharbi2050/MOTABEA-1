@@ -10,7 +10,7 @@ const MainHeader = () => {
 
   return (
     <header className="bg-white/95 backdrop-blur-sm border-b border-gray-100 sticky top-0 z-50 shadow-sm">
-      <div className="w-full max-w-7xl mx-auto px-6 sm:px-12 lg:px-20">
+      <div className="w-full max-w-[1440px] mx-auto px-6 sm:px-8 lg:px-10">
         <div className="flex justify-between items-center h-20 gap-8">
           {/* شعار الموقع */}
           <div className="flex items-center space-x-3 space-x-reverse cursor-pointer" onClick={() => window.location.href="/"}>
@@ -23,7 +23,7 @@ const MainHeader = () => {
           </div>
 
           {/* القائمة الرئيسية - سطح المكتب */}
-          <nav className="hidden md:flex flex-1 justify-center items-center space-x-8 space-x-reverse">
+          <nav className="hidden md:flex flex-1 justify-center items-center space-x-6 space-x-reverse whitespace-nowrap">
             <Link 
               to="/" 
               className="text-gray-600 hover:text-brand-main transition-colors font-medium text-sm"
