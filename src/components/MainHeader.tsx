@@ -10,8 +10,8 @@ const MainHeader = () => {
 
   return (
     <header className="bg-white/95 backdrop-blur-sm border-b border-gray-100 sticky top-0 z-50 shadow-sm">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20">
+      <div className="w-full max-w-7xl mx-auto px-6 sm:px-12 lg:px-20">
+        <div className="flex justify-between items-center h-20 gap-8">
           {/* شعار الموقع */}
           <div className="flex items-center space-x-3 space-x-reverse cursor-pointer" onClick={() => window.location.href="/"}>
             <div className="w-12 h-12 bg-gradient-to-br from-[#655ac1] to-[#8779fb] rounded-xl flex items-center justify-center shadow-lg transform rotate-3 hover:rotate-0 transition-all duration-300">
