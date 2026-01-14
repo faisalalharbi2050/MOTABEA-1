@@ -148,6 +148,7 @@
       }
 
       /* Active State & Liquid Effect */
+      /* Active State & Liquid Effect */
       .nav-item.active {
         background: transparent;
       }
@@ -156,7 +157,11 @@
         color: #1e293b;
         font-weight: 800;
         margin-left: 0;
+        /* STOP FLASH: Remove margin transition */
+        transition: none; 
       }
+      
+      /* Liquid Curves - Visible on all active items including expanded */
       .nav-item.active .nav-link::before,
       .nav-item.active .nav-link::after {
         content: "";
@@ -167,7 +172,8 @@
         background: transparent;
         pointer-events: none;
         border-radius: 50%;
-        transition: 0.3s;
+        z-index: 10;
+        display: block !important; /* Force visible */
       }
       .nav-item.active .nav-link::before {
         top: -50px;
@@ -178,27 +184,79 @@
         box-shadow: -25px -25px 0 0 var(--custom-bg-body);
       }
 
-      /* Hide bottom curve when expanded to avoid bracket glitch against submenu */
-      .nav-item.active.expanded .nav-link::before,
-      .nav-item.active.expanded .nav-link::after {
-        display: none;
-      }
+      /* EXPANDED STATE: Restore curves, connect visually */
       .nav-item.active.expanded .nav-link {
-        border-bottom-left-radius: 0;
-        border-top-left-radius: 0;
-      } /* Straighten both corners when expanded */
-
-      .sidebar.collapsed .nav-item.active .nav-link {
-        border-radius: 15px;
-        margin: 0 5px;
-        width: calc(100% - 10px);
+        border-radius: 30px 0 0 30px; /* Keep consistent with collapsed/active state */
+        background-color: var(--custom-bg-body);
+        margin-bottom: 0; 
       }
+      
+      /* FIX: COLLAPSED ACTIVE STATE - SOLID WHITE TAB + LIQUID CURVES */
+      .sidebar.collapsed .nav-item.active .nav-link {
+        background-color: var(--custom-bg-body) !important; /* Solid White */
+        color: var(--custom-primary) !important; /* Purple Icon */
+        border-radius: 30px 0 0 30px !important; /* Round Left, Square Right */
+        margin: 0 !important; /* Full fill */
+        width: 100% !important; /* Fill width */
+        height: 55px !important; 
+        padding: 0 !important;
+        justify-content: center !important;
+        position: relative;
+        z-index: 20;
+      }
+
+      /* Curves for Collapsed State - Mirroring Expanded State Logic */
       .sidebar.collapsed .nav-item.active .nav-link::before,
       .sidebar.collapsed .nav-item.active .nav-link::after {
-        display: none;
+        display: block !important;
+        content: "" !important;
+        position: absolute;
+        left: 0; /* Align to Left Edge (connection side) */
+        right: auto;
+        width: 50px;
+        height: 50px;
+        background: transparent;
+        pointer-events: none;
+        border-radius: 50%;
+        z-index: 10;
+        visibility: visible !important;
+        opacity: 1 !important;
       }
 
-      /* Hamburger Button */
+      .sidebar.collapsed .nav-item.active .nav-link::before {
+        top: -50px;
+        box-shadow: -25px 25px 0 0 var(--custom-bg-body); /* Negative X to project Left (Outwards) */
+      }
+
+      .sidebar.collapsed .nav-item.active .nav-link::after {
+        bottom: -50px;
+        box-shadow: -25px -25px 0 0 var(--custom-bg-body); /* Negative X to project Left (Outwards) */
+      }
+      
+      /* FIX: Prevent Hover "Eraser" Effect */
+      .sidebar.collapsed .nav-item.active .nav-link:hover {
+        background-color: var(--custom-bg-body) !important;
+        color: var(--custom-primary) !important;
+        opacity: 1 !important;
+      }
+      
+      /* Reset sub-item logic just in case */
+      .sidebar.collapsed .nav-item .nav-link::before,
+      .sidebar.collapsed .nav-item .nav-link::after {
+          /* Keep hidden for non-active items */
+      }
+      
+      .sidebar.collapsed .nav-link {
+        padding-right: 0 !important; /* Remove text padding */
+        justify-content: center !important;
+      }
+      
+      .sidebar.collapsed .nav-link i {
+        margin: 0 !important;
+        font-size: 1.4rem;
+      }
+
+      /* Hamburger Button Fix */
       .sidebar-toggle {
         position: absolute;
         left: 20px;
@@ -214,13 +272,21 @@
         opacity: 1;
         transform: scale(1.1);
       }
+      
+      /* Collapsed Toggle - Center it clearly */
       .sidebar.collapsed .sidebar-toggle {
-        left: 50%;
-        transform: translateX(-50%);
-        top: 1rem;
-        margin-bottom: 2rem;
-        position: relative;
-        display: block;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        top: 20px !important; 
+        position: absolute !important;
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        background: rgba(255,255,255,0.1);
+        border-radius: 50%;
+        margin: 0;
       }
 
       /* Layout & Cards */
@@ -242,167 +308,48 @@
         color: #1e293b;
         font-size: 1.1rem;
       }
-      .cards-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 1.5rem;
-      }
-
-      .medium-square-card {
-        height: 125px;
-        background: white;
-        border-radius: 20px;
-        border: 1px solid #e2e8f0;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 0.5rem;
-        transition: all 0.3s ease;
-        cursor: default;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.02);
-        position: relative;
-        overflow: hidden;
-      }
-      .medium-square-card:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 8px 15px rgba(101, 90, 193, 0.1);
-        border-color: var(--custom-primary);
-      }
-      .medium-square-card::after {
-        content: "";
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        height: 3px;
-        background: var(--custom-primary);
-        opacity: 0;
-        transition: 0.3s;
-      }
-      .medium-square-card:hover::after {
-        opacity: 1;
-      }
-
-      .stat-icon-box {
-        width: 40px;
-        height: 40px;
-        border-radius: 12px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 1.1rem;
-      }
-      .stat-num {
-        font-size: 1.8rem;
-        font-weight: 900;
-        color: #1e293b;
-        line-height: 1;
-        margin-top: 4px;
-      }
-      .stat-label {
-        font-size: 0.85rem;
-        font-weight: 600;
-        color: #64748b;
-      }
-
-      /* Others */
-      .schedule-btn {
-        height: 125px;
-        background: white;
-        border: 1px solid #e2e8f0;
-        border-radius: 20px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 0.8rem;
-        transition: 0.2s;
-        cursor: pointer;
-      }
-      .schedule-btn:hover {
-        border-color: var(--custom-primary);
-        background: #fcfbfe;
-        transform: translateY(-2px);
-      }
-      .schedule-btn i {
-        font-size: 1.8rem;
-        color: var(--custom-secondary);
-      }
-      .schedule-btn span {
-        font-weight: 700;
-        font-size: 0.9rem;
-        color: #475569;
-      }
-
-      .action-card {
-        height: 90px;
-        border-radius: 18px;
-        background: white;
-        border: 1px solid #e2e8f0;
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;
-        padding: 0 1.5rem;
-        gap: 1rem;
-        cursor: pointer;
-        transition: 0.2s;
-      }
-      .action-card:hover {
-        border-color: var(--custom-primary);
-        background: #fdfcff;
-        transform: translateY(-2px);
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
-      }
-      .action-icon {
-        width: 45px;
-        height: 45px;
-        border-radius: 12px;
-        background: #f3f4f6;
-        color: var(--custom-primary);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 1.2rem;
-        transition: 0.2s;
-      }
-      .action-card:hover .action-icon {
-        background: var(--custom-primary);
-        color: white;
-      }
 
       /* Submenu Styling */
       .sub-nav-list {
-        background: rgba(0, 0, 0, 0.15);
+        background: transparent;
         position: relative;
         z-index: 2;
-        width: 95%;
-        margin-right: 5%;
-        border-radius: 0 0 20px 20px;
-        box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        padding-right: 0 !important;
+        margin-top: 5px;
+        border-radius: 0; /* Remove curve at end of row */
       }
+
       .sub-nav-list .nav-item {
-        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        margin-bottom: 0;
-      }
-      .sub-nav-list .nav-item:last-child {
         border-bottom: none;
+        margin-bottom: 4px; /* Space between rectangles */
+        padding-right: 35px;
       }
+      
+      /* FIX: Prevent sub-items from inheriting parent's liquid curves */
+      .sub-nav-list .nav-item .nav-link::before,
+      .sub-nav-list .nav-item .nav-link::after {
+        display: none !important;
+        content: none !important;
+      }
+
       .sub-nav-list .nav-link {
-        transition: all 0.3s ease;
-        border-radius: 8px;
-        margin: 0 5px;
-        color: #334155 !important;
-      } /* Soft black text for sub-items */
+        transition: all 0.2s ease;
+        border-radius: 4px !important; /* Rectangular uniform FORCE */
+        border-top-left-radius: 4px !important;
+        border-bottom-left-radius: 4px !important;
+        margin: 0;
+        color: var(--custom-primary) !important; /* Purple Text */
+        background: white !important; /* White Background */
+        border: 1px solid #e5e1fe; /* Purple Tint Border */
+        box-shadow: none;
+        height: 45px;
+      }
+      
       .sub-nav-list .nav-link:hover {
-        background: var(--custom-light) !important;
-        color: #1e293b !important; /* Slightly darker on hover */
-        font-weight: 700;
-        padding-right: 20px; /* Adjust padding instead of transform to avoid layout jitters */
-        transform: translateX(-5px);
-        border-radius: 12px;
-        margin: 0 10px; /* Add margin to make it look like a floating card */
-        width: auto; /* Reset width constraint if any */
+        background: #fdfcff !important;
+        border-color: var(--custom-primary); /* Darker purple on hover */
+        transform: translateX(-3px);
       }
 
       .card-base {

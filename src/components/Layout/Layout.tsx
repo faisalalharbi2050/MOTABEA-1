@@ -19,10 +19,10 @@ const Layout = () => {
       />
 
       <div className={`main-content flex flex-col h-screen overflow-hidden ${isCollapsed ? 'collapsed-margin' : ''}`}>
-        <div className="shrink-0">
+        <div className="shrink-0 pl-8">
             <Header onToggleSidebar={() => setShowMobileSidebar(!showMobileSidebar)} />
         </div>
-        <main className="flex-1 overflow-y-auto">
+        <main className="flex-1 overflow-y-auto pl-4">
             <Outlet />
         </main>
       </div>

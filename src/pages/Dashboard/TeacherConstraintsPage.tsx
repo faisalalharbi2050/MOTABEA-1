@@ -414,7 +414,7 @@ const TeacherConstraintsPage: React.FC = () => {
 
   return (
     <div className="teacher-constraints-container min-h-screen bg-gray-50" dir="rtl">
-      <div className="container mx-auto p-4 sm:p-6 max-w-[1600px]">
+      <div className="container mx-auto px-4 pb-4 pt-1 sm:px-6 sm:pb-6 max-w-[1600px]">
         
         {/* رأس الصفحة */}
         <div className="bg-white rounded-xl shadow-md border border-gray-200 p-4 mb-6">

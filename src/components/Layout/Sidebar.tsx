@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { NavLink, useLocation } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import {
   LayoutDashboard,
   Users,
@@ -58,6 +58,7 @@ const Sidebar = ({ onClose, isCollapsed, toggleCollapse }: SidebarProps) => {
   // Local state for collapse if not provided by parent (fallback)
   const [localCollapsed, setLocalCollapsed] = useState(false);
   const collapsed = isCollapsed !== undefined ? isCollapsed : localCollapsed;
+  const navigate = useNavigate();
   const handleToggle =
     toggleCollapse || (() => setLocalCollapsed(!localCollapsed));
 
@@ -222,7 +223,8 @@ const Sidebar = ({ onClose, isCollapsed, toggleCollapse }: SidebarProps) => {
             const active = isActiveMenu(item);
             const isExpanded = expandedMenus.includes(item.key);
             // Only show active style for parents if they are expanded (prevents double highlight when exploring)
-            const showActive = item.subItems ? isExpanded : active;
+            // UNLESS we are collapsed, then we rely on route matching ('active') because we don't expand.
+            const showActive = item.subItems ? (collapsed ? active : isExpanded) : active;
 
             return (
               <li
@@ -241,11 +243,13 @@ const Sidebar = ({ onClose, isCollapsed, toggleCollapse }: SidebarProps) => {
                       onClick={(e) => {
                         e.preventDefault();
                         if (collapsed) {
-                          handleToggle(); // Auto expand if clicking parent when collapsed? Or just toggle menu?
-                          // Let's toggle menu. If collapsed, menu might not show well unless we use popovers.
-                          // Simplest UX: Expand sidebar if user clicks a parent item.
-                          // But requirement says "Hamburger closes... in case of expansion".
-                          // Let's just toggle menu.
+                           // Navigate to first sub-item if available to avoid blank parent routes
+                           if (item.subItems && item.subItems.length > 0) {
+                             navigate(item.subItems[0].path);
+                           } else {
+                             navigate(item.path);
+                           }
+                           return; 
                         }
                         toggleMenu(item.key);
                       }}
@@ -271,7 +275,7 @@ const Sidebar = ({ onClose, isCollapsed, toggleCollapse }: SidebarProps) => {
                               to={subItem.path}
                               className={({ isActive }) =>
                                 `nav-link ${
-                                  isActive ? "font-bold text-white" : ""
+                                  isActive ? "font-bold text-white active-sub-item" : ""
                                 }`
                               }
                               style={{ height: "40px", fontSize: "0.8rem" }}

@@ -259,7 +259,7 @@ const SchoolInfoPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 py-8 px-4 sm:px-6 lg:px-8 font-kufi" style={{ direction: 'rtl' }}>
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 pt-1 pb-8 px-4 sm:px-6 lg:px-8 font-kufi" style={{ direction: 'rtl' }}>
       {/* إشعارات */}
       {showSaveNotification && (
         <div className="fixed top-4 left-1/2 transform -translate-x-1/2 bg-green-100 border border-green-200 text-green-800 px-8 py-4 rounded-lg shadow-xl z-50 flex items-center animate-fadeInDown">
@@ -279,7 +279,7 @@ const SchoolInfoPage = () => {
         {/* رأس الصفحة */}
         <div className="bg-white rounded-xl shadow-md border border-gray-200 p-6">
           <div className="flex items-center gap-3">
-            <div className="bg-gradient-to-r from-[#4f46e5] to-[#6366f1] p-3 rounded-xl shadow-lg">
+            <div className="bg-gradient-to-r from-[#655ac1] to-[#8779fb] p-3 rounded-xl shadow-lg">
               <Building className="h-6 w-6 text-white" />
             </div>
             <h1 className="text-2xl font-bold text-gray-900">بيانات المدرسة</h1>
@@ -292,7 +292,7 @@ const SchoolInfoPage = () => {
             {/* القسم الأول: نوع المدرسة والمرحلة */}
             <div className="bg-gray-50 rounded-lg p-6">
               <h3 className="text-lg font-bold text-gray-900 mb-6 flex items-center">
-                <Settings className="h-5 w-5 ml-2 text-indigo-600" />
+                <Settings className="h-5 w-5 ml-2 text-[#655ac1]" />
                 الإعدادات الأساسية
               </h3>
               
@@ -305,10 +305,10 @@ const SchoolInfoPage = () => {
                   </label>
                   <div className="grid grid-cols-2 gap-4">
                     <div 
-                      className={`border-2 rounded-lg p-4 cursor-pointer transition-all ${
+                      className={`border-2 rounded-lg p-4 cursor-pointer transition-all hover:shadow-md ${
                         schoolType === 'male' 
-                          ? 'border-[#4f46e5] bg-[#4f46e5]/10' 
-                          : 'border-gray-200 hover:border-gray-300'
+                          ? 'border-[#655ac1] bg-[#e5e1fe]' 
+                          : 'border-gray-200 hover:border-[#8779fb]/50'
                       }`}
                       onClick={() => isEditing && handleSchoolTypeChange('male')}
                     >
@@ -326,7 +326,7 @@ const SchoolInfoPage = () => {
                         className="cursor-pointer flex flex-col items-center"
                       >
                         <div className={`w-8 h-8 rounded-full mb-2 flex items-center justify-center ${
-                          schoolType === 'male' ? 'bg-[#4f46e5] text-white' : 'bg-gray-300'
+                          schoolType === 'male' ? 'bg-[#655ac1] text-white' : 'bg-gray-300'
                         }`}>
                           <User className="h-4 w-4" />
                         </div>
@@ -335,10 +335,10 @@ const SchoolInfoPage = () => {
                     </div>
                     
                     <div 
-                      className={`border-2 rounded-lg p-4 cursor-pointer transition-all ${
+                      className={`border-2 rounded-lg p-4 cursor-pointer transition-all hover:shadow-md ${
                         schoolType === 'female' 
-                          ? 'border-[#4f46e5] bg-[#4f46e5]/10' 
-                          : 'border-gray-200 hover:border-gray-300'
+                          ? 'border-[#655ac1] bg-[#e5e1fe]' 
+                          : 'border-gray-200 hover:border-[#8779fb]/50'
                       }`}
                       onClick={() => isEditing && handleSchoolTypeChange('female')}
                     >
@@ -356,7 +356,7 @@ const SchoolInfoPage = () => {
                         className="cursor-pointer flex flex-col items-center"
                       >
                         <div className={`w-8 h-8 rounded-full mb-2 flex items-center justify-center ${
-                          schoolType === 'female' ? 'bg-[#4f46e5] text-white' : 'bg-gray-300'
+                          schoolType === 'female' ? 'bg-[#655ac1] text-white' : 'bg-gray-300'
                         }`}>
                           <User className="h-4 w-4" />
                         </div>
@@ -381,7 +381,7 @@ const SchoolInfoPage = () => {
               <div className="bg-white border-2 border-gray-100 rounded-lg p-6">
                 <div className="flex justify-between items-center mb-6">
                   <h3 className="text-lg font-bold text-gray-900 flex items-center">
-                    <School className="h-5 w-5 ml-2 text-[#4f46e5]" />
+                    <School className="h-5 w-5 ml-2 text-[#655ac1]" />
                     المدارس
                   </h3>
                   
@@ -389,7 +389,7 @@ const SchoolInfoPage = () => {
                     <button
                       type="button"
                       onClick={addNewSchool}
-                      className="bg-[#4f46e5] text-white px-6 py-2.5 rounded-lg hover:bg-[#4338ca] transition-colors flex items-center text-sm font-medium shadow-md"
+                      className="bg-[#655ac1] text-white px-6 py-2.5 rounded-lg hover:bg-[#8779fb] transition-colors flex items-center text-sm font-medium shadow-md"
                     >
                       <Plus className="h-4 w-4 ml-1" />
                       إضافة مدرسة
@@ -405,7 +405,7 @@ const SchoolInfoPage = () => {
                       <button
                         type="button"
                         onClick={addNewSchool}
-                        className="bg-[#4f46e5] text-white px-6 py-2.5 rounded-lg hover:bg-[#4338ca] transition-colors inline-flex items-center font-medium shadow-md"
+                        className="bg-[#655ac1] text-white px-6 py-2.5 rounded-lg hover:bg-[#8779fb] transition-colors inline-flex items-center font-medium shadow-md"
                       >
                         <Plus className="h-4 w-4 ml-1" />
                         إضافة مدرسة
@@ -415,11 +415,11 @@ const SchoolInfoPage = () => {
                 ) : (
                   <div className="space-y-6">
                     {schools.map((school, index) => (
-                      <div key={school.id} className="border-2 border-gray-200 rounded-lg p-5 bg-gray-50 hover:border-[#4f46e5]/30 transition-colors">
+                      <div key={school.id} className="border-2 border-gray-200 rounded-lg p-5 bg-gray-50 hover:border-[#8779fb] hover:shadow-sm transition-all">
                         <div className="flex justify-between items-start mb-4">
                           <div className="flex items-center">
                             {/* رقم المدرسة في تصميم دائري */}
-                            <div className="w-10 h-10 bg-[#4f46e5] text-white rounded-full flex items-center justify-center font-bold text-base ml-4 shadow-lg">
+                            <div className="w-10 h-10 bg-[#655ac1] text-white rounded-full flex items-center justify-center font-bold text-base ml-4 shadow-lg">
                               {index + 1}
                             </div>
                             <h4 className="font-semibold text-gray-800 text-lg">
@@ -449,7 +449,7 @@ const SchoolInfoPage = () => {
                               type="text"
                               value={school.name}
                               onChange={(e) => updateSchoolData(school.id, 'name', e.target.value)}
-                              className="w-full px-3 py-2.5 border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#4f46e5] focus:border-transparent transition-colors"
+                              className="w-full px-3 py-2.5 border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#655ac1] focus:border-transparent transition-all duration-200 hover:border-[#8779fb]"
                               placeholder="أدخل اسم المدرسة"
                               required
                               disabled={!isEditing}
@@ -464,7 +464,7 @@ const SchoolInfoPage = () => {
                             <select
                               value={school.stage || ''}
                               onChange={(e) => updateSchoolData(school.id, 'stage', e.target.value)}
-                              className="w-full px-3 py-2.5 border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#4f46e5] focus:border-transparent transition-colors"
+                              className="w-full px-3 py-2.5 border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#655ac1] focus:border-transparent transition-all duration-200 hover:border-[#8779fb]"
                               required
                               disabled={!isEditing}
                             >
@@ -484,7 +484,7 @@ const SchoolInfoPage = () => {
                             <select
                               value={school.sectionType || ''}
                               onChange={(e) => updateSchoolData(school.id, 'sectionType', e.target.value)}
-                              className="w-full px-3 py-2.5 border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#4f46e5] focus:border-transparent transition-colors"
+                              className="w-full px-3 py-2.5 border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#655ac1] focus:border-transparent transition-all duration-200 hover:border-[#8779fb]"
                               required
                               disabled={!isEditing}
                             >
@@ -505,7 +505,7 @@ const SchoolInfoPage = () => {
             {/* القسم الثالث: البيانات الأساسية */}
             <div className="bg-white border-2 border-gray-100 rounded-lg p-6">
               <h3 className="text-lg font-bold text-gray-900 mb-6 flex items-center">
-                <User className="h-5 w-5 ml-2 text-[#4f46e5]" />
+                <User className="h-5 w-5 ml-2 text-[#655ac1]" />
                 البيانات الأساسية
               </h3>
 
@@ -514,7 +514,7 @@ const SchoolInfoPage = () => {
                 {/* اسم المدير */}
                 <div>
                   <label htmlFor="principalName" className="text-sm font-medium text-gray-700 mb-2 flex items-center">
-                    <User className="h-4 w-4 ml-1 text-[#4f46e5]" />
+                    <User className="h-4 w-4 ml-1 text-[#655ac1]" />
                     اسم {getPrincipalTitle()} <span className="text-red-500 mr-1">*</span>
                   </label>
                   <input
@@ -525,7 +525,7 @@ const SchoolInfoPage = () => {
                       setPrincipalName(e.target.value);
                       setUnsavedChanges(true);
                     }}
-                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#4f46e5] focus:border-transparent transition-colors"
+                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#655ac1] focus:border-transparent transition-all duration-200 hover:border-[#8779fb]"
                     placeholder={`أدخل اسم ${getPrincipalTitle()}`}
                     required
                     disabled={!isEditing}
@@ -535,7 +535,7 @@ const SchoolInfoPage = () => {
                 {/* رقم الجوال */}
                 <div>
                   <label htmlFor="principalMobile" className="text-sm font-medium text-gray-700 mb-2 flex items-center">
-                    <Phone className="h-4 w-4 ml-1 text-[#4f46e5]" />
+                    <Phone className="h-4 w-4 ml-1 text-[#655ac1]" />
                     رقم الجوال <span className="text-red-500 mr-1">*</span>
                   </label>
                   <input
@@ -546,7 +546,7 @@ const SchoolInfoPage = () => {
                       setPrincipalMobile(e.target.value);
                       setUnsavedChanges(true);
                     }}
-                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#4f46e5] focus:border-transparent transition-colors"
+                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#655ac1] focus:border-transparent transition-all duration-200 hover:border-[#8779fb]"
                     placeholder="05xxxxxxxx"
                     required
                     disabled={!isEditing}
@@ -560,7 +560,7 @@ const SchoolInfoPage = () => {
                 {/* الفصل الدراسي */}
                 <div>
                   <label htmlFor="semester" className="text-sm font-medium text-gray-700 mb-2 flex items-center">
-                    <Calendar className="h-4 w-4 ml-1 text-[#4f46e5]" />
+                    <Calendar className="h-4 w-4 ml-1 text-[#655ac1]" />
                     الفصل الدراسي <span className="text-red-500 mr-1">*</span>
                   </label>
                   <select
@@ -570,7 +570,7 @@ const SchoolInfoPage = () => {
                       setSemester(e.target.value);
                       setUnsavedChanges(true);
                     }}
-                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#4f46e5] focus:border-transparent transition-colors"
+                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#655ac1] focus:border-transparent transition-all duration-200 hover:border-[#8779fb]"
                     required
                     disabled={!isEditing}
                   >
@@ -583,7 +583,7 @@ const SchoolInfoPage = () => {
                 {/* عدد الأسابيع */}
                 <div>
                   <label htmlFor="semesterWeeks" className="text-sm font-medium text-gray-700 mb-2 flex items-center">
-                    <Calendar className="h-4 w-4 ml-1 text-[#4f46e5]" />
+                    <Calendar className="h-4 w-4 ml-1 text-[#655ac1]" />
                     عدد الأسابيع <span className="text-red-500 mr-1">*</span>
                   </label>
                   <select
@@ -593,7 +593,7 @@ const SchoolInfoPage = () => {
                       setSemesterWeeks(Number(e.target.value));
                       setUnsavedChanges(true);
                     }}
-                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#4f46e5] focus:border-transparent transition-colors"
+                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#655ac1] focus:border-transparent transition-all duration-200 hover:border-[#8779fb]"
                     required
                     disabled={!isEditing}
                   >
@@ -607,7 +607,7 @@ const SchoolInfoPage = () => {
                 {/* العام الدراسي */}
                 <div>
                   <label htmlFor="academicYear" className="text-sm font-medium text-gray-700 mb-2 flex items-center">
-                    <BookOpen className="h-4 w-4 ml-1 text-[#4f46e5]" />
+                    <BookOpen className="h-4 w-4 ml-1 text-[#655ac1]" />
                     العام الدراسي <span className="text-red-500 mr-1">*</span>
                   </label>
                   <input
@@ -618,7 +618,7 @@ const SchoolInfoPage = () => {
                       setAcademicYear(e.target.value);
                       setUnsavedChanges(true);
                     }}
-                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#4f46e5] focus:border-transparent transition-colors"
+                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#655ac1] focus:border-transparent transition-all duration-200 hover:border-[#8779fb]"
                     placeholder="1446"
                     required
                     disabled={!isEditing}
@@ -634,7 +634,7 @@ const SchoolInfoPage = () => {
               {isEditing ? (
                 <button
                   type="submit"
-                  className="bg-[#4f46e5] hover:bg-[#4338ca] text-white font-medium px-8 py-3 rounded-lg shadow-md transition-all duration-300 flex items-center"
+                  className="bg-[#655ac1] hover:bg-[#8779fb] text-white font-medium px-8 py-3 rounded-lg shadow-md transition-all duration-300 flex items-center"
                 >
                   <Save className="h-5 w-5 ml-2" />
                   حفظ البيانات
@@ -643,7 +643,7 @@ const SchoolInfoPage = () => {
                 <button
                   type="button"
                   onClick={handleEdit}
-                  className="bg-[#4f46e5] hover:bg-[#4338ca] text-white font-medium px-8 py-3 rounded-lg shadow-md transition-all duration-300 flex items-center"
+                  className="bg-[#655ac1] hover:bg-[#8779fb] text-white font-medium px-8 py-3 rounded-lg shadow-md transition-all duration-300 flex items-center"
                 >
                   <Edit className="h-5 w-5 ml-2" />
                   تعديل البيانات

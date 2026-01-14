@@ -26,7 +26,7 @@ const SchedulePage = () => {
   ];
 
   return (
-    <div className="space-y-6 p-6" dir="rtl">
+    <div className="space-y-6 pt-1 px-6 pb-6" dir="rtl">
       {/* Header */}
       <div className="bg-white rounded-lg border border-gray-200 p-8">
         <div className="text-center">

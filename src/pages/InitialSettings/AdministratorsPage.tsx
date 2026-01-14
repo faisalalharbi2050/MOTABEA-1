@@ -331,7 +331,7 @@ const AdministratorsPage: React.FC = () => {
   }, [administrators]);
 
   return (
-    <div className="p-4 md:p-6 max-w-[1600px] mx-auto space-y-4 md:space-y-6">
+    <div className="pt-1 pb-4 px-4 md:pb-6 md:px-6 max-w-[1600px] mx-auto space-y-4 md:space-y-6">
       {/* رأس الصفحة */}
       <div className="bg-white rounded-xl shadow-md border border-gray-200 p-4 md:p-6">
         <div className="flex items-center gap-3">

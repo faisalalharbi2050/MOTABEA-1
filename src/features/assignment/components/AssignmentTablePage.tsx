@@ -285,7 +285,7 @@ const AssignmentTablePage: React.FC<AssignmentTablePageProps> = ({ onClose }) =>
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50 p-6" dir="rtl">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50 pt-1 pb-6 px-6" dir="rtl">
       <div className="bg-white rounded-2xl shadow-2xl w-full max-w-[1920px] mx-auto flex flex-col animate-in fade-in zoom-in duration-300">
         
         {/* الرأس */}

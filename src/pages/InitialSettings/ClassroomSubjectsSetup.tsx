@@ -248,7 +248,7 @@ const ClassroomSubjectsSetup: React.FC = () => {
 
   return (
     <div className="classroom-subjects-container" dir="rtl">
-      <div className="container mx-auto p-4 sm:p-6 max-w-7xl">
+      <div className="container mx-auto pt-1 px-4 pb-4 sm:px-6 sm:pb-6 max-w-7xl">
         
         {/* رأس الصفحة */}
         <div className="bg-white rounded-xl shadow-md border border-gray-200 p-6 mb-6">

@@ -1365,7 +1365,7 @@ const TimingPage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 py-8 px-4 sm:px-6 lg:px-8 font-['Noto_Kufi_Arabic']" dir="rtl">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 pt-1 pb-6 px-6 font-['Noto_Kufi_Arabic']" dir="rtl">
       
       {/* إشعار الحفظ الاحترافي */}
       {showSaveNotification && (

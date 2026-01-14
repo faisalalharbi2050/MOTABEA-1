@@ -110,3 +110,36 @@
   animation: glow 2s ease-in-out infinite;
 }
 
+
+
+
+/* Active Sub-item Styles */
+.nav-link.active-sub-item {
+  background: linear-gradient(135deg, #655ac1 0%, #8779fb 100%) !important;
+  border-radius: 4px !important; /* Rectangular uniform FORCE */
+  border-top-left-radius: 4px !important;
+  border-bottom-left-radius: 4px !important;
+  margin: 0 !important;
+  width: 100%;
+  border: 1px solid #655ac1 !important; /* Match background */
+  box-shadow: 0 4px 12px rgba(101, 90, 193, 0.3);
+}
+
+.nav-link.active-sub-item .nav-text {
+  color: #fff !important;
+  font-weight: 700 !important;
+}
+
+/* Fix: Active sub-item should keep its style on hover */
+.nav-link.active-sub-item:hover {
+  background: linear-gradient(135deg, #655ac1 0%, #8779fb 100%) !important;
+  color: #fff !important;
+  transform: none !important;
+  padding-right: 30px !important;
+  border-color: #655ac1 !important;
+  box-shadow: 0 4px 12px rgba(101, 90, 193, 0.4) !important;
+}
+
+.nav-link.active-sub-item:hover .nav-text {
+  color: #fff !important;
+}

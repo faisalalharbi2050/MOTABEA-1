@@ -1162,7 +1162,7 @@ const SmartTimetablePageEnhanced = () => {
         <title>إدارة الجداول</title>
         <style>
           body { font-family: Arial, sans-serif; direction: rtl; margin: 20px; background-color: #f9fafb; }
-          .header { text-align: center; margin-bottom: 30px; background: linear-gradient(to right, #4f46e5, #7c3aed); color: white; padding: 20px; border-radius: 10px; }
+          .header { text-align: center; margin-bottom: 30px; background: linear-gradient(to right, #655ac1, #7c3aed); color: white; padding: 20px; border-radius: 10px; }
           .tab-content { background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
           table { width: 100%; border-collapse: collapse; margin: 20px 0; }
           th, td { border: 1px solid #d1d5db; padding: 12px; text-align: center; font-size: 13px; }
@@ -1170,7 +1170,7 @@ const SmartTimetablePageEnhanced = () => {
           .status-active { background-color: #dcfce7; color: #166534; }
           .status-pending { background-color: #fee2e2; color: #991b1b; }
           .btn { padding: 8px 16px; margin: 2px; border: none; border-radius: 4px; cursor: pointer; font-size: 12px; }
-          .btn-primary { background-color: #3b82f6; color: white; }
+          .btn-primary { background-color: #8779fb; color: white; }
           .btn-success { background-color: #10b981; color: white; }
           .btn-danger { background-color: #ef4444; color: white; }
           .btn-warning { background-color: #f59e0b; color: white; }
@@ -1455,7 +1455,7 @@ const SmartTimetablePageEnhanced = () => {
           }
           
           .header {
-            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            background: linear-gradient(135deg, #655ac1 0%, #8779fb 100%);
             color: white;
             padding: 30px;
             text-align: center;
@@ -1494,7 +1494,7 @@ const SmartTimetablePageEnhanced = () => {
             content: '';
             width: 4px;
             height: 24px;
-            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            background: linear-gradient(135deg, #655ac1, #8779fb);
             border-radius: 2px;
           }
           
@@ -1517,20 +1517,20 @@ const SmartTimetablePageEnhanced = () => {
           }
           
           .card:hover {
-            border-color: #6366f1;
+            border-color: #655ac1;
             transform: translateY(-2px);
             box-shadow: 0 10px 25px -5px rgba(99, 102, 241, 0.1);
           }
           
           .card.selected {
-            border-color: #6366f1;
-            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            border-color: #655ac1;
+            background: linear-gradient(135deg, #e5e1fe 0%, #e5e1fe 100%);
           }
           
           .card-icon {
             width: 50px;
             height: 50px;
-            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            background: linear-gradient(135deg, #655ac1, #8779fb);
             border-radius: 12px;
             display: flex;
             align-items: center;
@@ -1577,7 +1577,7 @@ const SmartTimetablePageEnhanced = () => {
           
           .form-select:focus {
             outline: none;
-            border-color: #6366f1;
+            border-color: #655ac1;
             box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
           }
           
@@ -1603,15 +1603,15 @@ const SmartTimetablePageEnhanced = () => {
           }
           
           .recipient-item.selected {
-            background-color: #eff6ff;
-            border-right: 4px solid #6366f1;
+            background-color: #e5e1fe;
+            border-right: 4px solid #655ac1;
           }
           
           .recipient-checkbox {
             margin-left: 12px;
             width: 18px;
             height: 18px;
-            accent-color: #6366f1;
+            accent-color: #655ac1;
           }
           
           .recipient-info {
@@ -1650,7 +1650,7 @@ const SmartTimetablePageEnhanced = () => {
           }
           
           .btn-primary {
-            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            background: linear-gradient(135deg, #655ac1, #8779fb);
             color: white;
           }
           
@@ -1689,7 +1689,7 @@ const SmartTimetablePageEnhanced = () => {
           .stat-value {
             font-size: 24px;
             font-weight: 700;
-            color: #6366f1;
+            color: #655ac1;
             margin-bottom: 5px;
           }
           
@@ -1939,7 +1939,7 @@ const SmartTimetablePageEnhanced = () => {
                       display: flex;
                       align-items: center;
                       justify-content: center;
-                      background-color: #4f46e5;
+                      background-color: #655ac1;
                       color: white;
                       font-size: 2rem;
                       font-weight: bold;
@@ -1996,7 +1996,7 @@ const SmartTimetablePageEnhanced = () => {
                     }
                     
                     .schedule-cell {
-                      background-color: #f0f9ff !important;
+                      background-color: #e5e1fe !important;
                       border: 1px solid #0ea5e9 !important;
                       padding: 4px !important;
                       font-size: 9px !important;
@@ -2813,7 +2813,7 @@ const SmartTimetablePageEnhanced = () => {
             transform: translateX(-50%);
             width: 120px;
             height: 2px;
-            background: linear-gradient(to right, #6366f1, #8b5cf6, #6366f1);
+            background: linear-gradient(to right, #655ac1, #8779fb, #655ac1);
           }
 
           .school-logo {
@@ -2823,7 +2823,7 @@ const SmartTimetablePageEnhanced = () => {
             display: flex;
             align-items: center;
             justify-content: center;
-            background-color: #4f46e5;
+            background-color: #655ac1;
             color: white;
             font-size: 2rem;
             font-weight: bold;
@@ -2888,7 +2888,7 @@ const SmartTimetablePageEnhanced = () => {
 
           /* تنسيق خلايا الحصص */
           .schedule-cell {
-            background-color: #f0f9ff !important;
+            background-color: #e5e1fe !important;
             border: 1px solid #0ea5e9 !important;
             padding: 4px !important;
             font-size: 9px !important;
@@ -3317,7 +3317,7 @@ const SmartTimetablePageEnhanced = () => {
           }
           
           .header {
-            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            background: linear-gradient(135deg, #655ac1 0%, #8779fb 100%);
             color: white;
             padding: 30px;
             text-align: center;
@@ -3356,7 +3356,7 @@ const SmartTimetablePageEnhanced = () => {
             content: '';
             width: 4px;
             height: 24px;
-            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            background: linear-gradient(135deg, #655ac1, #8779fb);
             border-radius: 2px;
           }
           
@@ -3379,20 +3379,20 @@ const SmartTimetablePageEnhanced = () => {
           }
           
           .card:hover {
-            border-color: #6366f1;
+            border-color: #655ac1;
             transform: translateY(-2px);
             box-shadow: 0 10px 25px -5px rgba(99, 102, 241, 0.1);
           }
           
           .card.selected {
-            border-color: #6366f1;
-            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            border-color: #655ac1;
+            background: linear-gradient(135deg, #e5e1fe 0%, #e5e1fe 100%);
           }
           
           .card-icon {
             width: 50px;
             height: 50px;
-            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            background: linear-gradient(135deg, #655ac1, #8779fb);
             border-radius: 12px;
             display: flex;
             align-items: center;
@@ -3439,7 +3439,7 @@ const SmartTimetablePageEnhanced = () => {
           
           .form-input:focus, .form-select:focus, .form-textarea:focus {
             outline: none;
-            border-color: #6366f1;
+            border-color: #655ac1;
             box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
           }
           
@@ -3470,15 +3470,15 @@ const SmartTimetablePageEnhanced = () => {
           }
           
           .recipient-item.selected {
-            background-color: #eff6ff;
-            border-right: 4px solid #6366f1;
+            background-color: #e5e1fe;
+            border-right: 4px solid #655ac1;
           }
           
           .recipient-checkbox {
             margin-left: 12px;
             width: 18px;
             height: 18px;
-            accent-color: #6366f1;
+            accent-color: #655ac1;
           }
           
           .recipient-info {
@@ -3542,7 +3542,7 @@ const SmartTimetablePageEnhanced = () => {
           }
           
           .btn-primary {
-            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            background: linear-gradient(135deg, #655ac1, #8779fb);
             color: white;
           }
           
@@ -3581,7 +3581,7 @@ const SmartTimetablePageEnhanced = () => {
           .stat-value {
             font-size: 24px;
             font-weight: 700;
-            color: #6366f1;
+            color: #655ac1;
             margin-bottom: 5px;
           }
           
@@ -4323,7 +4323,7 @@ const SmartTimetablePageEnhanced = () => {
                     backgroundColor: rowBg,
                     height: '35px'
                   }}
-                  onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#e0f2fe'}
+                  onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#e5e1fe'}
                   onMouseLeave={(e) => e.currentTarget.style.backgroundColor = rowBg}>
                     {/* عمود الترقيم - ثابت */}
                     <td style={{
@@ -4407,7 +4407,7 @@ const SmartTimetablePageEnhanced = () => {
                       textAlign: 'center',
                       fontSize: '12px',
                       fontWeight: 'bold',
-                      color: '#1e40af',
+                      color: '#655ac1',
                       boxShadow: '3px 0 6px rgba(0,0,0,0.06)'
                     }}>
                       {teacherBasicSessions}
@@ -4465,7 +4465,7 @@ const SmartTimetablePageEnhanced = () => {
                             overflow: 'hidden',
                             textOverflow: 'ellipsis',
                             background: session ? 'linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%)' : (standbySession ? 'linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%)' : '#ffffff'),
-                            color: session ? '#1e40af' : (standbySession ? '#065f46' : '#64748b'),
+                            color: session ? '#655ac1' : (standbySession ? '#065f46' : '#64748b'),
                             fontWeight: session || standbySession ? 'bold' : 'normal',
                             cursor: isDragMode && (session || standbySession) ? 'grab' : 'default'
                           }}
@@ -4798,7 +4798,7 @@ const SmartTimetablePageEnhanced = () => {
                     backgroundColor: rowBg,
                     height: '35px'
                   }}
-                  onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#e0f2fe'}
+                  onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#e5e1fe'}
                   onMouseLeave={(e) => e.currentTarget.style.backgroundColor = rowBg}>
                     {/* عمود الترقيم - ثابت */}
                     <td style={{
@@ -5146,7 +5146,7 @@ const SmartTimetablePageEnhanced = () => {
                     backgroundColor: rowBg,
                     height: '35px'
                   }}
-                  onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#e0f2fe'}
+                  onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#e5e1fe'}
                   onMouseLeave={(e) => e.currentTarget.style.backgroundColor = rowBg}>
                     {/* عمود الترقيم - ثابت */}
                     <td style={{
@@ -5208,7 +5208,7 @@ const SmartTimetablePageEnhanced = () => {
                       textAlign: 'center',
                       fontSize: '12px',
                       fontWeight: 'bold',
-                      color: '#1e40af',
+                      color: '#655ac1',
                       boxShadow: '3px 0 6px rgba(0,0,0,0.06)'
                     }}>
                       {classAssignedSessions}
@@ -5251,14 +5251,14 @@ const SmartTimetablePageEnhanced = () => {
                               <span style={{ 
                                 fontWeight: 'bold',
                                 fontSize: '9px',
-                                color: '#1e40af'
+                                color: '#655ac1'
                               }}>
                                 {getSubjectAbbreviation(subjects.find(s => s.id === session.subjectId)?.name || '')}
                               </span>
                               <span style={{ 
                                 fontSize: '8px',
                                 opacity: 0.8,
-                                color: '#3b82f6'
+                                color: '#8779fb'
                               }}>
                                 {abbreviateText(teachers.find(t => t.id === session.teacherId)?.name.split(' ').slice(0, 2).join(' ') || '', 10)}
                               </span>
@@ -5283,12 +5283,12 @@ const SmartTimetablePageEnhanced = () => {
       <div className="overflow-x-auto rounded-lg border-2 border-gray-200 shadow-sm">
         <table className="w-full border-collapse" dir="rtl">
           <thead>
-            <tr className="bg-gradient-to-r from-blue-100 to-indigo-100">
-              <th className="border border-gray-300 p-3 text-center font-bold text-blue-900 w-32">
+            <tr className="bg-gradient-to-r from-[#e5e1fe] to-[#e5e1fe]">
+              <th className="border border-gray-300 p-3 text-center font-bold text-[#4c1d95] w-32">
                 اليوم
               </th>
               {Array.from({ length: periodsPerDay }, (_, i) => (
-                <th key={i + 1} className="border border-gray-300 p-3 text-center font-bold text-blue-900 w-32">
+                <th key={i + 1} className="border border-gray-300 p-3 text-center font-bold text-[#4c1d95] w-32">
                   الحصة {i + 1}
                 </th>
               ))}
@@ -5296,8 +5296,8 @@ const SmartTimetablePageEnhanced = () => {
           </thead>
           <tbody>
             {daysOfWeek.map(day => (
-              <tr key={day} className="hover:bg-blue-50">
-                <td className="border border-gray-300 p-3 text-center font-semibold bg-gradient-to-r from-blue-50 to-indigo-50 w-32 text-blue-900">
+              <tr key={day} className="hover:bg-[#f5f3ff]">
+                <td className="border border-gray-300 p-3 text-center font-semibold bg-gradient-to-r from-[#f5f3ff] to-[#e5e1fe] w-32 text-[#4c1d95]">
                   {day}
                 </td>
                 {Array.from({ length: periodsPerDay }, (_, periodIndex) => {
@@ -5327,26 +5327,26 @@ const SmartTimetablePageEnhanced = () => {
                     >
                       {session ? (
                         <div 
-                          className="h-full flex flex-col justify-center items-center text-center rounded p-1 border-2 border-blue-400 text-blue-900"
+                          className="h-full flex flex-col justify-center items-center text-center rounded p-1 border-2 border-[#a78bfa] text-[#4c1d95]"
                           style={{
-                            background: 'linear-gradient(135deg, #bbdefb 0%, #90caf9 100%)'
+                            background: 'linear-gradient(135deg, #ede9fe 0%, #ddd6fe 100%)'
                           }}
                         >
                           {selectedIndividualType === 'teacher' ? (
                             <>
-                              <div className="text-xs font-bold text-blue-900 truncate w-full px-1">
+                              <div className="text-xs font-bold text-[#4c1d95] truncate w-full px-1">
                                 {classes.find(c => c.id === session.classId)?.name || 'فصل غير معروف'}
                               </div>
-                              <div className="text-xs font-semibold text-blue-700 truncate w-full px-1">
+                              <div className="text-xs font-semibold text-[#655ac1] truncate w-full px-1">
                                 {subjects.find(sub => sub.id === session.subjectId)?.name || 'مادة غير معروفة'}
                               </div>
                             </>
                           ) : (
                             <>
-                              <div className="text-xs font-bold text-blue-900 truncate w-full px-1">
+                              <div className="text-xs font-bold text-[#4c1d95] truncate w-full px-1">
                                 {subjects.find(sub => sub.id === session.subjectId)?.name || 'مادة غير معروفة'}
                               </div>
-                              <div className="text-xs font-semibold text-blue-700 truncate w-full px-1">
+                              <div className="text-xs font-semibold text-[#655ac1] truncate w-full px-1">
                                 {teachers.find(t => t.id === session.teacherId)?.name.split(' ').slice(0, 2).join(' ') || 'معلم غير معروف'}
                               </div>
                             </>
@@ -5376,8 +5376,8 @@ const SmartTimetablePageEnhanced = () => {
       
       return (
         <div className="space-y-8">
-          <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg p-3 border border-blue-200 text-center">
-            <h3 className="text-lg font-bold text-blue-900">
+          <div className="bg-gradient-to-r from-[#f5f3ff] to-[#e5e1fe] rounded-lg p-3 border border-[#ddd6fe] text-center">
+            <h3 className="text-lg font-bold text-[#4c1d95]">
               عرض جميع الجداول ({itemsList.length} {selectedIndividualType === 'teacher' ? 'معلم' : 'فصل'})
             </h3>
           </div>
@@ -5391,16 +5391,16 @@ const SmartTimetablePageEnhanced = () => {
             );
             
             return (
-              <div key={itemId} className="space-y-3 border-2 border-blue-200 rounded-lg p-4 bg-white shadow-lg" style={{ transform: `scale(${isCompactMode ? 0.9 : 1})`, transformOrigin: 'top right', transition: 'transform 0.2s ease' }}>
+              <div key={itemId} className="space-y-3 border-2 border-[#ddd6fe] rounded-lg p-4 bg-white shadow-lg" style={{ transform: `scale(${isCompactMode ? 0.9 : 1})`, transformOrigin: 'top right', transition: 'transform 0.2s ease' }}>
                 {/* معلومات الفرد */}
-                <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg p-3 border border-blue-200">
+                <div className="bg-gradient-to-r from-[#f5f3ff] to-[#e5e1fe] rounded-lg p-3 border border-[#ddd6fe]">
                   <div className="flex items-center justify-between">
                     <div>
                       <div className="flex items-center gap-2">
                         <span className="bg-blue-600 text-white rounded-full w-7 h-7 flex items-center justify-center font-bold text-sm">
                           {index + 1}
                         </span>
-                        <h3 className="text-lg font-bold text-blue-900">
+                        <h3 className="text-lg font-bold text-[#4c1d95]">
                           {selectedIndividualType === 'teacher' 
                             ? (item as Teacher).name.split(' ').slice(0, 2).join(' ')
                             : (item as Class).name
@@ -5408,17 +5408,17 @@ const SmartTimetablePageEnhanced = () => {
                         </h3>
                       </div>
                       {selectedIndividualType === 'teacher' && (
-                        <div className="flex gap-3 text-xs text-blue-700 mt-1 mr-9">
+                        <div className="flex gap-3 text-xs text-[#655ac1] mt-1 mr-9">
                           <span>التخصص: {(item as Teacher).specialization}</span>
                         </div>
                       )}
                     </div>
                     <div className="flex gap-2">
-                      <div className="text-center bg-white rounded-lg px-3 py-1.5 border border-blue-300">
-                        <div className="text-lg font-bold text-blue-600">
+                      <div className="text-center bg-white rounded-lg px-3 py-1.5 border border-[#c4b5fd]">
+                        <div className="text-lg font-bold text-[#655ac1]">
                           {itemSessions.filter(s => s.type === 'basic').length}
                         </div>
-                        <div className="text-xs text-blue-500">حصص</div>
+                        <div className="text-xs text-[#8779fb]">حصص</div>
                       </div>
                       {selectedIndividualType === 'teacher' && (
                         <div className="text-center bg-white rounded-lg px-3 py-1.5 border border-orange-300">
@@ -5444,20 +5444,20 @@ const SmartTimetablePageEnhanced = () => {
     // الوضع العادي - عرض جدول واحد
     if (!selectedIndividualId) {
       return (
-        <div className="text-center py-16 bg-gradient-to-br from-blue-50 to-indigo-50 rounded-lg border-2 border-dashed border-blue-300">
+        <div className="text-center py-16 bg-gradient-to-br from-[#f5f3ff] to-[#e5e1fe] rounded-lg border-2 border-dashed border-[#c4b5fd]">
           <div className="mb-6">
-            <Eye className="h-20 w-20 text-blue-400 mx-auto animate-pulse" />
+            <Eye className="h-20 w-20 text-[#a78bfa] mx-auto animate-pulse" />
           </div>
-          <h3 className="text-2xl font-bold text-blue-900 mb-3">
+          <h3 className="text-2xl font-bold text-[#4c1d95] mb-3">
             اختر {selectedIndividualType === 'teacher' ? 'معلماً' : 'فصلاً'} لعرض جدوله
           </h3>
-          <p className="text-blue-600 text-lg mb-6">
+          <p className="text-[#655ac1] text-lg mb-6">
             استخدم القائمة المنسدلة أعلاه لاختيار {selectedIndividualType === 'teacher' ? 'المعلم' : 'الفصل'} المطلوب
           </p>
-          <div className="flex justify-center items-center gap-2 text-blue-500">
-            <div className="w-3 h-3 bg-blue-500 rounded-full animate-bounce" style={{ animationDelay: '0s' }}></div>
-            <div className="w-3 h-3 bg-blue-500 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
-            <div className="w-3 h-3 bg-blue-500 rounded-full animate-bounce" style={{ animationDelay: '0.4s' }}></div>
+          <div className="flex justify-center items-center gap-2 text-[#8779fb]">
+            <div className="w-3 h-3 bg-[#8779fb] rounded-full animate-bounce" style={{ animationDelay: '0s' }}></div>
+            <div className="w-3 h-3 bg-[#8779fb] rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
+            <div className="w-3 h-3 bg-[#8779fb] rounded-full animate-bounce" style={{ animationDelay: '0.4s' }}></div>
           </div>
         </div>
       );
@@ -5486,17 +5486,17 @@ const SmartTimetablePageEnhanced = () => {
     return (
       <div className="space-y-6">
         {/* معلومات الفرد */}
-        <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg p-4 border border-blue-200">
+        <div className="bg-gradient-to-r from-[#f5f3ff] to-[#e5e1fe] rounded-lg p-4 border border-[#ddd6fe]">
           <div className="flex items-center justify-between">
             <div>
-              <h2 className="text-xl font-bold text-blue-900 mb-1">
+              <h2 className="text-xl font-bold text-[#4c1d95] mb-1">
                 {selectedIndividualType === 'teacher' 
                   ? (individual as Teacher).name.split(' ').slice(0, 2).join(' ')
                   : (individual as Class).name
                 }
               </h2>
               {selectedIndividualType === 'teacher' && (
-                <div className="flex gap-4 text-sm text-blue-700">
+                <div className="flex gap-4 text-sm text-[#655ac1]">
                   <span>التخصص: {(individual as Teacher).specialization}</span>
                 </div>
               )}
@@ -5504,11 +5504,11 @@ const SmartTimetablePageEnhanced = () => {
             
             {/* إحصائيات سريعة */}
             <div className="flex gap-3">
-              <div className="text-center bg-white rounded-lg px-3 py-1.5 border border-blue-300">
-                <div className="text-xl font-bold text-blue-600">
+              <div className="text-center bg-white rounded-lg px-3 py-1.5 border border-[#c4b5fd]">
+                <div className="text-xl font-bold text-[#655ac1]">
                   {individualSessions.filter(s => s.type === 'basic').length}
                 </div>
-                <div className="text-xs text-blue-500">الحصص</div>
+                <div className="text-xs text-[#8779fb]">الحصص</div>
               </div>
               {selectedIndividualType === 'teacher' && (
                 <div className="text-center bg-white rounded-lg px-3 py-1.5 border border-orange-300">
@@ -5526,10 +5526,10 @@ const SmartTimetablePageEnhanced = () => {
         <div className="overflow-x-auto" style={{ transform: `scale(${zoomLevel / 100})`, transformOrigin: 'top right', transition: 'transform 0.2s ease' }}>
           <table className="w-full border-collapse border border-gray-300">
             <thead>
-              <tr className="bg-gradient-to-r from-blue-100 to-indigo-100">
-                <th className="border border-gray-300 p-3 text-sm font-semibold w-32 text-blue-900">اليوم</th>
+              <tr className="bg-gradient-to-r from-[#e5e1fe] to-[#e5e1fe]">
+                <th className="border border-gray-300 p-3 text-sm font-semibold w-32 text-[#4c1d95]">اليوم</th>
                 {Array.from({ length: periodsPerDay }, (_, i) => (
-                  <th key={i + 1} className="border border-gray-300 p-3 text-sm font-semibold w-32 text-blue-900">
+                  <th key={i + 1} className="border border-gray-300 p-3 text-sm font-semibold w-32 text-[#4c1d95]">
                     الحصة {i + 1}
                   </th>
                 ))}
@@ -5537,8 +5537,8 @@ const SmartTimetablePageEnhanced = () => {
             </thead>
             <tbody>
               {daysOfWeek.map(day => (
-                <tr key={day} className="hover:bg-blue-50">
-                  <td className="border border-gray-300 p-3 text-center font-semibold bg-gradient-to-r from-blue-50 to-indigo-50 w-32 text-blue-900">
+                <tr key={day} className="hover:bg-[#f5f3ff]">
+                  <td className="border border-gray-300 p-3 text-center font-semibold bg-gradient-to-r from-[#f5f3ff] to-[#e5e1fe] w-32 text-[#4c1d95]">
                     {day}
                   </td>
                   {Array.from({ length: periodsPerDay }, (_, periodIndex) => {
@@ -5556,7 +5556,7 @@ const SmartTimetablePageEnhanced = () => {
                     return (
                       <td 
                         key={periodIndex + 1} 
-                        className={`border border-gray-300 p-2 relative w-32 h-24 ${isDragMode ? 'cursor-pointer hover:bg-blue-50 transition-colors' : ''}`}
+                        className={`border border-gray-300 p-2 relative w-32 h-24 ${isDragMode ? 'cursor-pointer hover:bg-[#f5f3ff] transition-colors' : ''}`}
                         style={{
                           minWidth: '128px',
                           maxWidth: '128px',
@@ -5622,7 +5622,7 @@ const SmartTimetablePageEnhanced = () => {
                             className={`h-full w-full rounded p-2 text-center flex flex-col justify-center relative ${
                               session.type === 'standby'
                                 ? 'text-green-800 border border-green-300'
-                                : 'text-blue-900 border border-blue-300'
+                                : 'text-[#4c1d95] border border-[#c4b5fd]'
                             } ${isDragMode ? 'cursor-grab hover:opacity-80 transition-opacity' : ''}`}
                             style={{
                               overflow: 'hidden',
@@ -5630,7 +5630,7 @@ const SmartTimetablePageEnhanced = () => {
                               wordBreak: 'break-word',
                               background: session.type === 'standby' 
                                 ? 'linear-gradient(135deg, #c8e6c9 0%, #a5d6a7 100%)' 
-                                : 'linear-gradient(135deg, #bbdefb 0%, #90caf9 100%)'
+                                : 'linear-gradient(135deg, #ede9fe 0%, #ddd6fe 100%)'
                             }}
                             draggable={isDragMode}
                             onDragStart={isDragMode ? (e) => {
@@ -5683,7 +5683,7 @@ const SmartTimetablePageEnhanced = () => {
                                   }}>
                                     انتظار
                                   </div>
-                                  <div className="text-base font-bold text-blue-600 mt-1">
+                                  <div className="text-base font-bold text-[#655ac1] mt-1">
                                     م
                                   </div>
                                 </>
@@ -5765,7 +5765,7 @@ const SmartTimetablePageEnhanced = () => {
             }}
             variant="outline"
             size="sm"
-            className="text-blue-700 border-blue-300 hover:bg-blue-50"
+            className="text-[#655ac1] border-[#c4b5fd] hover:bg-[#f5f3ff]"
           >
             <Printer className="h-4 w-4 ml-1" />
             طباعة
@@ -5870,13 +5870,13 @@ const SmartTimetablePageEnhanced = () => {
   });
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 py-8 px-4 sm:px-6 lg:px-8 font-kufi" style={{ direction: 'rtl' }}>
+    <div className="min-h-screen bg-gray-50 pt-1 pb-6 px-6" dir="rtl">
 
       {/* عنوان الصفحة */}
       <div className="max-w-7xl mx-auto mb-6">
         <div className="bg-white rounded-xl shadow-md border border-gray-200 p-6">
           <div className="flex items-center gap-3">
-            <div className="bg-gradient-to-r from-[#4f46e5] to-[#6366f1] p-3 rounded-xl shadow-lg">
+            <div className="bg-gradient-to-r from-[#655ac1] to-[#8779fb] p-3 rounded-xl shadow-lg">
               <Calendar className="h-6 w-6 text-white" />
             </div>
             <h1 className="text-2xl font-bold text-gray-900">إنشاء الجدول</h1>
@@ -5893,7 +5893,7 @@ const SmartTimetablePageEnhanced = () => {
               <Button 
                 onClick={handleAutoGenerate}
                 disabled={isGenerating}
-                className="bg-gradient-to-r from-[#4f46e5] to-[#6366f1] hover:from-[#4338ca] hover:to-[#4f46e5] text-white shadow-md h-auto py-3"
+                className="bg-gradient-to-r from-[#655ac1] to-[#8779fb] hover:from-[#4338ca] hover:to-[#655ac1] text-white shadow-md h-auto py-3"
               >
                 {isGenerating ? (
                   <RefreshCw className="w-4 h-4 ml-2 animate-spin" />
@@ -5922,7 +5922,7 @@ const SmartTimetablePageEnhanced = () => {
                 className={`shadow-md h-auto py-3 transition-all ${
                   isDragMode 
                     ? 'bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white' 
-                    : 'bg-gradient-to-r from-[#4f46e5] to-[#6366f1] hover:from-[#4338ca] hover:to-[#4f46e5] text-white'
+                    : 'bg-gradient-to-r from-[#655ac1] to-[#8779fb] hover:from-[#4338ca] hover:to-[#655ac1] text-white'
                 }`}
               >
                 {isDragMode ? (
@@ -5941,7 +5941,7 @@ const SmartTimetablePageEnhanced = () => {
                     handleSmartOptimize();
                   }
                 }}
-                className="bg-gradient-to-r from-[#4f46e5] to-[#6366f1] hover:from-[#4338ca] hover:to-[#4f46e5] text-white shadow-md h-auto py-3 transition-all"
+                className="bg-gradient-to-r from-[#655ac1] to-[#8779fb] hover:from-[#4338ca] hover:to-[#655ac1] text-white shadow-md h-auto py-3 transition-all"
               >
                 {isGenerating ? (
                   <RefreshCw className="w-4 h-4 ml-2 animate-spin" />
@@ -5965,7 +5965,7 @@ const SmartTimetablePageEnhanced = () => {
                 className={`shadow-md h-auto py-3 transition-all ${
                   isBasicTimetableLocked 
                     ? 'bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white' 
-                    : 'bg-gradient-to-r from-[#4f46e5] to-[#6366f1] hover:from-[#4338ca] hover:to-[#4f46e5] text-white'
+                    : 'bg-gradient-to-r from-[#655ac1] to-[#8779fb] hover:from-[#4338ca] hover:to-[#655ac1] text-white'
                 }`}
               >
                 {isBasicTimetableLocked ? (
@@ -5986,7 +5986,7 @@ const SmartTimetablePageEnhanced = () => {
                     handleDistributeStandby();
                   }
                 }}
-                className="bg-gradient-to-r from-[#4f46e5] to-[#6366f1] hover:from-[#4338ca] hover:to-[#4f46e5] text-white shadow-md h-auto py-3 transition-all"
+                className="bg-gradient-to-r from-[#655ac1] to-[#8779fb] hover:from-[#4338ca] hover:to-[#655ac1] text-white shadow-md h-auto py-3 transition-all"
               >
                 {isGenerating ? (
                   <RefreshCw className="w-4 h-4 ml-2 animate-spin" />
@@ -6004,7 +6004,7 @@ const SmartTimetablePageEnhanced = () => {
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2 md:gap-3">
               <Button
                 onClick={handleManageTimetables}
-                className="bg-[#818cf8] hover:bg-[#6366f1] text-white shadow-md h-auto py-3"
+                className="bg-[#8779fb] hover:bg-[#655ac1] text-white shadow-md h-auto py-3"
               >
                 <History className="w-4 h-4 ml-2" />
                 <span className="text-sm">إدارة الجداول</span>
@@ -6018,7 +6018,7 @@ const SmartTimetablePageEnhanced = () => {
                     handleExportExcel();
                   }
                 }}
-                className="bg-[#818cf8] hover:bg-[#6366f1] text-white shadow-md h-auto py-3"
+                className="bg-[#8779fb] hover:bg-[#655ac1] text-white shadow-md h-auto py-3"
               >
                 <Download className="w-4 h-4 ml-2" />
                 <span className="text-sm">تصدير Excel</span>
@@ -6032,7 +6032,7 @@ const SmartTimetablePageEnhanced = () => {
                     handleExportHTML();
                   }
                 }}
-                className="bg-[#818cf8] hover:bg-[#6366f1] text-white shadow-md h-auto py-3"
+                className="bg-[#8779fb] hover:bg-[#655ac1] text-white shadow-md h-auto py-3"
               >
                 <FileText className="w-4 h-4 ml-2" />
                 <span className="text-sm">تصدير XML</span>
@@ -6046,7 +6046,7 @@ const SmartTimetablePageEnhanced = () => {
                     handlePrint();
                   }
                 }}
-                className="bg-[#818cf8] hover:bg-[#6366f1] text-white shadow-md h-auto py-3"
+                className="bg-[#8779fb] hover:bg-[#655ac1] text-white shadow-md h-auto py-3"
               >
                 <Printer className="w-4 h-4 ml-2" />
                 <span className="text-sm">طباعة PDF</span>
@@ -6060,7 +6060,7 @@ const SmartTimetablePageEnhanced = () => {
                     handleSend();
                   }
                 }}
-                className="bg-[#818cf8] hover:bg-[#6366f1] text-white shadow-md h-auto py-3"
+                className="bg-[#8779fb] hover:bg-[#655ac1] text-white shadow-md h-auto py-3"
               >
                 <Send className="w-4 h-4 ml-2" />
                 <span className="text-sm">إرسال الجدول</span>
@@ -6073,18 +6073,18 @@ const SmartTimetablePageEnhanced = () => {
       {/* شريط التقدم للعمليات الجارية */}
       {isGenerating && (
         <div className="max-w-7xl mx-auto mb-4">
-          <div className="bg-gradient-to-r from-[#4f46e5]/10 to-[#6366f1]/10 rounded-lg p-4 border border-[#4f46e5]/30">
+          <div className="bg-gradient-to-r from-[#655ac1]/10 to-[#655ac1]/10 rounded-lg p-4 border border-[#655ac1]/30">
             <div className="flex items-center justify-between mb-2">
-              <span className="text-sm font-medium text-[#4f46e5]">جاري المعالجة...</span>
-              <span className="text-sm text-[#6366f1]">{progressPercentage}%</span>
+              <span className="text-sm font-medium text-[#655ac1]">جاري المعالجة...</span>
+              <span className="text-sm text-[#655ac1]">{progressPercentage}%</span>
             </div>
             <div className="w-full bg-gray-200 rounded-full h-2.5">
               <div 
-                className="bg-gradient-to-r from-[#4f46e5] to-[#818cf8] h-2.5 rounded-full animate-pulse transition-all duration-300" 
+                className="bg-gradient-to-r from-[#655ac1] to-[#8779fb] h-2.5 rounded-full animate-pulse transition-all duration-300" 
                 style={{ width: progressPercentage + '%' }}
               ></div>
             </div>
-            <p className="text-xs text-[#4f46e5] mt-2">يرجى الانتظار حتى اكتمال العملية</p>
+            <p className="text-xs text-[#655ac1] mt-2">يرجى الانتظار حتى اكتمال العملية</p>
           </div>
         </div>
       )}
@@ -6092,18 +6092,18 @@ const SmartTimetablePageEnhanced = () => {
       {/* بطاقة نظام التعديل اليدوي */}
       {isDragMode && (
         <div className="max-w-7xl mx-auto mb-4">
-          <Card className="border-2 border-[#6366f1] shadow-lg bg-gradient-to-r from-[#4f46e5]/5 to-[#818cf8]/5">
-            <CardHeader className="bg-gradient-to-r from-[#4f46e5]/10 to-[#6366f1]/10 rounded-t-lg">
+          <Card className="border-2 border-[#655ac1] shadow-lg bg-gradient-to-r from-[#655ac1]/5 to-[#8779fb]/5">
+            <CardHeader className="bg-gradient-to-r from-[#655ac1]/10 to-[#655ac1]/10 rounded-t-lg">
               <CardTitle className="flex items-center gap-3">
-                <div className="p-2 bg-[#4f46e5] rounded-full">
+                <div className="p-2 bg-[#655ac1] rounded-full">
                   <MousePointer className="h-5 w-5 text-white" />
                 </div>
                 <div>
-                  <div className="text-[#4f46e5] font-bold">نظام السحب والإفلات المتقدم</div>
-                  <div className="text-sm text-[#6366f1] font-normal">تفعيل التعديل التفاعلي للجداول</div>
+                  <div className="text-[#655ac1] font-bold">نظام السحب والإفلات المتقدم</div>
+                  <div className="text-sm text-[#655ac1] font-normal">تفعيل التعديل التفاعلي للجداول</div>
                 </div>
                 <div className="flex-1"></div>
-                <Badge variant="default" className="bg-[#4f46e5] hover:bg-[#6366f1] animate-pulse">
+                <Badge variant="default" className="bg-[#655ac1] hover:bg-[#655ac1] animate-pulse">
                   نشط الآن
                 </Badge>
               </CardTitle>
@@ -6111,41 +6111,41 @@ const SmartTimetablePageEnhanced = () => {
             <CardContent className="p-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {/* إرشادات الاستخدام */}
-                <div className="bg-white p-4 rounded-lg border border-[#6366f1] shadow-sm">
+                <div className="bg-white p-4 rounded-lg border border-[#655ac1] shadow-sm">
                   <div className="flex items-center gap-2 mb-3">
-                    <div className="p-1.5 bg-[#4f46e5] rounded-full">
+                    <div className="p-1.5 bg-[#655ac1] rounded-full">
                       <Info className="h-4 w-4 text-white" />
                     </div>
-                    <span className="font-semibold text-[#4f46e5]">كيفية الاستخدام</span>
+                    <span className="font-semibold text-[#655ac1]">كيفية الاستخدام</span>
                   </div>
                   <ul className="text-sm text-gray-700 space-y-2">
                     <li className="flex items-center gap-2">
-                      <div className="w-2 h-2 bg-[#4f46e5] rounded-full"></div>
+                      <div className="w-2 h-2 bg-[#655ac1] rounded-full"></div>
                       اسحب الحصص بين المعلمين والأوقات المختلفة
                     </li>
                     <li className="flex items-center gap-2">
-                      <div className="w-2 h-2 bg-[#6366f1] rounded-full"></div>
+                      <div className="w-2 h-2 bg-[#655ac1] rounded-full"></div>
                       سيتم فحص التعارضات تلقائياً قبل النقل
                     </li>
                     <li className="flex items-center gap-2">
-                      <div className="w-2 h-2 bg-[#818cf8] rounded-full"></div>
+                      <div className="w-2 h-2 bg-[#8779fb] rounded-full"></div>
                       التأثيرات البصرية ترشدك للأماكن الصحيحة
                     </li>
                   </ul>
                 </div>
 
                 {/* إحصائيات العمليات */}
-                <div className="bg-white p-4 rounded-lg border border-[#6366f1] shadow-sm">
+                <div className="bg-white p-4 rounded-lg border border-[#655ac1] shadow-sm">
                   <div className="flex items-center gap-2 mb-3">
-                    <div className="p-1.5 bg-[#4f46e5] rounded-full">
+                    <div className="p-1.5 bg-[#655ac1] rounded-full">
                       <BarChart2 className="h-4 w-4 text-white" />
                     </div>
-                    <span className="font-semibold text-[#4f46e5]">إحصائيات العمليات</span>
+                    <span className="font-semibold text-[#655ac1]">إحصائيات العمليات</span>
                   </div>
                   <div className="space-y-2">
                     <div className="flex justify-between items-center">
                       <span className="text-sm text-gray-600">عدد العمليات:</span>
-                      <Badge variant="outline" className="text-[#4f46e5] border-[#4f46e5]">
+                      <Badge variant="outline" className="text-[#655ac1] border-[#655ac1]">
                         {dragOperationsCount}
                       </Badge>
                     </div>
@@ -6155,7 +6155,7 @@ const SmartTimetablePageEnhanced = () => {
                       <Button 
                         variant="outline" 
                         size="sm" 
-                        className="w-full mt-2 text-[#6366f1] border-[#6366f1] hover:bg-[#6366f1]/10"
+                        className="w-full mt-2 text-[#655ac1] border-[#655ac1] hover:bg-[#655ac1]/10"
                         onClick={() => setShowOperationsModal(true)}
                       >
                         <History className="h-4 w-4 mr-2" />
@@ -6183,15 +6183,15 @@ const SmartTimetablePageEnhanced = () => {
                 <div className="text-sm font-medium text-gray-700 mb-2">مؤشرات الألوان:</div>
                 <div className="flex flex-wrap gap-4">
                   <div className="flex items-center gap-2">
-                    <div className="w-4 h-4 bg-[#4f46e5]/20 border-2 border-dashed border-[#4f46e5] rounded"></div>
+                    <div className="w-4 h-4 bg-[#655ac1]/20 border-2 border-dashed border-[#655ac1] rounded"></div>
                     <span className="text-xs text-gray-600">منطقة إفلات صحيحة</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <div className="w-4 h-4 bg-[#6366f1]/30 border-2 border-[#6366f1] rounded"></div>
+                    <div className="w-4 h-4 bg-[#655ac1]/30 border-2 border-[#655ac1] rounded"></div>
                     <span className="text-xs text-gray-600">تم النقل بنجاح</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <div className="w-4 h-4 bg-[#818cf8]/20 border border-[#818cf8] rounded opacity-70"></div>
+                    <div className="w-4 h-4 bg-[#8779fb]/20 border border-[#8779fb] rounded opacity-70"></div>
                     <span className="text-xs text-gray-600">حصة قيد السحب</span>
                   </div>
                 </div>
@@ -6204,20 +6204,20 @@ const SmartTimetablePageEnhanced = () => {
       {/* تنبيه نتائج السحب والإفلات المرئي */}
       {lastDragOperation && (
         <div className="max-w-7xl mx-auto mb-4">
-          <Card className="border-2 border-[#6366f1] bg-gradient-to-r from-[#4f46e5]/10 to-[#818cf8]/10 shadow-lg animate-pulse">
+          <Card className="border-2 border-[#655ac1] bg-gradient-to-r from-[#655ac1]/10 to-[#8779fb]/10 shadow-lg animate-pulse">
             <CardContent className="p-4">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 bg-[#4f46e5]/20 rounded-full flex items-center justify-center">
-                  <MousePointer className="h-5 w-5 text-[#4f46e5]" />
+                <div className="w-10 h-10 bg-[#655ac1]/20 rounded-full flex items-center justify-center">
+                  <MousePointer className="h-5 w-5 text-[#655ac1]" />
                 </div>
                 <div className="flex-1">
                   <div className="flex items-center gap-2 mb-1">
-                    <h4 className="font-bold text-[#4f46e5]">تمت عملية السحب والإفلات!</h4>
-                    <span className="bg-[#6366f1]/20 text-[#4f46e5] text-xs px-2 py-1 rounded-full">
+                    <h4 className="font-bold text-[#655ac1]">تمت عملية السحب والإفلات!</h4>
+                    <span className="bg-[#655ac1]/20 text-[#655ac1] text-xs px-2 py-1 rounded-full">
                       عملية #{lastDragOperation.operationNumber}
                     </span>
                   </div>
-                  <div className="text-sm text-[#6366f1]">
+                  <div className="text-sm text-[#655ac1]">
                     <div><strong>المصدر:</strong> {lastDragOperation.from}</div>
                     <div><strong>الهدف:</strong> {lastDragOperation.to}</div>
                     <div><strong>الحصة:</strong> {lastDragOperation.subject} - {lastDragOperation.class}</div>
@@ -6225,7 +6225,7 @@ const SmartTimetablePageEnhanced = () => {
                 </div>
                 <button 
                   onClick={() => setLastDragOperation(null)}
-                  className="text-[#4f46e5] hover:text-[#6366f1] p-1 rounded-full hover:bg-[#4f46e5]/10"
+                  className="text-[#655ac1] hover:text-[#655ac1] p-1 rounded-full hover:bg-[#655ac1]/10"
                 >
                   ×
                 </button>
@@ -6246,8 +6246,8 @@ const SmartTimetablePageEnhanced = () => {
                 variant="outline"
                 className={`border-2 shadow-sm h-auto py-3 transition-all duration-200 text-sm font-medium ${
                   viewMode === 'teachers'
-                    ? 'bg-gradient-to-r from-[#818cf8] to-[#6366f1] border-[#6366f1] text-white font-bold shadow-lg'
-                    : 'border-[#818cf8] text-[#818cf8] bg-transparent hover:bg-[#818cf8]/10 hover:border-[#4f46e5]'
+                    ? 'bg-gradient-to-r from-[#8779fb] to-[#655ac1] border-[#655ac1] text-white font-bold shadow-lg'
+                    : 'border-[#8779fb] text-[#8779fb] bg-transparent hover:bg-[#8779fb]/10 hover:border-[#655ac1]'
                 }`}
               >
                 الجدول العام للمعلمين
@@ -6257,8 +6257,8 @@ const SmartTimetablePageEnhanced = () => {
                 variant="outline"
                 className={`border-2 shadow-sm h-auto py-3 transition-all duration-200 text-sm font-medium ${
                   viewMode === 'classes'
-                    ? 'bg-gradient-to-r from-[#818cf8] to-[#6366f1] border-[#6366f1] text-white font-bold shadow-lg'
-                    : 'border-[#818cf8] text-[#818cf8] bg-transparent hover:bg-[#818cf8]/10 hover:border-[#4f46e5]'
+                    ? 'bg-gradient-to-r from-[#8779fb] to-[#655ac1] border-[#655ac1] text-white font-bold shadow-lg'
+                    : 'border-[#8779fb] text-[#8779fb] bg-transparent hover:bg-[#8779fb]/10 hover:border-[#655ac1]'
                 }`}
               >
                 الجدول العام للفصول
@@ -6268,8 +6268,8 @@ const SmartTimetablePageEnhanced = () => {
                 variant="outline"
                 className={`border-2 shadow-sm h-auto py-3 transition-all duration-200 text-sm font-medium ${
                   viewMode === 'standby'
-                    ? 'bg-gradient-to-r from-[#818cf8] to-[#6366f1] border-[#6366f1] text-white font-bold shadow-lg'
-                    : 'border-[#818cf8] text-[#818cf8] bg-transparent hover:bg-[#818cf8]/10 hover:border-[#4f46e5]'
+                    ? 'bg-gradient-to-r from-[#8779fb] to-[#655ac1] border-[#655ac1] text-white font-bold shadow-lg'
+                    : 'border-[#8779fb] text-[#8779fb] bg-transparent hover:bg-[#8779fb]/10 hover:border-[#655ac1]'
                 }`}
               >
                 الجدول العام للانتظار
@@ -6282,8 +6282,8 @@ const SmartTimetablePageEnhanced = () => {
                 variant="outline"
                 className={`border-2 shadow-sm h-auto py-3 transition-all duration-200 text-sm font-medium ${
                   viewMode === 'individual' && selectedIndividualType === 'teacher'
-                    ? 'bg-gradient-to-r from-[#818cf8] to-[#6366f1] border-[#6366f1] text-white font-bold shadow-lg'
-                    : 'border-[#818cf8] text-[#818cf8] bg-transparent hover:bg-[#818cf8]/10 hover:border-[#4f46e5]'
+                    ? 'bg-gradient-to-r from-[#8779fb] to-[#655ac1] border-[#655ac1] text-white font-bold shadow-lg'
+                    : 'border-[#8779fb] text-[#8779fb] bg-transparent hover:bg-[#8779fb]/10 hover:border-[#655ac1]'
                 }`}
               >
                 جدول معلم
@@ -6296,8 +6296,8 @@ const SmartTimetablePageEnhanced = () => {
                 variant="outline"
                 className={`border-2 shadow-sm h-auto py-3 transition-all duration-200 text-sm font-medium ${
                   viewMode === 'individual' && selectedIndividualType === 'class'
-                    ? 'bg-gradient-to-r from-[#818cf8] to-[#6366f1] border-[#6366f1] text-white font-bold shadow-lg'
-                    : 'border-[#818cf8] text-[#818cf8] bg-transparent hover:bg-[#818cf8]/10 hover:border-[#4f46e5]'
+                    ? 'bg-gradient-to-r from-[#8779fb] to-[#655ac1] border-[#655ac1] text-white font-bold shadow-lg'
+                    : 'border-[#8779fb] text-[#8779fb] bg-transparent hover:bg-[#8779fb]/10 hover:border-[#655ac1]'
                 }`}
               >
                 جدول فصل
@@ -6324,8 +6324,8 @@ const SmartTimetablePageEnhanced = () => {
                             key={specialization}
                             className={`p-3 border-2 border-dashed rounded-lg cursor-move transition-all ${
                               draggedSpecialization === specialization
-                                ? 'border-blue-500 bg-blue-50'
-                                : 'border-gray-300 hover:border-blue-400'
+                                ? 'border-[#8779fb] bg-[#f5f3ff]'
+                                : 'border-gray-300 hover:border-[#a78bfa]'
                             }`}
                             draggable
                             onDragStart={() => handleDragStart(specialization)}
@@ -6334,7 +6334,7 @@ const SmartTimetablePageEnhanced = () => {
                           >
                             <div className="flex items-center justify-between">
                               <div className="flex items-center">
-                                <span className="w-6 h-6 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-sm font-bold ml-2">
+                                <span className="w-6 h-6 bg-[#e5e1fe] text-[#655ac1] rounded-full flex items-center justify-center text-sm font-bold ml-2">
                                   {index + 1}
                                 </span>
                                 <span className="font-medium">{specialization}</span>
@@ -6356,7 +6356,7 @@ const SmartTimetablePageEnhanced = () => {
                         </Button>
                         <Button
                           onClick={handleSaveSpecializationOrder}
-                          className="bg-blue-600 hover:bg-blue-700"
+                          className="bg-blue-600 hover:bg-[#655ac1]"
                         >
                           <Save className="h-4 w-4 ml-1" />
                           حفظ الترتيب
@@ -6370,7 +6370,7 @@ const SmartTimetablePageEnhanced = () => {
                 {viewMode === 'individual' && (
                   <div className="flex gap-3 items-center mt-4">
                     {/* شريط الأدوات الاحترافي للجداول الفردية */}
-                    <div className="w-full p-3 bg-gradient-to-r from-blue-50 via-indigo-50 to-purple-50 rounded-lg border-2 border-blue-200 shadow-sm">
+                    <div className="w-full p-3 bg-gradient-to-r from-[#f5f3ff] via-[#e5e1fe] to-purple-50 rounded-lg border-2 border-[#ddd6fe] shadow-sm">
                       <div className="flex flex-wrap items-center gap-3">
                         {/* زر عرض/إخفاء الكل */}
                         <Button
@@ -6378,8 +6378,8 @@ const SmartTimetablePageEnhanced = () => {
                           variant={showAllIndividual ? 'default' : 'outline'}
                           size="sm"
                           className={showAllIndividual 
-                            ? 'bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-semibold shadow-md' 
-                            : 'border-2 border-blue-300 text-blue-700 hover:bg-blue-50 font-medium'
+                            ? 'bg-gradient-to-r from-blue-600 to-[#655ac1] hover:from-[#655ac1] hover:to-[#655ac1] text-white font-semibold shadow-md' 
+                            : 'border-2 border-[#c4b5fd] text-[#655ac1] hover:bg-[#f5f3ff] font-medium'
                           }
                         >
                           <Grid className="h-4 w-4 ml-1" />
@@ -6389,7 +6389,7 @@ const SmartTimetablePageEnhanced = () => {
                         {/* زر تعديل الجدول للمعلمين */}
                         {selectedIndividualType === 'teacher' && !showAllIndividual && (
                           <>
-                            <div className="h-6 w-px bg-blue-300"></div>
+                            <div className="h-6 w-px bg-[#c4b5fd]"></div>
                             <Button
                               onClick={() => {
                                 if (sessions.length === 0) {
@@ -6446,8 +6446,8 @@ const SmartTimetablePageEnhanced = () => {
                           variant={selectedIndividualType === 'teacher' ? 'default' : 'outline'}
                           size="sm"
                           className={selectedIndividualType === 'teacher' 
-                            ? 'bg-indigo-600 hover:bg-indigo-700 text-white' 
-                            : 'border-blue-200 text-blue-600 hover:bg-blue-50'
+                            ? 'bg-[#655ac1] hover:bg-[#655ac1] text-white' 
+                            : 'border-[#ddd6fe] text-[#655ac1] hover:bg-[#f5f3ff]'
                           }
                         >
                           <Users className="h-4 w-4 ml-1" />
@@ -6580,7 +6580,7 @@ const SmartTimetablePageEnhanced = () => {
                               return sortedTeachersForNav.findIndex(t => t.id === selectedIndividualId) === 0;
                             })()
                           : classes.findIndex(c => c.id === selectedIndividualId) === 0)}
-                        className="border-blue-300 text-blue-700 hover:bg-blue-50"
+                        className="border-[#c4b5fd] text-[#655ac1] hover:bg-[#f5f3ff]"
                       >
                         ←
                       </Button>
@@ -6647,7 +6647,7 @@ const SmartTimetablePageEnhanced = () => {
                               return sortedTeachersForNav.findIndex(t => t.id === selectedIndividualId) === sortedTeachersForNav.length - 1;
                             })()
                           : classes.findIndex(c => c.id === selectedIndividualId) === classes.length - 1)}
-                        className="border-blue-300 text-blue-700 hover:bg-blue-50"
+                        className="border-[#c4b5fd] text-[#655ac1] hover:bg-[#f5f3ff]"
                       >
                         →
                       </Button>
@@ -6661,7 +6661,7 @@ const SmartTimetablePageEnhanced = () => {
           <CardContent>
             {/* شريط الأدوات للجداول العامة - محسّن */}
             {(viewMode === 'teachers' || viewMode === 'classes' || viewMode === 'standby') && (
-              <div className="mb-4 p-3 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg border border-blue-200">
+              <div className="mb-4 p-3 bg-gradient-to-r from-[#f5f3ff] to-[#e5e1fe] rounded-lg border border-[#ddd6fe]">
                 <div className="flex flex-wrap items-center justify-between gap-3">
                   {/* الأدوات في الوضع العادي (الصفحة الرئيسية) */}
                   {!isFullscreen && (
@@ -6671,7 +6671,7 @@ const SmartTimetablePageEnhanced = () => {
                         onClick={() => setIsFullscreen(true)}
                         variant="outline"
                         size="sm"
-                        className="border-blue-300 text-blue-700 hover:bg-blue-100 px-3"
+                        className="border-[#c4b5fd] text-[#655ac1] hover:bg-[#e5e1fe] px-3"
                         title="شاشة كاملة"
                       >
                         <Maximize2 className="h-4 w-4 ml-1" />
@@ -6685,7 +6685,7 @@ const SmartTimetablePageEnhanced = () => {
                             onClick={handleSortBySpecialization}
                             variant="outline"
                             size="sm"
-                            className="border-indigo-300 text-indigo-700 hover:bg-indigo-50 px-3"
+                            className="border-indigo-300 text-[#655ac1] hover:bg-[#e5e1fe] px-3"
                           >
                             <Filter className="h-4 w-4 ml-1" />
                             فرز حسب التخصص
@@ -6694,7 +6694,7 @@ const SmartTimetablePageEnhanced = () => {
                             onClick={handleAlphabeticalSort}
                             variant="outline"
                             size="sm"
-                            className="border-indigo-300 text-indigo-700 hover:bg-indigo-50 px-3"
+                            className="border-indigo-300 text-[#655ac1] hover:bg-[#e5e1fe] px-3"
                           >
                             <List className="h-4 w-4 ml-1" />
                             فرز أبجدي
@@ -6717,13 +6717,13 @@ const SmartTimetablePageEnhanced = () => {
                           }}
                           variant="outline"
                           size="sm"
-                          className="border-blue-300 text-blue-700 hover:bg-blue-100 px-2"
+                          className="border-[#c4b5fd] text-[#655ac1] hover:bg-[#e5e1fe] px-2"
                           title="تصغير"
                         >
                           <Minimize2 className="h-4 w-4 ml-1" />
                           تصغير
                         </Button>
-                        <span className="text-sm font-semibold text-blue-900 min-w-[60px] text-center bg-white px-3 py-1 rounded border border-blue-200">
+                        <span className="text-sm font-semibold text-[#4c1d95] min-w-[60px] text-center bg-white px-3 py-1 rounded border border-[#ddd6fe]">
                           {viewMode === 'teachers' ? fullscreenTeachersZoom : viewMode === 'classes' ? fullscreenClassesZoom : fullscreenStandbyZoom}%
                         </span>
                         <Button
@@ -6734,7 +6734,7 @@ const SmartTimetablePageEnhanced = () => {
                           }}
                           variant="outline"
                           size="sm"
-                          className="border-blue-300 text-blue-700 hover:bg-blue-100 px-2"
+                          className="border-[#c4b5fd] text-[#655ac1] hover:bg-[#e5e1fe] px-2"
                           title="تكبير"
                         >
                           <Maximize2 className="h-4 w-4 ml-1" />
@@ -6748,7 +6748,7 @@ const SmartTimetablePageEnhanced = () => {
                           }}
                           variant="outline"
                           size="sm"
-                          className="border-blue-300 text-blue-700 hover:bg-blue-100 px-2"
+                          className="border-[#c4b5fd] text-[#655ac1] hover:bg-[#e5e1fe] px-2"
                           title="إعادة تعيين"
                         >
                           <RotateCcw className="h-4 w-4" />
@@ -6825,7 +6825,7 @@ const SmartTimetablePageEnhanced = () => {
                             onClick={handleSortBySpecialization}
                             variant="outline"
                             size="sm"
-                            className="border-indigo-300 text-indigo-700 hover:bg-indigo-50 px-3"
+                            className="border-indigo-300 text-[#655ac1] hover:bg-[#e5e1fe] px-3"
                           >
                             <Filter className="h-4 w-4 ml-1" />
                             فرز حسب التخصص
@@ -6834,7 +6834,7 @@ const SmartTimetablePageEnhanced = () => {
                             onClick={handleAlphabeticalSort}
                             variant="outline"
                             size="sm"
-                            className="border-indigo-300 text-indigo-700 hover:bg-indigo-50 px-3"
+                            className="border-indigo-300 text-[#655ac1] hover:bg-[#e5e1fe] px-3"
                           >
                             <List className="h-4 w-4 ml-1" />
                             فرز أبجدي
@@ -6860,7 +6860,7 @@ const SmartTimetablePageEnhanced = () => {
         <DialogContent className="max-w-4xl max-h-[80vh] overflow-y-auto">
           <DialogHeader>
             <DialogTitle className="flex items-center gap-2">
-              <History className="h-5 w-5 text-blue-600" />
+              <History className="h-5 w-5 text-[#655ac1]" />
               تاريخ عمليات التعديل
             </DialogTitle>
             <DialogDescription>
@@ -6874,11 +6874,11 @@ const SmartTimetablePageEnhanced = () => {
               <Card>
                 <CardContent className="p-4">
                   <div className="flex items-center gap-2">
-                    <div className="p-2 bg-blue-100 rounded-full">
-                      <Shuffle className="h-4 w-4 text-blue-600" />
+                    <div className="p-2 bg-[#e5e1fe] rounded-full">
+                      <Shuffle className="h-4 w-4 text-[#655ac1]" />
                     </div>
                     <div>
-                      <div className="text-2xl font-bold text-blue-600">{operationsHistory.length}</div>
+                      <div className="text-2xl font-bold text-[#655ac1]">{operationsHistory.length}</div>
                       <div className="text-xs text-gray-600">إجمالي العمليات</div>
                     </div>
                   </div>
@@ -6942,7 +6942,7 @@ const SmartTimetablePageEnhanced = () => {
                       {operationsHistory.map((operation, index) => (
                         <TableRow key={operation.id}>
                           <TableCell className="font-medium">
-                            <Badge variant="outline" className="text-blue-600">
+                            <Badge variant="outline" className="text-[#655ac1]">
                               #{operation.operationNumber}
                             </Badge>
                           </TableCell>
@@ -6986,7 +6986,7 @@ const SmartTimetablePageEnhanced = () => {
                             )}
                           </TableCell>
                           <TableCell>
-                            <Badge variant="default" className="bg-blue-500">
+                            <Badge variant="default" className="bg-[#8779fb]">
                               <CheckCircle className="h-3 w-3 mr-1" />
                               مكتمل
                             </Badge>
@@ -7063,7 +7063,7 @@ const SmartTimetablePageEnhanced = () => {
         <DialogContent className="sm:max-w-6xl max-h-[85vh]" style={{ direction: 'rtl' }}>
           <DialogHeader>
             <div className="flex items-center gap-3 mb-2">
-              <div className="bg-gradient-to-r from-[#4f46e5] to-[#6366f1] p-3 rounded-full">
+              <div className="bg-gradient-to-r from-[#655ac1] to-[#8779fb] p-3 rounded-full">
                 <History className="h-6 w-6 text-white" />
               </div>
               <div>
@@ -7079,14 +7079,14 @@ const SmartTimetablePageEnhanced = () => {
 
           {/* إحصائيات سريعة */}
           <div className="grid grid-cols-3 gap-4 mb-6">
-            <Card className="bg-gradient-to-br from-blue-50 to-indigo-50 border-blue-200">
+            <Card className="bg-gradient-to-br from-[#f5f3ff] to-[#e5e1fe] border-[#ddd6fe]">
               <CardContent className="p-4">
                 <div className="flex items-center justify-between">
                   <div>
                     <p className="text-xs text-gray-600 mb-1">الجداول المحفوظة</p>
-                    <p className="text-3xl font-bold text-blue-600">{savedTimetables.length}</p>
+                    <p className="text-3xl font-bold text-[#655ac1]">{savedTimetables.length}</p>
                   </div>
-                  <FileText className="h-10 w-10 text-blue-600 opacity-50" />
+                  <FileText className="h-10 w-10 text-[#655ac1] opacity-50" />
                 </div>
               </CardContent>
             </Card>
@@ -7130,7 +7130,7 @@ const SmartTimetablePageEnhanced = () => {
               <div className="overflow-x-auto">
                 <Table>
                   <TableHeader>
-                    <TableRow className="bg-gradient-to-r from-[#4f46e5] to-[#6366f1]">
+                    <TableRow className="bg-gradient-to-r from-[#655ac1] to-[#8779fb]">
                       <TableHead className="text-white text-center font-bold">#</TableHead>
                       <TableHead className="text-white font-bold">اسم الجدول</TableHead>
                       <TableHead className="text-white font-bold">تاريخ الإنشاء</TableHead>
@@ -7151,18 +7151,18 @@ const SmartTimetablePageEnhanced = () => {
                             : 'hover:bg-gray-50'
                         } transition-colors`}
                       >
-                        <TableCell className="text-center font-bold text-[#4f46e5]">
+                        <TableCell className="text-center font-bold text-[#655ac1]">
                           {index + 1}
                         </TableCell>
                         <TableCell>
                           <div className="flex items-center gap-2">
-                            <TableIcon className="h-4 w-4 text-[#4f46e5]" />
+                            <TableIcon className="h-4 w-4 text-[#655ac1]" />
                             <span className="font-semibold">{timetable.name}</span>
                           </div>
                         </TableCell>
                         <TableCell>
                           <div className="flex items-center gap-1 text-gray-700">
-                            <Calendar className="h-4 w-4 text-blue-500" />
+                            <Calendar className="h-4 w-4 text-[#8779fb]" />
                             <span className="text-sm">{timetable.createdDate}</span>
                           </div>
                         </TableCell>
@@ -7220,7 +7220,7 @@ const SmartTimetablePageEnhanced = () => {
                               }}
                               size="sm"
                               variant="outline"
-                              className="border-blue-500 text-blue-500 hover:bg-blue-50"
+                              className="border-[#8779fb] text-[#8779fb] hover:bg-[#f5f3ff]"
                               title="عرض الجدول"
                             >
                               <Eye className="h-4 w-4" />
@@ -7312,7 +7312,7 @@ const SmartTimetablePageEnhanced = () => {
               ${notification.type === 'success' ? 'bg-green-50/95 border-green-500' : ''}
               ${notification.type === 'error' ? 'bg-red-50/95 border-red-500' : ''}
               ${notification.type === 'warning' ? 'bg-amber-50/95 border-amber-500' : ''}
-              ${notification.type === 'info' ? 'bg-blue-50/95 border-blue-500' : ''}
+              ${notification.type === 'info' ? 'bg-[#f5f3ff]/95 border-[#8779fb]' : ''}
             `}
           >
             <div className="flex items-start gap-3">
@@ -7333,7 +7333,7 @@ const SmartTimetablePageEnhanced = () => {
                   </div>
                 )}
                 {notification.type === 'info' && (
-                  <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center">
+                  <div className="w-8 h-8 bg-[#8779fb] rounded-full flex items-center justify-center">
                     <Info className="h-5 w-5 text-white" />
                   </div>
                 )}
@@ -7343,7 +7343,7 @@ const SmartTimetablePageEnhanced = () => {
                   notification.type === 'success' ? 'text-green-900' : ''
                 }${notification.type === 'error' ? 'text-red-900' : ''
                 }${notification.type === 'warning' ? 'text-amber-900' : ''
-                }${notification.type === 'info' ? 'text-blue-900' : ''
+                }${notification.type === 'info' ? 'text-[#4c1d95]' : ''
                 }`}>
                   {notification.title}
                 </h4>
@@ -7351,7 +7351,7 @@ const SmartTimetablePageEnhanced = () => {
                   notification.type === 'success' ? 'text-green-700' : ''
                 }${notification.type === 'error' ? 'text-red-700' : ''
                 }${notification.type === 'warning' ? 'text-amber-700' : ''
-                }${notification.type === 'info' ? 'text-blue-700' : ''
+                }${notification.type === 'info' ? 'text-[#655ac1]' : ''
                 }`}>
                   {notification.message}
                 </p>
@@ -7384,10 +7384,10 @@ const SmartTimetablePageEnhanced = () => {
             </DialogDescription>
           </DialogHeader>
           
-          <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mt-4">
+          <div className="bg-[#f5f3ff] border border-[#ddd6fe] rounded-lg p-4 mt-4">
             <div className="flex items-start gap-3">
-              <Info className="h-5 w-5 text-blue-600 mt-0.5 flex-shrink-0" />
-              <div className="text-sm text-blue-900">
+              <Info className="h-5 w-5 text-[#655ac1] mt-0.5 flex-shrink-0" />
+              <div className="text-sm text-[#4c1d95]">
                 <p className="font-semibold mb-1">ملاحظة مهمة:</p>
                 <ul className="list-disc list-inside space-y-1 text-blue-800">
                   <li>عند اختيار "حفظ"، سيتم تطبيق جميع التعديلات</li>

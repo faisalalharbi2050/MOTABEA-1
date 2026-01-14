@@ -809,7 +809,7 @@ const StudentsManagement = () => {
   }
 
   return (
-    <div className="p-6 max-w-7xl mx-auto space-y-6" style={{ animation: 'none', transition: 'none' }}>
+    <div className="pt-1 pb-6 px-6 max-w-7xl mx-auto space-y-6" style={{ animation: 'none', transition: 'none' }}>
       {/* رأس الصفحة */}
       <div className="bg-white rounded-xl shadow-md border border-gray-200 p-6 mb-6" style={{ animation: 'none', transition: 'none' }}>
         <div className="flex items-center gap-3" style={{ animation: 'none', transition: 'none', transform: 'none' }}>

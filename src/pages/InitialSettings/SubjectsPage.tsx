@@ -1043,7 +1043,7 @@ const SubjectsPage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 p-6">
+    <div className="min-h-screen bg-gray-50 pt-1 pb-6 px-6" dir="rtl">
       <div className="max-w-7xl mx-auto">
         {!showInternalPage ? (
           <>

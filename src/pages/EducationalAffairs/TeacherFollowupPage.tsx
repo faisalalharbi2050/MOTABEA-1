@@ -9,7 +9,7 @@ const TeacherFollowupPage = () => {
   const [activeTab, setActiveTab] = useState<'works' | 'preparation' | 'reports'>('preparation');
 
   return (
-    <div className="min-h-screen bg-gray-50/50 p-6 space-y-6" dir="rtl">
+    <div className="min-h-screen bg-gray-50/50 pt-1 pb-6 px-6 space-y-6" dir="rtl">
       
       {/* Header Section */}
       <div className="bg-white rounded-xl shadow-md border border-gray-200 p-6">
