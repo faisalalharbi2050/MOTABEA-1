@@ -75,6 +75,8 @@ import UserFormPage from './pages/Dashboard/UserFormPage'
 import UserPermissionsPage from './pages/Dashboard/UserPermissionsPage'
 // @ts-ignore
 import SupportPage from './pages/SupportPage'
+// @ts-ignore
+import NotFoundPage from './pages/NotFoundPage'
 // Initial Settings Pages
 // @ts-ignore
 import { 
@@ -173,6 +175,9 @@ function App() {
             <Route path="/test-connection" element={<TestLogin />} />
             
             {/* Quick Access Routes - خارج ProtectedRoute */}
+
+            {/* 404 Route */}
+            <Route path="*" element={<NotFoundPage />} />
 
           </Routes>
         </div>

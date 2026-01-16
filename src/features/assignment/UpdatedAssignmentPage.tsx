@@ -14,6 +14,7 @@ import AssignmentTablePage from './components/AssignmentTablePage';
 import Snackbar from './components/Snackbar';
 import { sendTeacherReport, sendSummaryReport } from './utils/whatsapp';
 import { loadSampleData } from './data/sampleData';
+import { autoDistribute } from './utils/autoDistribute';
 import toast from 'react-hot-toast';
 
 const AssignmentPageContent: React.FC = () => {
@@ -141,11 +142,11 @@ const AssignmentPageContent: React.FC = () => {
         {
           duration: 3500,
           style: {
-            background: '#3b82f6',
+            background: '#8779fb',
             color: 'white',
             padding: '12px 16px',
             borderRadius: '10px',
-            boxShadow: '0 4px 12px rgba(59, 130, 246, 0.3)'
+            boxShadow: '0 4px 12px rgba(135, 121, 251, 0.3)'
           }
         }
       );
@@ -258,13 +259,90 @@ const AssignmentPageContent: React.FC = () => {
     }
   };
 
+  // معالجة التوزيع التلقائي الذكي
+  const handleAutoDistribute = () => {
+    // إظهار رسالة جاري العمل
+    const loadingToast = toast.loading('جاري تحليل البيانات وتوزيع الحصص...', {
+      style: {
+        background: '#fff',
+        color: '#333',
+        fontFamily: "'Noto Kufi Arabic', sans-serif"
+      }
+    });
+
+    setTimeout(() => {
+      try {
+        const result = autoDistribute(
+          state.teachers,
+          state.subjects,
+          state.classrooms,
+          state.assignments,
+          'current-user'
+        );
+
+        toast.dismiss(loadingToast);
+
+        if (result.newAssignments.length === 0) {
+          toast(
+            <div className="flex items-center gap-2" dir="rtl" style={{ fontFamily: "'Noto Kufi Arabic', sans-serif" }}>
+              <span className="text-lg">ℹ️</span>
+              <div>
+                <div className="font-bold">لم يتم إنشاء إسنادات جديدة</div>
+                <div className="text-xs opacity-90">قد تكون جميع المواد مسندة أو المعلمون المتاحون مشغولون/يمتلكون نصاباً مكتملاً.</div>
+              </div>
+            </div>,
+            {
+              duration: 4000,
+              style: {
+                background: '#f59e0b',
+                color: 'white',
+              }
+            }
+          );
+          return;
+        }
+
+        // حفظ الحالة للتراجع
+        actions.saveStateToHistory();
+
+        // إضافة الإسنادات الجديدة
+        result.newAssignments.forEach(assignment => {
+          actions.addAssignment(assignment);
+        });
+
+        toast.success(
+          <div className="flex items-center gap-2" dir="rtl" style={{ fontFamily: "'Noto Kufi Arabic', sans-serif" }}>
+            <span className="text-lg">✨</span>
+            <div>
+              <div className="font-bold">تم التوزيع الذكي بنجاح!</div>
+              <div className="text-xs opacity-90">{`تم إنشاء ${result.newAssignments.length} إسناد جديد تلقائياً.`}</div>
+            </div>
+          </div>,
+          {
+            duration: 5000,
+            style: {
+              background: '#655ac1',
+              color: 'white',
+              fontFamily: "'Noto Kufi Arabic', sans-serif"
+            }
+          }
+        );
+
+      } catch (error) {
+        console.error('Auto distribution error:', error);
+        toast.dismiss(loadingToast);
+        toast.error('حدث خطأ أثناء التوزيع التلقائي');
+      }
+    }, 1000); // تأخير بسيط لمحاكاة المعالجة
+  };
+
   // إذا كانت صفحة الجدول مفتوحة، عرضها بدلاً من الصفحة الرئيسية
   if (showTablePage) {
     return <AssignmentTablePage onClose={() => setShowTablePage(false)} />;
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50 pt-1 pb-6 px-6" dir="rtl">
+    <div className="min-h-screen pt-1 pb-6 px-6" style={{ background: 'linear-gradient(to bottom right, #f8f7ff, #e5e1fe)' }} dir="rtl">
       <div className="max-w-[1920px] mx-auto">
         {/* شريط العنوان */}
         <AssignmentPageHeader />
@@ -273,6 +351,7 @@ const AssignmentPageContent: React.FC = () => {
         <EnhancedProfessionalActionBar 
           selectedTeachers={selectedTeachers}
           onShowTablePage={() => setShowTablePage(true)}
+          onAutoDistribute={handleAutoDistribute}
         />
 
         {/* بطاقة التفاصيل */}

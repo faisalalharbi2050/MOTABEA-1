@@ -79,7 +79,7 @@ const MainHeader = () => {
               </button>
               <div className="absolute top-full left-1/2 -translate-x-1/2 md:translate-x-0 md:left-auto md:right-0 pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 min-w-[180px]">
                 <div className="bg-white rounded-xl shadow-xl border border-gray-100 p-2 flex flex-col gap-1">
-                  <Link to="/privacy" className="px-3 py-2 text-sm text-gray-600 hover:text-brand-main hover:bg-[#655ac1]/5 rounded-lg transition-colors text-right block">
+                  <Link to="/privacy-policy" className="px-3 py-2 text-sm text-gray-600 hover:text-brand-main hover:bg-[#655ac1]/5 rounded-lg transition-colors text-right block">
                     سياسة الخصوصية
                   </Link>
                   <Link to="/terms" className="px-3 py-2 text-sm text-gray-600 hover:text-brand-main hover:bg-[#655ac1]/5 rounded-lg transition-colors text-right block">
@@ -197,7 +197,7 @@ const MainHeader = () => {
                 </button>
                 {openMobileSubmenu === 'privacy' && (
                   <div className="pr-4 pt-2 pb-2 space-y-2">
-                    <Link to="/privacy" className="block text-sm text-gray-600 hover:text-brand-main p-2 rounded-lg hover:bg-brand-light/5" onClick={() => setIsMenuOpen(false)}>
+                    <Link to="/privacy-policy" className="block text-sm text-gray-600 hover:text-brand-main p-2 rounded-lg hover:bg-brand-light/5" onClick={() => setIsMenuOpen(false)}>
                       سياسة الخصوصية
                     </Link>
                     <Link to="/terms" className="block text-sm text-gray-600 hover:text-brand-main p-2 rounded-lg hover:bg-brand-light/5" onClick={() => setIsMenuOpen(false)}>

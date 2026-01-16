@@ -40,7 +40,7 @@ const TermsPage = () => {
                 <div className="h-6 w-px bg-gray-300"></div>
                  <Button 
                   variant="ghost" 
-                  onClick={() => navigate('/privacy')}
+                  onClick={() => navigate('/privacy-policy')}
                   className="hover:bg-brand-main/10 text-brand-dark"
                 >
                   سياسة الخصوصية

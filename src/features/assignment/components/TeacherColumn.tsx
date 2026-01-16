@@ -58,37 +58,37 @@ const TeacherColumn: React.FC<TeacherColumnProps> = ({
     return (assigned / maxLoad) * 100;
   };
 
-  // لون الشريط حسب النسبة
+  // لون الشريط حسب النسبة - تم تحديث الألوان لتناسب التصميم الجديد
   const getProgressColor = (percentage: number): string => {
-    if (percentage >= 100) return 'bg-red-500';
-    if (percentage >= 80) return 'bg-orange-500';
-    if (percentage >= 60) return 'bg-yellow-500';
-    return 'bg-green-500';
+    if (percentage >= 100) return '#ef4444'; // Red
+    if (percentage >= 80) return '#f97316'; // Orange
+    if (percentage >= 60) return '#eab308'; // Yellow
+    return '#655ac1'; // The main brand color (Purple)
   };
 
   return (
     <div className="bg-white rounded-xl shadow-sm border border-gray-200 h-full flex flex-col" dir="rtl">
-      {/* رأس العمود */}
-      <div className="p-4 border-b border-gray-200" style={{ background: 'linear-gradient(135deg, #6366f1 0%, #818cf8 100%)' }}>
+      {/* رأس العمود - تحديث التدرج اللوني */}
+      <div className="p-4 border-b border-gray-200" style={{ background: 'linear-gradient(135deg, #655ac1 0%, #8779fb 100%)' }}>
         <div className="flex items-center gap-2 mb-3">
           <User className="h-5 w-5 text-white" />
           <h2 className="text-lg font-bold text-white" style={{ fontFamily: "'Noto Kufi Arabic', sans-serif" }}>
             المعلمون
           </h2>
-          <span className="mr-auto bg-white text-[#6366f1] text-xs font-bold px-2 py-1 rounded-full">
+          <span className="mr-auto bg-white/20 text-white text-xs font-bold px-2 py-1 rounded-full backdrop-blur-sm">
             {sortedTeachers.length}
           </span>
         </div>
         
         {/* شريط البحث */}
         <div className="relative">
-          <Search className="absolute right-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
+          <Search className="absolute right-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-white/70" />
           <input
             type="text"
             placeholder="ابحث عن معلم..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="w-full pr-10 pl-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full pr-10 pl-3 py-2 bg-white/10 border border-white/20 rounded-lg text-sm text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-white/40"
             style={{ fontFamily: "'Noto Kufi Arabic', sans-serif" }}
           />
         </div>
@@ -106,11 +106,12 @@ const TeacherColumn: React.FC<TeacherColumnProps> = ({
           return (
             <div
               key={teacher.id}
-              className={`p-3 rounded-lg border-2 transition-all cursor-pointer ${
-                isSelected
-                  ? 'border-blue-500 bg-blue-50'
-                  : 'border-gray-200 hover:border-blue-300 hover:bg-gray-50'
-              } ${isPinned ? 'ring-2 ring-yellow-400' : ''}`}
+              className={`p-3 rounded-lg border-2 transition-all cursor-pointer hover:shadow-md`}
+              style={{
+                borderColor: isSelected ? '#8779fb' : 'transparent',
+                backgroundColor: isSelected ? '#e5e1fe' : '#ffffff',
+                border: isSelected ? '2px solid #8779fb' : '1px solid #e5e7eb'
+              }}
               onClick={() => onToggleTeacher(teacher.id)}
             >
               <div className="flex items-start justify-between mb-2">
@@ -122,7 +123,8 @@ const TeacherColumn: React.FC<TeacherColumnProps> = ({
                       e.stopPropagation();
                       onToggleTeacher(teacher.id);
                     }}
-                    className="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
+                    className="h-4 w-4 rounded focus:ring-[#8779fb]"
+                    style={{ accentColor: '#655ac1' }}
                   />
                   <div className="flex-1">
                     <h3 className="text-sm font-bold text-gray-800" style={{ fontFamily: "'Noto Kufi Arabic', sans-serif" }}>
@@ -148,8 +150,8 @@ const TeacherColumn: React.FC<TeacherColumnProps> = ({
                       return newSet;
                     });
                   }}
-                  className={`text-xs px-2 py-1 rounded ${
-                    isPinned ? 'bg-yellow-100 text-yellow-700' : 'bg-gray-100 text-gray-600'
+                  className={`text-xs px-2 py-1 rounded transition-colors ${
+                    isPinned ? 'bg-yellow-100 text-yellow-700' : 'bg-gray-100 text-gray-400 hover:text-gray-600'
                   }`}
                 >
                   {isPinned ? '📌' : '📍'}
@@ -162,19 +164,23 @@ const TeacherColumn: React.FC<TeacherColumnProps> = ({
                   <span className="text-gray-600" style={{ fontFamily: "'Noto Kufi Arabic', sans-serif" }}>
                     النصاب
                   </span>
-                  <span className="font-bold text-gray-800" style={{ fontFamily: "'Noto Kufi Arabic', sans-serif" }}>
-                    {assigned} / {maxLoad}
+                  <span className={`font-bold ${percentage >= 100 ? 'text-red-600' : 'text-gray-800'}`} style={{ fontFamily: "'Noto Kufi Arabic', sans-serif" }}>
+                    {assigned} / <span className="text-gray-500">{maxLoad}</span>
                   </span>
                 </div>
-                <div className="w-full bg-gray-200 rounded-full h-2 overflow-hidden">
+                <div className="w-full bg-gray-100 rounded-full h-2 overflow-hidden border border-gray-100">
                   <div
-                    className={`h-full ${getProgressColor(percentage)} transition-all duration-300`}
-                    style={{ width: `${Math.min(percentage, 100)}%` }}
+                    className="h-full rounded-full transition-all duration-500 ease-out shadow-sm"
+                    style={{ 
+                      width: `${Math.min(percentage, 100)}%`,
+                      backgroundColor: getProgressColor(percentage)
+                    }}
                   />
                 </div>
                 {percentage > 100 && (
-                  <p className="text-xs text-red-600 font-bold" style={{ fontFamily: "'Noto Kufi Arabic', sans-serif" }}>
-                    تجاوز النصاب بـ {(assigned - maxLoad)} حصة
+                  <p className="text-[10px] text-red-600 font-bold flex items-center gap-1" style={{ fontFamily: "'Noto Kufi Arabic', sans-serif" }}>
+                    <span>⚠️</span>
+                    تجاوز بـ {(assigned - maxLoad)} حصة
                   </p>
                 )}
               </div>

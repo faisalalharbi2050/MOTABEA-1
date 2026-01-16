@@ -1,7 +1,3 @@
-/**
- * شريط الإجراءات المطور الاحترافي - إسناد المواد
- * Enhanced Professional Action Bar - Assignment Page
- */
 
 import React, { useState } from 'react';
 import { 
@@ -10,7 +6,8 @@ import {
   AlertTriangle,
   X,
   Check,
-  Table
+  Table,
+  Sparkles
 } from 'lucide-react';
 import { useAssignment, useAssignmentActions } from '../store/assignmentStore';
 import toast from 'react-hot-toast';
@@ -19,12 +16,14 @@ interface EnhancedProfessionalActionBarProps {
   className?: string;
   selectedTeachers?: Set<string>; // إضافة المعلمين المحددين
   onShowTablePage?: () => void; // دالة لعرض صفحة الجدول
+  onAutoDistribute?: () => void; // دالة التوزيع التلقائي الذكي
 }
 
 const EnhancedProfessionalActionBar: React.FC<EnhancedProfessionalActionBarProps> = ({ 
   className,
   selectedTeachers = new Set(),
-  onShowTablePage
+  onShowTablePage,
+  onAutoDistribute
 }) => {
   const { state } = useAssignment();
   const actions = useAssignmentActions();
@@ -123,35 +122,49 @@ const EnhancedProfessionalActionBar: React.FC<EnhancedProfessionalActionBarProps
     <>
       <div className={`bg-white rounded-xl border border-gray-200 shadow-sm p-4 mb-4 ${className || ''}`} dir="rtl">
         {/* الأزرار - في صف واحد مع ارتفاع محسّن */}
-        <div className="grid grid-cols-4 gap-3 w-full" style={{ direction: 'rtl' }}>
+        <div className="grid grid-cols-5 gap-3 w-full" style={{ direction: 'rtl' }}>
           
-          {/* 1. زر جدول الإسناد - الزر الجديد */}
+          {/* 1. زر التوزيع التلقائي المقترح - الميزة الجديدة */}
+          <button
+            onClick={onAutoDistribute}
+            className="flex items-center justify-center px-4 h-auto py-3 text-white rounded-lg font-semibold transition-all shadow-md hover:shadow-lg transform hover:-translate-y-0.5 whitespace-nowrap overflow-hidden relative group"
+            style={{ 
+              fontFamily: "'Noto Kufi Arabic', sans-serif",
+              background: 'linear-gradient(135deg, #655ac1 0%, #8779fb 100%)'
+            }}
+          >
+            <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
+            <Sparkles className="h-4 w-4 ml-2 animate-pulse" />
+            <span className="text-sm">توزيع تلقائي مقترح</span>
+          </button>
+
+          {/* 2. زر جدول الإسناد */}
           <button
             onClick={handleOpenAssignmentTable}
             className="flex items-center justify-center px-4 h-auto py-3 text-white rounded-lg font-semibold transition-all shadow-md hover:shadow-lg transform hover:-translate-y-0.5 whitespace-nowrap"
             style={{ 
               fontFamily: "'Noto Kufi Arabic', sans-serif",
-              background: 'linear-gradient(135deg, #4f46e5 0%, #6366f1 100%)'
+              background: 'linear-gradient(135deg, #655ac1 0%, #8779fb 100%)'
             }}
           >
             <Table className="h-4 w-4 ml-2" />
-            <span className="text-sm">جدول الإسناد</span>
+            <span className="text-sm">تقرير الإسناد</span>
           </button>
 
-          {/* 2. زر تعديل الإسناد */}
+          {/* 3. زر تعديل الإسناد */}
           <button
             onClick={handleEditMode}
             className="flex items-center justify-center px-4 h-auto py-3 text-white rounded-lg font-semibold transition-all shadow-md hover:shadow-lg transform hover:-translate-y-0.5 whitespace-nowrap"
             style={{ 
               fontFamily: "'Noto Kufi Arabic', sans-serif",
-              background: isEditMode ? 'linear-gradient(135deg, #10b981 0%, #059669 100%)' : 'linear-gradient(135deg, #4f46e5 0%, #6366f1 100%)'
+              background: isEditMode ? 'linear-gradient(135deg, #10b981 0%, #059669 100%)' : 'linear-gradient(135deg, #655ac1 0%, #8779fb 100%)'
             }}
           >
             {isEditMode ? <Check className="h-4 w-4 ml-2" /> : <Edit3 className="h-4 w-4 ml-2" />}
             <span className="text-sm">{isEditMode ? 'حفظ التعديل' : 'تعديل الإسناد'}</span>
           </button>
 
-          {/* 3. زر حذف إسناد معلم */}
+          {/* 4. زر حذف إسناد معلم */}
           <button
             onClick={handleDeleteSelectedTeachers}
             className="flex items-center justify-center px-4 h-auto py-3 text-white rounded-lg font-semibold transition-all shadow-md hover:shadow-lg transform hover:-translate-y-0.5 whitespace-nowrap"
@@ -164,7 +177,7 @@ const EnhancedProfessionalActionBar: React.FC<EnhancedProfessionalActionBarProps
             <span className="text-sm">حذف إسناد معلم</span>
           </button>
 
-          {/* 4. زر حذف إسناد الكل */}
+          {/* 5. زر حذف إسناد الكل */}
           <button
             onClick={handleDeleteAllAssignments}
             className="flex items-center justify-center px-4 h-auto py-3 text-white rounded-lg font-semibold transition-all shadow-md hover:shadow-lg transform hover:-translate-y-0.5 whitespace-nowrap"

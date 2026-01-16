@@ -738,8 +738,8 @@ const StudentsManagement = () => {
     );
   }
 
-  // رسالة بسيطة إذا لم تكن هناك مدارس - فقط بعد عدة محاولات فاشلة
-  if (!isLoading && schools.length === 0 && retryCount > 3) {
+  // رسالة بسيطة إذا لم تكن هناك مدارس
+  if (!isLoading && schools.length === 0) {
     return (
       <div className="max-w-2xl mx-auto mt-16 text-center">
         <div className="bg-white rounded-xl shadow-lg p-12 border border-gray-100">
@@ -797,7 +797,7 @@ const StudentsManagement = () => {
   }
   
   // إذا كانت المدارس قيد التحميل (محاولات صامتة)، نعرض الواجهة الفارغة
-  if (schools.length === 0) {
+  if (isLoading && schools.length === 0) {
     return (
       <div className="flex items-center justify-center h-64">
         <div className="text-center">
